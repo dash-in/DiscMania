@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# coding: utf-8
+
+Setting.find_or_create_by(id: 1) do |setting|
+    setting.shipping = 500
+    setting.tax = 0.08
+    setting.shop_address = "長野県安曇野市xx-xx-xx"
+    setting.shop_tel = "050-xxxx-xxxx"
+  end
