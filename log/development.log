@@ -1,0 +1,41 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateSettings (20190808050459)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190808050459_create_settings.rb:3
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "settings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "shipping" integer, "tax" float, "shop_address" text, "shop_tel" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190808050459_create_settings.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190808050459"]]
+  ↳ bin/rails:9
+  [1m[35m (5.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (2.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (8.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-08-08 05:10:04.384879"], ["updated_at", "2019-08-08 05:10:04.384879"]]
+  ↳ bin/rails:9
+  [1m[35m (6.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mSetting Load (2.1ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mSetting Create (7.6ms)[0m  [1m[32mINSERT INTO "settings" ("id", "shipping", "tax", "shop_address", "shop_tel", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["shipping", 500], ["tax", 0.08], ["shop_address", "長野県安曇野市xx-xx-xx"], ["shop_tel", "050-xxxx-xxxx"], ["created_at", "2019-08-08 05:10:40.344208"], ["updated_at", "2019-08-08 05:10:40.344208"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (6.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
