@@ -17,4 +17,4 @@ Setting.find_or_create_by(id: 1) do |setting|
     setting.tax = 0.08
     setting.shop_address = "長野県安曇野市xx-xx-xx"
     setting.shop_tel = "050-xxxx-xxxx"
-  end
+end

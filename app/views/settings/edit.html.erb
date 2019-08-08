@@ -1,31 +1,31 @@
 <div class="container">
-    <section class="edit">
-        <h1>各種設定の変更</h1>
+	<div class="row">
+		<section class="col-xs-8 col-xs-offset-2">
+			<h1 class="set-title">各種設定の変更</h1>
 
-        <%= form_for @setting do |f| %>
+			<%= form_for @setting do |f| %>
+				<div class="field col-xs-12">
+				    <label class="set-form-title" style={font-weight:bold;}>店舗住所</label><br />
+				    <%= f.text_field :shop_address, class:"col-xs-12 set-form" %>
+			    </div>
+			    <div class="field col-xs-12">
+				    <label class="set-form-title">店舗電話番号</label><br />
+				    <%= f.text_field :shop_tel, class:"col-xs-12 set-form" %>
+                </div>
+                <div class="field col-xs-12">
+				    <label class="set-form-title">配送料</label><br />
+                    <%= f.number_field :shipping, class:"col-xs-4 set-form" %>
+                    <div class="col-xs-8"></div>
+                </div>
+                <div class="field col-xs-12">
+				    <label class="set-form-title">消費税率</label><br />
+                    <%= f.number_field :tax, class:"col-xs-4 set-form" %>
+                    <span class="col-xs-8"></span>
+			    </div>
 
-            <div>
-                <h3>店舗住所</h3></br>
-                <%= f.text_field :shop_address %>
-            </div>
-
-            <div>
-                <h3>店舗電話番号</h3></br>
-                <%= f.text_field :shop_tel %>
-            </div>
-
-            <div>
-                <h3>配送料</h3></br>
-                <%= f.number_field :shipping %>
-            </div>
-
-            <div>
-                <h3>消費税率</h3></br>
-                <%= f.number_field :tax %>
-            </div>
-
-            <p><%= f.submit "この内容を保存する", class:"btn btn-primary center-block" %></p>
-
-        <% end %>
-    </section>
+				<%= f.submit "この内容を保存する", class:"btn btn-primary btn-lg col-xs-6 col-xs-offset-3 set-submit" %>
+			<% end %>
+		</section>
+		<div class="col-xs-2"></div>
+	</div>
 </div>
