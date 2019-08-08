@@ -8,9 +8,16 @@
 
 # coding: utf-8
 
+<<<<<<< HEAD
+Admin.find_or_create_by(id: 1) do |admin|
+  admin.email = 'admin@example.com'
+  admin.password = '123456'
+end
+=======
 Setting.find_or_create_by(id: 1) do |setting|
     setting.shipping = 500
     setting.tax = 0.08
     setting.shop_address = "長野県安曇野市xx-xx-xx"
     setting.shop_tel = "050-xxxx-xxxx"
   end
+>>>>>>> master
