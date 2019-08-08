@@ -8,6 +8,10 @@
 
 # coding: utf-8
 
+Admin.find_or_create_by(id: 1) do |admin|
+  admin.email = 'admin@example.com'
+  admin.password = '123456'
+end
 Setting.find_or_create_by(id: 1) do |setting|
     setting.shipping = 500
     setting.tax = 0.08
