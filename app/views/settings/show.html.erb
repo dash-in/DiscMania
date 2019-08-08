@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+  	<div></div>
+	<h2>各種設定</h2>
+	<br>
+	<h3>店舗住所</h3>
+	<%= @setting.shop_address %>
+	<br>
+	<h3>店舗電話番号</h3>
+	<%= @setting.shop_tel %>
+	<br>
+	<h3>配送料</h3>
+	<%= @setting.shipping %>
+	<br>
+	<h3>消費税率</h3>
+	<%= @setting.tax %>
+	<br>
+	<br>
+	<%= link_to "登録内容を変更する", edit_setting_path, class:"btn btn-danger center-block" %>
+  </div>
+</div>

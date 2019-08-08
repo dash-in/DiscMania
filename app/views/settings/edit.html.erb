@@ -1,0 +1,31 @@
+<div class="container">
+    <section class="edit">
+        <h1>各種設定の変更</h1>
+
+        <%= form_for @setting do |f| %>
+
+            <div>
+                <h3>店舗住所</h3></br>
+                <%= f.text_field :shop_address %>
+            </div>
+
+            <div>
+                <h3>店舗電話番号</h3></br>
+                <%= f.text_field :shop_tel %>
+            </div>
+
+            <div>
+                <h3>配送料</h3></br>
+                <%= f.number_field :shipping %>
+            </div>
+
+            <div>
+                <h3>消費税率</h3></br>
+                <%= f.number_field :tax %>
+            </div>
+
+            <p><%= f.submit "この内容を保存する", class:"btn btn-primary center-block" %></p>
+
+        <% end %>
+    </section>
+</div>
