@@ -1695,3 +1695,172 @@ Processing by SettingsController#show as HTML
 Completed 200 OK in 409ms (Views: 385.9ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/settings/1/edit" for 10.0.2.2 at 2019-08-08 10:25:36 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by SettingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSetting Load (3.1ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/settings_controller.rb:7
+  Rendering settings/edit.html.erb within layouts/application
+  Rendered settings/edit.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 5982ms (Views: 5875.5ms | ActiveRecord: 16.0ms)
+
+
+Started PATCH "/settings/1" for 10.0.2.2 at 2019-08-08 10:26:08 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SettingsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tZtebSYxMcjZEipQQUQT5BdVZXOOpXdIHervQOJAVaU9UKZWOnvZ/TbHu42GFEQEBzB5+VOlHIeP6VOJ2M+wvg==", "setting"=>{"shop_address"=>"長野県安曇野市xx-xx-xx", "shop_tel"=>"050-xxxx-xxxx", "shipping"=>"100", "tax"=>"0.08"}, "commit"=>"この内容を保存する", "id"=>"1"}
+  [1m[36mSetting Load (2.2ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/settings_controller.rb:11
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/settings_controller.rb:12
+  [1m[36mSetting Update (9.2ms)[0m  [1m[33mUPDATE "settings" SET "shipping" = ?, "updated_at" = ? WHERE "settings"."id" = ?[0m  [["shipping", 100], ["updated_at", "2019-08-08 10:26:08.306189"], ["id", 1]]
+  ↳ app/controllers/settings_controller.rb:12
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/settings_controller.rb:12
+Redirected to http://localhost:3000/settings/1
+Completed 302 Found in 32ms (ActiveRecord: 16.7ms)
+
+
+Started GET "/settings/1" for 10.0.2.2 at 2019-08-08 10:26:08 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SettingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSetting Load (2.1ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/settings_controller.rb:3
+  Rendering settings/show.html.erb within layouts/application
+  Rendered settings/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 765ms (Views: 707.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/settings/1/edit" for 10.0.2.2 at 2019-08-08 10:26:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SettingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSetting Load (2.0ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/settings_controller.rb:7
+  Rendering settings/edit.html.erb within layouts/application
+  Rendered settings/edit.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 782ms (Views: 706.2ms | ActiveRecord: 2.0ms)
+
+
+Started PATCH "/settings/1" for 10.0.2.2 at 2019-08-08 10:26:20 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SettingsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EfBq3aulikbbLkSLaDpLnW3cakJtlIQ8zxo0KUVPFQFciD52XJq8rsgClDSJDbtorhtZZ6XJTj8L+011yEbuqA==", "setting"=>{"shop_address"=>"長野県安曇野市xx-xx-xx", "shop_tel"=>"050-xxxx-xxxx", "shipping"=>"500", "tax"=>"0.08"}, "commit"=>"この内容を保存する", "id"=>"1"}
+  [1m[36mSetting Load (2.4ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/settings_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/settings_controller.rb:12
+  [1m[36mSetting Update (10.5ms)[0m  [1m[33mUPDATE "settings" SET "shipping" = ?, "updated_at" = ? WHERE "settings"."id" = ?[0m  [["shipping", 500], ["updated_at", "2019-08-08 10:26:20.376995"], ["id", 1]]
+  ↳ app/controllers/settings_controller.rb:12
+  [1m[35m (5.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/settings_controller.rb:12
+Redirected to http://localhost:3000/settings/1
+Completed 302 Found in 40ms (ActiveRecord: 18.6ms)
+
+
+Started GET "/settings/1" for 10.0.2.2 at 2019-08-08 10:26:20 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SettingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSetting Load (3.8ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/settings_controller.rb:3
+  Rendering settings/show.html.erb within layouts/application
+  Rendered settings/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 875ms (Views: 802.3ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/settings/1/edit" for 10.0.2.2 at 2019-08-08 10:26:28 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SettingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSetting Load (7.7ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/settings_controller.rb:7
+  Rendering settings/edit.html.erb within layouts/application
+  Rendered settings/edit.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 741ms (Views: 666.8ms | ActiveRecord: 7.7ms)
+
+
+Started PATCH "/settings/1" for 10.0.2.2 at 2019-08-08 10:26:39 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SettingsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BaWSp1XaVXwQg550YO8ZbtBIZUxAV2tpGHV7mpspqGuNbmqcSZC9Sf9WD6mnv06OwC15xp1XAKaKdsdToaZNcA==", "setting"=>{"shop_address"=>"長野県安曇野市xx-xx-xx", "shop_tel"=>"050-xxxx-xxxx", "shipping"=>"500", "tax"=>"0.08"}, "commit"=>"この内容を保存する", "id"=>"1"}
+  [1m[36mSetting Load (3.7ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/settings_controller.rb:11
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/settings_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/settings_controller.rb:12
+Redirected to http://localhost:3000/settings/1
+Completed 302 Found in 15ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/settings/1" for 10.0.2.2 at 2019-08-08 10:26:39 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SettingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSetting Load (2.2ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/settings_controller.rb:3
+  Rendering settings/show.html.erb within layouts/application
+  Rendered settings/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 631ms (Views: 584.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/settings/1" for 10.0.2.2 at 2019-08-08 10:33:27 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SettingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSetting Load (2.4ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/settings_controller.rb:3
+  Rendering settings/show.html.erb within layouts/application
+  Rendered settings/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 5687ms (Views: 5637.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/settings/1/edit" for 10.0.2.2 at 2019-08-08 10:33:36 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SettingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSetting Load (2.7ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/settings_controller.rb:7
+  Rendering settings/edit.html.erb within layouts/application
+  Rendered settings/edit.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 695ms (Views: 633.9ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/settings/1" for 10.0.2.2 at 2019-08-08 10:33:51 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SettingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSetting Load (2.9ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/settings_controller.rb:3
+  Rendering settings/show.html.erb within layouts/application
+  Rendered settings/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 860ms (Views: 787.2ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/settings/1/edit" for 10.0.2.2 at 2019-08-08 10:35:05 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SettingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSetting Load (3.9ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/settings_controller.rb:7
+  Rendering settings/edit.html.erb within layouts/application
+  Rendered settings/edit.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 770ms (Views: 704.3ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/settings/1/edit" for 10.0.2.2 at 2019-08-08 10:36:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SettingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSetting Load (3.0ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/settings_controller.rb:7
+  Rendering settings/edit.html.erb within layouts/application
+  Rendered settings/edit.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 1018ms (Views: 945.8ms | ActiveRecord: 3.0ms)
+
+
