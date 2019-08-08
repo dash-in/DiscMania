@@ -6,11 +6,9 @@ Rails.application.routes.draw do
   registrations: 'admins/registrations'
 }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-<<<<<<< HEAD
-
+  
   resources :admins
 
-=======
   resources :settings, only: [:show, :edit, :update]
->>>>>>> master
+
 end

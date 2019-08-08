@@ -64,11 +64,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # setting devise
 gem 'devise'
 
-<<<<<<< HEAD
 gem 'devise-i18n'
 gem 'devise-i18n-views'
-=======
 gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'jquery-rails'
->>>>>>> master
