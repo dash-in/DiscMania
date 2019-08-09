@@ -4,18 +4,26 @@
 	<h2>各種設定</h2>
 	<br>
 	<h3>店舗住所</h3>
+	<div class="well text-center">
 	<%= @setting.shop_address %>
+	</div>
 	<br>
 	<h3>店舗電話番号</h3>
+	<div class="well text-center">
 	<%= @setting.shop_tel %>
+	</div>
 	<br>
 	<h3>配送料</h3>
+	<div class="well text-center">
 	<%= @setting.shipping %>
+	</div>
 	<br>
 	<h3>消費税率</h3>
+	<div class="well text-center">
 	<%= @setting.tax %>
+	</div>
 	<br>
 	<br>
-	<%= link_to "登録内容を変更する", edit_setting_path, class:"btn btn-danger center-block" %>
+	<%= link_to "登録内容を変更する", edit_setting_path, class:"btn btn-danger btn-lg right pull-right" %>
   </div>
 </div>
