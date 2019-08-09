@@ -5,4 +5,8 @@ class UsersController < ApplicationController
   def deleted
   end
 
+  def edit
+  	@user = User.find(params[:id])
+  end
+
 end
