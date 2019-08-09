@@ -4,6 +4,10 @@ class SettingsController < ApplicationController
     end
 
     def edit
+    end
+
+    def update
+
         @setting = Setting.find(params[:id])
     end
 
