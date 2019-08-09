@@ -18,6 +18,12 @@
       <%= f.label :first_name_kana %><br />
       <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
   </div>
+
+  <div class="field">
+      <%= f.label :handlename %><br />
+      <%= f.text_field :handlename, autofocus: true, autocomplete: "handlename" %>
+  </div>
+
   <div class="field">
       <%= f.label :post_number %><br />
       <%= f.text_field :post_number, autofocus: true, autocomplete: "post_number" %>
@@ -35,11 +41,6 @@
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :image %><br />
-    <%= f.attachment_field :image %>
   </div>
 
   <div class="field">

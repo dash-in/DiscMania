@@ -9,7 +9,7 @@
             <th>ユーザー名</th>
             <th>住所</th>
             <th>メールアドレス</th>
-            <th>最終ログイン日</th>
+            <th>最終ログイン日時</th>
           </tr>
         </thead>
         <tbody>
@@ -30,7 +30,7 @@
                 <%= user.email %>
               </td>
               <td>
-                <%= user.last_sign_in_ip %>
+                <%= user.current_sign_in_at %>
               </td>
           </tr>
         </tbody>
