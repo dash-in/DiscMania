@@ -4,10 +4,10 @@ class SettingsController < ApplicationController
     end
 
     def edit
-
     end
 
     def update
+
         @setting = Setting.find(params[:id])
     end
 
@@ -23,6 +23,5 @@ class SettingsController < ApplicationController
     private
     def setting_params
         params.require(:setting).permit(:shop_address, :shop_tel, :shipping, :tax)
-
     end
 end
