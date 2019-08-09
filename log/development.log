@@ -1,0 +1,902 @@
+Started GET "/admins/sign_in" for 10.0.2.2 at 2019-08-09 05:51:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.3) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/admins/sign_in" for 10.0.2.2 at 2019-08-09 05:55:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.3) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/admins/sign_in" for 10.0.2.2 at 2019-08-09 07:31:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.3) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateAdmins (20190808040226)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "admins" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190808040226_devise_create_admins.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admins_on_email" ON "admins" ("email")[0m
+  ↳ db/migrate/20190808040226_devise_create_admins.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admins_on_reset_password_token" ON "admins" ("reset_password_token")[0m
+  ↳ db/migrate/20190808040226_devise_create_admins.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190808040226"]]
+  ↳ bin/rails:9
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateSettings (20190808050459)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "settings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "shipping" integer, "tax" float, "shop_address" text, "shop_tel" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190808050459_create_settings.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190808050459"]]
+  ↳ bin/rails:9
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (3.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-08-09 07:33:36.394003"], ["updated_at", "2019-08-09 07:33:36.394003"]]
+  ↳ bin/rails:9
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/admins/sign_in" for 10.0.2.2 at 2019-08-09 07:34:07 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Admins::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (1271.6ms)
+Completed 500 Internal Server Error in 1424ms (ActiveRecord: 7.5ms)
+
+
+  
+SyntaxError (/vagrant/DiscMania/app/views/layouts/application.html.erb:25: syntax error, unexpected ')'
+...end=(link_to  "受注一覧", );@output_buffer.safe_append='
+...                              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:28: syntax error, unexpected ')'
+...end=( link_to "商品登録", );@output_buffer.safe_append='
+...                              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:31: syntax error, unexpected ')'
+...end=( link_to "商品一覧", );@output_buffer.safe_append='
+...                              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:34: syntax error, unexpected ')'
+...=( link_to "ユーザ一覧", );@output_buffer.safe_append='
+...                              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:40: syntax error, unexpected keyword_else, expecting ')'
+'.freeze;           else 
+                    ^~~~
+/vagrant/DiscMania/app/views/layouts/application.html.erb:44: syntax error, unexpected ')'
+...end=( link_to "商品一覧", );@output_buffer.safe_append='
+...                              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:47: syntax error, unexpected ')'
+...append=( link_to "カート", );@output_buffer.safe_append='
+...                              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:50: syntax error, unexpected ')'
+...=( link_to "マイページ", );@output_buffer.safe_append='
+...                              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:53: syntax error, unexpected ')'
+...=( link_to "ログアウト", );@output_buffer.safe_append='
+...                              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:61: syntax error, unexpected keyword_else, expecting ')'
+'.freeze;             else 
+                      ^~~~
+/vagrant/DiscMania/app/views/layouts/application.html.erb:63: syntax error, unexpected ')'
+...end=( link_to "商品一覧", );@output_buffer.safe_append='
+...                              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:66: syntax error, unexpected ')'
+...nd=( link_to "ログイン",  );@output_buffer.safe_append='
+...                              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:69: syntax error, unexpected ')'
+...end=( link_to "会員登録", );@output_buffer.safe_append='
+...                              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:71: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;             end 
+                      ^~~
+/vagrant/DiscMania/app/views/layouts/application.html.erb:78: syntax error, unexpected ':'
+...append=( submit_tag "検索", : => nil );@output_buffer.safe...
+...                              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:84: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;         end 
+                  ^~~
+/vagrant/DiscMania/app/views/layouts/application.html.erb:96: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+          ^~~~~~
+/vagrant/DiscMania/app/views/layouts/application.html.erb:98: syntax error, unexpected keyword_end, expecting ')'
+          end
+          ^~~):
+  
+app/views/layouts/application.html.erb:25: syntax error, unexpected ')'
+app/views/layouts/application.html.erb:28: syntax error, unexpected ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ')'
+app/views/layouts/application.html.erb:34: syntax error, unexpected ')'
+app/views/layouts/application.html.erb:40: syntax error, unexpected keyword_else, expecting ')'
+app/views/layouts/application.html.erb:44: syntax error, unexpected ')'
+app/views/layouts/application.html.erb:47: syntax error, unexpected ')'
+app/views/layouts/application.html.erb:50: syntax error, unexpected ')'
+app/views/layouts/application.html.erb:53: syntax error, unexpected ')'
+app/views/layouts/application.html.erb:61: syntax error, unexpected keyword_else, expecting ')'
+app/views/layouts/application.html.erb:63: syntax error, unexpected ')'
+app/views/layouts/application.html.erb:66: syntax error, unexpected ')'
+app/views/layouts/application.html.erb:69: syntax error, unexpected ')'
+app/views/layouts/application.html.erb:71: syntax error, unexpected keyword_end, expecting ')'
+app/views/layouts/application.html.erb:78: syntax error, unexpected ':'
+app/views/layouts/application.html.erb:84: syntax error, unexpected keyword_end, expecting ')'
+app/views/layouts/application.html.erb:96: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/layouts/application.html.erb:98: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/admins/sign_in" for 10.0.2.2 at 2019-08-09 07:36:06 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Admins::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (263.2ms)
+Completed 500 Internal Server Error in 390ms (ActiveRecord: 7.4ms)
+
+
+  
+SyntaxError (/vagrant/DiscMania/app/views/layouts/application.html.erb:26: syntax error, unexpected '<'
+              </li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:29: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:30: syntax error, unexpected '<'
+              <li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:32: syntax error, unexpected '<', expecting ')'
+              </li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:35: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:42: syntax error, unexpected unary-, expecting keyword_do or '{' or '('
+...ーザがログインしてる -->
+...                               ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:45: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:46: syntax error, unexpected '<'
+              <li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:48: syntax error, unexpected '<', expecting ')'
+              </li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:51: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:52: syntax error, unexpected '<'
+              <li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:54: syntax error, unexpected '<', expecting ')'
+              </li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:64: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:65: syntax error, unexpected '<'
+                <li>
+                ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:67: syntax error, unexpected '<', expecting ')'
+                </li>
+                ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:70: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:74: syntax error, unexpected '<', expecting ')'
+            <div id="nav-search">
+            ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:75: syntax error, unexpected tIDENTIFIER, expecting ')'
+...rtists:id_path, :method => 'get' do @output_buffer.safe_appe...
+...                            ^~~
+/vagrant/DiscMania/app/views/layouts/application.html.erb:76: syntax error, unexpected '<', expecting ')'
+            <p>
+            ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:79: syntax error, unexpected '<', expecting ')'
+            </p>
+            ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:82: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:88: unknown regexp options - hadr
+/vagrant/DiscMania/app/views/layouts/application.html.erb:89: syntax error, unexpected '<'
+    </body>
+    ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:93: unknown regexp options - htl
+/vagrant/DiscMania/app/views/layouts/application.html.erb:98: unterminated string meets end of file
+          end
+             ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:98: syntax error, unexpected end-of-input, expecting ')'
+          end
+             ^):
+  
+app/views/layouts/application.html.erb:26: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:29: unknown regexp option - l
+app/views/layouts/application.html.erb:30: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:32: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:35: unknown regexp option - l
+app/views/layouts/application.html.erb:42: syntax error, unexpected unary-, expecting keyword_do or '{' or '('
+app/views/layouts/application.html.erb:45: unknown regexp option - l
+app/views/layouts/application.html.erb:46: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:48: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:51: unknown regexp option - l
+app/views/layouts/application.html.erb:52: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:54: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:64: unknown regexp option - l
+app/views/layouts/application.html.erb:65: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:67: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:70: unknown regexp option - l
+app/views/layouts/application.html.erb:74: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:75: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/application.html.erb:76: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:79: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:82: unknown regexp option - l
+app/views/layouts/application.html.erb:88: unknown regexp options - hadr
+app/views/layouts/application.html.erb:89: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:93: unknown regexp options - htl
+app/views/layouts/application.html.erb:98: unterminated string meets end of file
+app/views/layouts/application.html.erb:98: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/admins/sign_in" for 10.0.2.2 at 2019-08-09 07:36:11 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 133ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/vagrant/DiscMania/app/views/layouts/application.html.erb:26: syntax error, unexpected '<'
+              </li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:29: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:30: syntax error, unexpected '<'
+              <li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:32: syntax error, unexpected '<', expecting ')'
+              </li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:35: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:42: syntax error, unexpected unary-, expecting keyword_do or '{' or '('
+...ーザがログインしてる -->
+...                               ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:45: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:46: syntax error, unexpected '<'
+              <li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:48: syntax error, unexpected '<', expecting ')'
+              </li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:51: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:52: syntax error, unexpected '<'
+              <li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:54: syntax error, unexpected '<', expecting ')'
+              </li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:64: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:65: syntax error, unexpected '<'
+                <li>
+                ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:67: syntax error, unexpected '<', expecting ')'
+                </li>
+                ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:70: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:74: syntax error, unexpected '<', expecting ')'
+            <div id="nav-search">
+            ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:75: syntax error, unexpected tIDENTIFIER, expecting ')'
+...rtists:id_path, :method => 'get' do @output_buffer.safe_appe...
+...                            ^~~
+/vagrant/DiscMania/app/views/layouts/application.html.erb:76: syntax error, unexpected '<', expecting ')'
+            <p>
+            ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:79: syntax error, unexpected '<', expecting ')'
+            </p>
+            ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:82: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:88: unknown regexp options - hadr
+/vagrant/DiscMania/app/views/layouts/application.html.erb:89: syntax error, unexpected '<'
+    </body>
+    ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:93: unknown regexp options - htl
+/vagrant/DiscMania/app/views/layouts/application.html.erb:98: unterminated string meets end of file
+          end
+             ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:98: syntax error, unexpected end-of-input, expecting ')'
+          end
+             ^):
+  
+app/views/layouts/application.html.erb:26: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:29: unknown regexp option - l
+app/views/layouts/application.html.erb:30: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:32: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:35: unknown regexp option - l
+app/views/layouts/application.html.erb:42: syntax error, unexpected unary-, expecting keyword_do or '{' or '('
+app/views/layouts/application.html.erb:45: unknown regexp option - l
+app/views/layouts/application.html.erb:46: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:48: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:51: unknown regexp option - l
+app/views/layouts/application.html.erb:52: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:54: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:64: unknown regexp option - l
+app/views/layouts/application.html.erb:65: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:67: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:70: unknown regexp option - l
+app/views/layouts/application.html.erb:74: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:75: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/application.html.erb:76: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:79: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:82: unknown regexp option - l
+app/views/layouts/application.html.erb:88: unknown regexp options - hadr
+app/views/layouts/application.html.erb:89: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:93: unknown regexp options - htl
+app/views/layouts/application.html.erb:98: unterminated string meets end of file
+app/views/layouts/application.html.erb:98: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/admins/sign_in" for 10.0.2.2 at 2019-08-09 07:49:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Admins::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (160.9ms)
+Completed 500 Internal Server Error in 260ms (ActiveRecord: 4.4ms)
+
+
+  
+SyntaxError (/vagrant/DiscMania/app/views/layouts/application.html.erb:29: syntax error, unexpected '<'
+              </li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:32: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:33: syntax error, unexpected '<'
+              <li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:35: syntax error, unexpected '<', expecting ')'
+            </li>
+            ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:43: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:45: syntax error, unexpected '<', expecting ')'
+              </li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:48: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:49: syntax error, unexpected '<'
+              <li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:51: syntax error, unexpected '<', expecting ')'
+              </li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:54: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:60: syntax error, unexpected '<'
+            <!--  ユーザがログイン...
+            ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:60: syntax error, unexpected unary-, expecting keyword_do or '{' or '('
+...ザがログインしてない -->
+...                               ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:64: syntax error, unexpected '<', expecting ')'
+                </li>
+                ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:67: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:68: syntax error, unexpected '<'
+                <li>
+                ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:70: syntax error, unexpected '<', expecting ')'
+                </li>
+                ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:79: unknown regexp option - p
+/vagrant/DiscMania/app/views/layouts/application.html.erb:82: syntax error, unexpected '<', expecting ')'
+          </ul>
+          ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:85: unknown regexp options - av
+/vagrant/DiscMania/app/views/layouts/application.html.erb:88: syntax error, unexpected '<'
+      </header>
+      ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:89: unknown regexp options - bdy
+/vagrant/DiscMania/app/views/layouts/application.html.erb:93: syntax error, unexpected '<'
+</html>
+^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:98: unterminated regexp meets end of file
+          end
+             ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:98: syntax error, unexpected end-of-input, expecting ')'
+          end
+             ^):
+  
+app/views/layouts/application.html.erb:29: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:32: unknown regexp option - l
+app/views/layouts/application.html.erb:33: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:35: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:43: unknown regexp option - l
+app/views/layouts/application.html.erb:45: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:48: unknown regexp option - l
+app/views/layouts/application.html.erb:49: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:51: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:54: unknown regexp option - l
+app/views/layouts/application.html.erb:60: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:60: syntax error, unexpected unary-, expecting keyword_do or '{' or '('
+app/views/layouts/application.html.erb:64: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:67: unknown regexp option - l
+app/views/layouts/application.html.erb:68: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:70: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:79: unknown regexp option - p
+app/views/layouts/application.html.erb:82: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:85: unknown regexp options - av
+app/views/layouts/application.html.erb:88: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:89: unknown regexp options - bdy
+app/views/layouts/application.html.erb:93: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:98: unterminated regexp meets end of file
+app/views/layouts/application.html.erb:98: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/admins/sign_in" for 10.0.2.2 at 2019-08-09 07:49:33 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 123ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/vagrant/DiscMania/app/views/layouts/application.html.erb:29: syntax error, unexpected '<'
+              </li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:32: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:33: syntax error, unexpected '<'
+              <li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:35: syntax error, unexpected '<', expecting ')'
+            </li>
+            ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:43: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:45: syntax error, unexpected '<', expecting ')'
+              </li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:48: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:49: syntax error, unexpected '<'
+              <li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:51: syntax error, unexpected '<', expecting ')'
+              </li>
+              ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:54: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:60: syntax error, unexpected '<'
+            <!--  ユーザがログイン...
+            ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:60: syntax error, unexpected unary-, expecting keyword_do or '{' or '('
+...ザがログインしてない -->
+...                               ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:64: syntax error, unexpected '<', expecting ')'
+                </li>
+                ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:67: unknown regexp option - l
+/vagrant/DiscMania/app/views/layouts/application.html.erb:68: syntax error, unexpected '<'
+                <li>
+                ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:70: syntax error, unexpected '<', expecting ')'
+                </li>
+                ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:79: unknown regexp option - p
+/vagrant/DiscMania/app/views/layouts/application.html.erb:82: syntax error, unexpected '<', expecting ')'
+          </ul>
+          ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:85: unknown regexp options - av
+/vagrant/DiscMania/app/views/layouts/application.html.erb:88: syntax error, unexpected '<'
+      </header>
+      ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:89: unknown regexp options - bdy
+/vagrant/DiscMania/app/views/layouts/application.html.erb:93: syntax error, unexpected '<'
+</html>
+^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:98: unterminated regexp meets end of file
+          end
+             ^
+/vagrant/DiscMania/app/views/layouts/application.html.erb:98: syntax error, unexpected end-of-input, expecting ')'
+          end
+             ^):
+  
+app/views/layouts/application.html.erb:29: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:32: unknown regexp option - l
+app/views/layouts/application.html.erb:33: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:35: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:43: unknown regexp option - l
+app/views/layouts/application.html.erb:45: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:48: unknown regexp option - l
+app/views/layouts/application.html.erb:49: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:51: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:54: unknown regexp option - l
+app/views/layouts/application.html.erb:60: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:60: syntax error, unexpected unary-, expecting keyword_do or '{' or '('
+app/views/layouts/application.html.erb:64: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:67: unknown regexp option - l
+app/views/layouts/application.html.erb:68: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:70: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:79: unknown regexp option - p
+app/views/layouts/application.html.erb:82: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:85: unknown regexp options - av
+app/views/layouts/application.html.erb:88: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:89: unknown regexp options - bdy
+app/views/layouts/application.html.erb:93: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:98: unterminated regexp meets end of file
+app/views/layouts/application.html.erb:98: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/admins/sign_in" for 10.0.2.2 at 2019-08-09 07:51:31 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Admins::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (179.1ms)
+Completed 500 Internal Server Error in 312ms (ActiveRecord: 6.1ms)
+
+
+  
+SyntaxError (/vagrant/DiscMania/app/views/layouts/application.html.erb:78: syntax error, unexpected ':'
+...append=( submit_tag "検索", : => nil );@output_buffer.safe...
+...                              ^):
+  
+app/views/layouts/application.html.erb:78: syntax error, unexpected ':'
+Started GET "/admins/sign_in" for 10.0.2.2 at 2019-08-09 07:52:25 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (6.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Admins::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (192.7ms)
+Completed 500 Internal Server Error in 336ms (ActiveRecord: 3.9ms)
+
+
+  
+SyntaxError (/vagrant/DiscMania/app/views/layouts/application.html.erb:78: syntax error, unexpected =>
+...ppend=( submit_tag "検索", => nil );@output_buffer.safe_ap...
+...                             ^~):
+  
+app/views/layouts/application.html.erb:78: syntax error, unexpected =>
+Started GET "/admins/sign_in" for 10.0.2.2 at 2019-08-09 07:52:59 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Admins::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (127.0ms)
+Completed 500 Internal Server Error in 251ms (ActiveRecord: 4.2ms)
+
+
+  
+SyntaxError (/vagrant/DiscMania/app/views/layouts/application.html.erb:78: syntax error, unexpected =>, expecting '='
+...buffer.append=( submit_tag , =>  );@output_buffer.safe_appen...
+...                             ^~
+/vagrant/DiscMania/app/views/layouts/application.html.erb:81: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;             end 
+                      ^~~
+/vagrant/DiscMania/app/views/layouts/application.html.erb:85: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;         end 
+                  ^~~
+/vagrant/DiscMania/app/views/layouts/application.html.erb:97: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+          ^~~~~~
+/vagrant/DiscMania/app/views/layouts/application.html.erb:99: syntax error, unexpected keyword_end, expecting ')'
+          end
+          ^~~):
+  
+app/views/layouts/application.html.erb:78: syntax error, unexpected =>, expecting '='
+app/views/layouts/application.html.erb:81: syntax error, unexpected keyword_end, expecting ')'
+app/views/layouts/application.html.erb:85: syntax error, unexpected keyword_end, expecting ')'
+app/views/layouts/application.html.erb:97: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/layouts/application.html.erb:99: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/post_images/1" for 10.0.2.2 at 2019-08-09 07:56:21 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [GET] "/post_images/1"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for 10.0.2.2 at 2019-08-09 07:56:27 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/2.5.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/2.5.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (1.6ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 10.0.2.2 at 2019-08-09 07:56:39 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/admins/sign_in" for 10.0.2.2 at 2019-08-09 07:56:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (221.1ms)
+Completed 500 Internal Server Error in 319ms (ActiveRecord: 5.2ms)
+
+
+  
+SyntaxError (/vagrant/DiscMania/app/views/layouts/application.html.erb:90: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/layouts/application.html.erb:90: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/admins/sign_in" for 10.0.2.2 at 2019-08-09 08:03:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Admins::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (195.3ms)
+Completed 500 Internal Server Error in 7761ms (ActiveRecord: 5.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `admin_user_signed_in' for #<#<Class:0x000055d537294c28>:0x00007fc7104d50b0>):
+    15:       <header>
+    16: 
+    17:         <nav>
+    18:         <% if admin_user_signed_in %>
+    19:             <!-- アドミンがログインの場合 -->
+    20:              <h1>管理者ページ</h1>
+    21:              <li>
+  
+app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__2011144315843893785_47187120891680'
+Started GET "/admins/sign_in" for 10.0.2.2 at 2019-08-09 08:03:59 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (5.4ms)
+Completed 500 Internal Server Error in 768ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `admin_user_signed_in?' for #<#<Class:0x000055d537294c28>:0x00007fc71309f808>):
+    15:       <header>
+    16: 
+    17:         <nav>
+    18:         <% if admin_user_signed_in? %>
+    19:             <!-- アドミンがログインの場合 -->
+    20:              <h1>管理者ページ</h1>
+    21:              <li>
+  
+app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__2011144315843893785_70246497399000'
+Started GET "/admins/sign_in" for 10.0.2.2 at 2019-08-09 08:04:28 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (2.1ms)
+Completed 500 Internal Server Error in 683ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `admin' for #<#<Class:0x000055d537294c28>:0x00007fc712ec7850>):
+    15:       <header>
+    16: 
+    17:         <nav>
+    18:         <% if admin.user_signed_in? %>
+    19:             <!-- アドミンがログインの場合 -->
+    20:              <h1>管理者ページ</h1>
+    21:              <li>
+  
+app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__2011144315843893785_70246496221440'
+Started GET "/admins/sign_in" for 10.0.2.2 at 2019-08-09 08:04:44 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 562ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `admin_user' for #<#<Class:0x000055d537294c28>:0x00007fc720710d38>):
+    15:       <header>
+    16: 
+    17:         <nav>
+    18:         <% if admin_user.signed_in? %>
+    19:             <!-- アドミンがログインの場合 -->
+    20:              <h1>管理者ページ</h1>
+    21:              <li>
+  
+app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__2011144315843893785_70246374302680'
+Started GET "/admins/sign_in" for 10.0.2.2 at 2019-08-09 08:05:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 657ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_signed_in?' for #<#<Class:0x000055d537294c28>:0x00007fc712a50d80>):
+    35: 
+    36: 
+    37:           <% else %>
+    38:             <% if user_signed_in? %>
+    39:             <!--ユーザがログインしてる -->
+    40:               <li><%  %></li>
+    41:               <%= link_to "商品一覧", "#"%>
+  
+app/views/layouts/application.html.erb:38:in `_app_views_layouts_application_html_erb__2011144315843893785_70246486311960'
+Started GET "/admins/sign_in" for 10.0.2.2 at 2019-08-09 08:15:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (4.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Admins::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/sessions/new.html.erb within layouts/application (177.9ms)
+Completed 500 Internal Server Error in 1911ms (ActiveRecord: 6.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `admin_user_signed_in?' for #<#<Class:0x00007f81f04e2860>:0x000055e37f736f50>):
+    15:       <header>
+    16: 
+    17:         <nav>
+    18:         <% if admin_user_signed_in? %>
+    19:             <!-- アドミンがログインの場合 -->
+    20:              <h1>管理者ページ</h1>
+    21:              <li>
+  
+app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__363086915139790037_70098029680180'

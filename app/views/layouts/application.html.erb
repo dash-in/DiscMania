@@ -7,9 +7,86 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+
+    <body>
+      <header>
+
+        <nav>
+        <% if admin_user_signed_in? %>
+            <!-- アドミンがログインの場合 -->
+             <h1>管理者ページ</h1>
+             <li>
+              <%=link_to  "受注一覧","#"  %>
+              </li>
+              <li>
+              <%= link_to "商品登録", "#"%>
+              </li>
+              <li>
+              <%= link_to "商品一覧", "#"%>
+              </li>
+              <li>
+              <%= link_to "ユーザ一覧", "#"%>
+            </li>
+
+
+
+
+          <% else %>
+            <% if user_signed_in? %>
+            <!--ユーザがログインしてる -->
+              <li><%  %></li>
+              <%= link_to "商品一覧", "#"%>
+              </li>
+              <li>
+              <%= link_to "カート", "#"%>
+              </li>
+              <li>
+              <%= link_to "マイページ", "#"%>
+              </li>
+              <li>
+              <%= link_to "ログアウト", "#"%>
+              </li>
+
+
+
+
+
+            <!--  ユーザがログインしてない -->
+            <% else %>
+              <li>
+                <%= link_to "商品一覧", "#"%>
+                </li>
+                <li>
+                <%= link_to "ログイン",  "#"%>
+                </li>
+                <li>
+                <%= link_to "会員登録", "#"%>
+                </li>
+            <% end %>
+
+
+
+
+          </ul>
+
+        <% end %>
+      </nav>
+
+
+      </header>
+    </body>
+    <footer>
+      <h3>DiscMania</h3><br>
+      <p>〒380-****　長野県△△市○○町×××-××</p><br>
+      <p>TEL:026 - ○○○○ - ○○○○</p>
+
+
+    </footer>
+
+
+
 </html>
+
