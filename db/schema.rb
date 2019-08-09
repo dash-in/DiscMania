@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2019_08_09_113905) do
     t.string "address"
     t.string "post_number"
     t.string "tel"
-    t.text "iamge"
+    t.text "image_id"
     t.string "handlename"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
