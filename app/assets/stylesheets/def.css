@@ -6,15 +6,15 @@
 	color: #333;
 }
 
+h1 {
+    font-weight: bold !important;
+}
+
 .container {
     margin-top: 50px;
 }
 
 /* Setting フォーム */
-
-.set-title {
-    font-weight: bold;
-}
 
 .set-form {
     height: 50px;
@@ -35,4 +35,36 @@
     margin-top: 50px; !important
     height: 50px; !important
     font-weight: bold;
+}
+
+/* User showページ用 */
+
+.user-show-hn {
+    font-weight: bold;
+    text-align: center;
+    color: #666;
+}
+
+.user-show-im {
+    margin-top: 30px !important;
+}
+
+.user-show-title {
+    padding-left: 20px !important;
+    padding-top: 11px !important;
+}
+
+.user-show {
+    padding-left: 80px !important;
+}
+
+.user-show-el {
+    margin-top: 50px !important;
+}
+
+.user-show-block {
+    padding: 30px !important;
+    border: 1px solid #666;
+    border-radius: 5px;
+    margin-top: 50px;
 }
