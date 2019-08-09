@@ -17,7 +17,4 @@ Rails.application.routes.draw do
   resources :admins
 
   resources :settings, only: [:show, :edit, :update]
-  resources :users, only: [:show, :edit, :update, :destroy]
-  get '/users/deleting' => 'users#deleting'
-  get '/users/deleted' => 'users#deleted'
 end
