@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   passwords:     'admins/passwords',
   registrations: 'admins/registrations'
 }
+
+namespace :admin do
+  resources :users # => /admin/users etc
+end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'records#index'
@@ -17,4 +22,7 @@ Rails.application.routes.draw do
   resources :admins
 
   resources :settings, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update, :destroy]
+  get '/users/deleting' => 'users#deleting'
+  get '/users/deleted' => 'users#deleted'
 end
