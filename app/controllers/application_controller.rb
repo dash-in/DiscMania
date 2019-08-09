@@ -13,4 +13,11 @@ class ApplicationController < ActionController::Base
       ]
     )
   end
+  private
+  def after_user_sign_in_path_for(resourse_or_scope)
+        records_path
+  end
+  def after_user_sign_out_path_for(resourse_or_scope)
+        top_path
+  end
 end
