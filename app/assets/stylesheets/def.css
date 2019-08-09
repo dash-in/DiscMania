@@ -1,7 +1,38 @@
 * {
-    font-family: Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border_box;
+	margin: 0px;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: verdana, arial, helvetica, sans-serif;
+	color: #333;
 }
 
+.container {
+    margin-top: 50px;
+}
+
+/* Setting フォーム */
+
+.set-title {
+    font-weight: bold;
+}
+
+.set-form {
+    height: 50px;
+    border-radius: 5px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.field {
+    margin-top: 30px;
+}
+
+.set-form-title {
+    font-size: 24px;
+}
+
+.set-submit {
+    margin-top: 50px; !important
+    height: 50px; !important
+    font-weight: bold;
+}
