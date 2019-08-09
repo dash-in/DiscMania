@@ -69,3 +69,6 @@ gem 'devise-i18n-views'
 gem "bootstrap-sass", ">= 3.4.1"
 
 gem 'jquery-rails'
+
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
