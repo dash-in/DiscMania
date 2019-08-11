@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+     <h3>ユーザー情報　編集</h3>
+      <div class="user_edit">
+       <%= form_for(@user) do |f| %>
+
+
+
+        <div class="handlename">
+         <p>ニックネーム：<%= f.text_field :handlename %></p>
+        </div>
+
+        <div class="first_name">
+        	<p>姓：<%= f.text_field :first_name %></p>
+        </div>
+
+        <div class="last_name">
+        	<p>名：<%= f.text_field :last_name %></p>
+        </div>
+
+        <div class="first_name_kana">
+        	<p>姓　カナ：<%= f.text_field :first_name_kana %></p>
+        </div>
+
+        <div class="last_name_kana">
+         <p>名　カナ：<%= f.text_field :last_name_kana %></p>
+        </div>
+
+        <div class="post_number">
+         <p>郵便番号：<%= f.text_field :post_number %>※半角数字ハイフンなし</p>
+        </div>
+
+        <div class="adress">
+         <p>住所：<%= f.text_field :address %></p>
+        </div>
+
+        <div class="user.tel ">
+         <p>電話番号：<%= f.text_field :tel  %></p>
+        </div>
+
+        <div class="email">
+         <p>メールアドレス：<%= f.text_field :email %>※半角英数</p>
+        </div>
+
+        <div class="encrypted_password">
+         <p>パスワード：<%= f.text_field :password %>※6ケタ以上</p>
+        </div>
+
+        <div class="encryptedpassword">
+         <p>パスワード（確認）：<%= f.text_field :password %>※6ケタ以上</p>
+        </div>
+
+        <%= f.submit "登録内容を変更する" %>
+        <% end %>
+    </div>
+  </div>
+</div>
