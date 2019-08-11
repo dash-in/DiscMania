@@ -69,3 +69,5 @@ gem 'devise-i18n-views'
 gem "bootstrap-sass", ">= 3.4.1"
 
 gem 'jquery-rails'
+
+gem 'ransack'

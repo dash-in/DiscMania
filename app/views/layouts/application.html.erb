@@ -11,80 +11,84 @@
   </head>
 
 
-    <body>
-      <header>
 
-        <nav>
-        <% if admin_user_signed_in? %>
-            <!-- アドミンがログインの場合 -->
-             <h1>管理者ページ</h1>
-             <li>
-              <%=link_to  "受注一覧","#"  %>
-              </li>
-              <li>
-              <%= link_to "商品登録", "#"%>
-              </li>
-              <li>
-              <%= link_to "商品一覧", "#"%>
-              </li>
-              <li>
-              <%= link_to "ユーザ一覧", "#"%>
-            </li>
+      <header class="navbar navbar-fixed-top">
+            <nav class='nav navbar-nav navbar-left' >
+              <%=image_tag 'DISC_MANIA.png',size: '150x100'%>
+            </nav>
 
-
-
-
-          <% else %>
-            <% if user_signed_in? %>
-            <!--ユーザがログインしてる -->
-              <li><%  %></li>
-              <%= link_to "商品一覧", "#"%>
-              </li>
-              <li>
-              <%= link_to "カート", "#"%>
-              </li>
-              <li>
-              <%= link_to "マイページ", "#"%>
-              </li>
-              <li>
-              <%= link_to "ログアウト", "#"%>
-              </li>
+            <nav>
+              <ul class="nav navbar-nav navbar-right" >
+              <% if admin_signed_in? %>
+                <!-- アドミンがログインの場合 -->
+                <h1>管理者ページ</h1>
+                  <li>
+                  <%=link_to  "受注一覧","#"  %>
+                  </li>
+                  <li>
+                  <%= link_to "商品登録", "#"%>
+                  </li>
+                  <li>
+                  <%= link_to "商品一覧", "#"%>
+                  </li>
+                  <li>
+                  <%= link_to "ユーザ一覧", admin_users_path %>
+                  </li>
 
 
 
 
+                <% else %>
 
-            <!--  ユーザがログインしてない -->
-            <% else %>
-              <li>
-                <%= link_to "商品一覧", "#"%>
-                </li>
-                <li>
-                <%= link_to "ログイン",  "#"%>
-                </li>
-                <li>
-                <%= link_to "会員登録", "#"%>
-                </li>
-            <% end %>
-
-
-
-
-          </ul>
-
-        <% end %>
-      </nav>
+                <% if user_signed_in? %>
+                <!--ユーザがログインしてる -->
+                  <li><%  %></li>
+                  <%= link_to "商品一覧", "#"%>
+                  </li>
+                  <li>
+                  <%= link_to "カート", "#"%>
+                  </li>
+                  <li>
+                  <%= link_to "マイページ",  user_path %>
+                  </li>
+                  <li>
+                  <%= link_to "ログアウト", destroy_user_session_path %>
+                  </li>
 
 
-      </header>
-    </body>
-    <footer>
-      <h3>DiscMania</h3><br>
-      <p>〒380-****　長野県△△市○○町×××-××</p><br>
-      <p>TEL:026 - ○○○○ - ○○○○</p>
+                  <!--  ユーザがログインしてない -->
+                  <% else %>
+                  <li>
+                  <%= link_to "商品一覧", "#"%>
+                  </li>
+                  <li>
+                  <%= link_to "ログイン",  new_user_session_path %>
+                  </li>
+                  <li>
+                  <%= link_to "会員登録", new_user_registration_path %>
+                  </li>
+                <% end %>
+
+              <% end %>
+              </ul>
+            </nav>
+           </div>
+       </header>
 
 
-    </footer>
+
+      <body>
+      <%= yield %>
+      </body>
+
+
+      <footer class="">
+        <div class="footermigi">
+        <p class="footer-text">DiscMania</p>
+        <p class="footer-text">〒380-****　長野県△△市○○町×××-××</p>
+        <p class="footer-text">TEL:026 - ○○○○ - ○○○○</p>
+      </footer>
+      </div>
 
 
 

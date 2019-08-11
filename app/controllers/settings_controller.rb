@@ -1,4 +1,6 @@
 class SettingsController < ApplicationController
+    before_action :authenticate_admin!
+    
     def show
     	@setting = Setting.find(params[:id])
     end
@@ -8,11 +10,11 @@ class SettingsController < ApplicationController
     end
 
     def update
-        setting = Setting.find(params[:id])
-        if setting.update(setting_params)
-            redirect_to setting_path(setting)
+        @setting = Setting.find(params[:id])
+        if @setting.update(setting_params)
+            redirect_to setting_path(@setting)
         else
-            render action: :edit
+            render :edit
         end
     end
 
