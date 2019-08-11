@@ -3,9 +3,10 @@
      <h3>ユーザー情報　編集</h3>
       <div class="user_edit">
        <%= form_for(@user) do |f| %>
-
-
-
+       <%= attachment_image_tag @user,:image,fallback: "no_image.jpg",  size:"100x100" %>
+       <br>
+       <%= f.attachment_field :image %>
+       <br>
         <div class="handlename">
          <p>ニックネーム：<%= f.text_field :handlename %></p>
         </div>
