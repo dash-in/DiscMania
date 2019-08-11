@@ -72,3 +72,4 @@ gem 'jquery-rails'
 
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
+gem 'paranoia', '~> 2.3', '>= 2.3.1'
