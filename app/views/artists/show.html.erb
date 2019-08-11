@@ -1,0 +1,26 @@
+<div class="container">
+    <section class="row">
+        <h1>アーティスト詳細</h1>
+
+        <div class="artist-show">
+            <h4 class="col-xs-2">ID：<%= @artist.id %></h4>
+            <h4 class="col-xs-5 text-right">作成日時：<%= @artist.created_at %></h4>
+            <div class="col-xs-5"></div>
+
+            <h3 class="col-xs-12">アーティスト名</h3>
+            <h4 class="col-xs-6 col-xs-offset-1 artist-show-space"><%= @artist.name %></h4>
+            <div class="col-xs-5"></div>
+
+            <h3 class="col-xs-12">アーティスト概要</h3>
+            <h4 class="col-xs-10 col-xs-offset-1 artist-show-space"><%= @artist.description %></h4>
+            <div class="col-xs-1"></div>
+
+            <div class="col-xs-12 text-center">
+                <%= link_to "編集", edit_artist_path(@artist.id), class:"btn btn-success btn-lg artist-show-btn" %>
+                <%= link_to "削除", artist_path(@artist.id), class:"btn btn-info btn-lg artist-show-btn", method: :delete %>
+            </div>
+
+        </div>
+
+    </section>
+</div>

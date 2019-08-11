@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   attachment :image
+  acts_as_paranoid
 end

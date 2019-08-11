@@ -1,0 +1,14 @@
+<div class="container">
+    <section class="row">
+        <h1>アーティスト新規登録</h1>
+        <%= form_for @artist do |f| %>
+            <h3>アーティスト名</h3>
+            <%= f.text_field :name, class:"artist-new-form", placeholder:"アーティスト名" %>
+
+            <h3>アーティスト概要</h3>
+            <%= f.text_area :description, class:"artist-new-form", rows:"3", placeholder:"アーティスト概要" %>
+
+            <%= f.submit "投稿" %>
+        <% end %>
+    </section>
+</div>

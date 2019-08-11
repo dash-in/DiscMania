@@ -27,6 +27,8 @@ end
   get '/users/deleting' => 'users#deleting'
   get '/users/deleted' => 'users#deleted'
 
+  resources :artists
+
   resources :records, only: [:index, :show]
   namespace :admin do
     resources :records # => /admin/records etc
