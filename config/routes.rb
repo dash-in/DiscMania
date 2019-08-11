@@ -28,6 +28,11 @@ end
   get '/users/deleted' => 'users#deleted'
 
   resources :records, only: [:index, :show]
+
+  #曲のルーティング設定
+  post 'tune' => 'record#create'
+  put 'tune/:id' => 'record#update'
+
   namespace :admin do
     resources :records # => /admin/records etc
   end

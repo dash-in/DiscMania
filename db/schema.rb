@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_11_050146) do
+ActiveRecord::Schema.define(version: 2019_08_11_095129) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(version: 2019_08_11_050146) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tunes", force: :cascade do |t|
+    t.integer "record_id"
+    t.integer "disc_no"
+    t.integer "tune_order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -63,11 +71,7 @@ ActiveRecord::Schema.define(version: 2019_08_11_050146) do
     t.string "address"
     t.string "post_number"
     t.string "tel"
-<<<<<<< HEAD
     t.text "image_id"
-=======
-    t.text "image"
->>>>>>> miyamo
     t.string "handlename"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
