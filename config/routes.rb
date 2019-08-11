@@ -26,4 +26,9 @@ end
   resources :users, only: [:index, :show, :edit, :update, :destroy]
   get '/users/deleting' => 'users#deleting'
   get '/users/deleted' => 'users#deleted'
+
+  resources :records, only: [:index, :show]
+  namespace :admin do
+    resources :records # => /admin/records etc
+  end
 end
