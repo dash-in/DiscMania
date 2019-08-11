@@ -29,6 +29,8 @@ end
 
   resources :records, only: [:index, :show]
 
+  resources :artists
+
   #曲のルーティング設定
   post 'tune' => 'record#create'
   put 'tune/:id' => 'record#update'
