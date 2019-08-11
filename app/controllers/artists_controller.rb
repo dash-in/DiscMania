@@ -1,5 +1,8 @@
 class ArtistsController < ApplicationController
 
+    	
+    before_action :authenticate_admin!
+
     def index
         @artists = Artist.all
     end
@@ -12,7 +15,7 @@ class ArtistsController < ApplicationController
     def show
         @artist = Artist.find(params[:id])
     end
-    
+
     def new
         @artist = Artist.new
     end
