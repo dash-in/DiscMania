@@ -277,10 +277,9 @@ DEPENDENCIES
   paranoia (~> 2.3, >= 2.3.1)
   puma (~> 3.11)
   rails (~> 5.2.3)
+  ransack
   refile!
   refile-mini_magick
-  ransack
-
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
