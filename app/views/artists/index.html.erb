@@ -16,7 +16,7 @@
                     <% @artists.each do |artist| %>
                         <tr>
                             <td class="artist-table a-t-id"><%= artist.id %></td>
-                            <td class="artist-table"><%= artist.name %></td>
+                            <td class="artist-table"><%= link_to artist.name, artist_path(artist.id) %></td>
                             <td><%= artist.description %></td>
                             <td class="artist-table">
                                 <%= link_to "編集", edit_artist_path(artist.id), class:"btn btn-success btn-sm" %>
