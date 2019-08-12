@@ -32,10 +32,6 @@ end
 
   resources :artists
 
-  #曲のルーティング設定
-  post 'tune' => 'record#create'
-  put 'tune/:id' => 'record#update'
-
   namespace :admin do
     resources :records # => /admin/records etc
   end

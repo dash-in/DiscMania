@@ -38,16 +38,15 @@
                     <!-- アドミンがログインの場合 -->
                       <li><%=link_to  "受注一覧","#" %></li>
                       <li><%= link_to "商品登録", "#"%></li>
-                      <li><%= link_to "商品一覧", "#"%></li>
+                      <li><%= link_to "商品一覧", admin_records_path %></li>
                       <li><%= link_to "ユーザ一覧", admin_users_path %></li>
 
                     <% else %>
                       <% if user_signed_in? %>
                       <!--ユーザがログインしてる -->
-                          <li><%  %></li>
-                          <li><%= link_to "商品一覧", "#" %></li>
+                          <li><%= link_to "商品一覧", records_path %></li>
                           <li><%= link_to "カート", "#"%></li>
-                          <li><%= link_to "マイページ", user_path(current_user.id) %><li>
+                          <li><%= link_to current_user.last_name + current_user.first_name, user_path(current_user.id) %><li>
                           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
 
 
