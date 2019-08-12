@@ -1,11 +1,12 @@
 class RecordsController < ApplicationController
 
+
     def index
     end
 
     def show
     end
-    
+
     def new
         @record = Record.new
 
@@ -19,13 +20,13 @@ class RecordsController < ApplicationController
 
     end
 
-    def edit
+    def top
     end
 
-    def update
+    def index
     end
 
-    def destroy
+    def show
     end
 
 end

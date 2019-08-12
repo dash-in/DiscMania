@@ -28,6 +28,7 @@ end
   get '/users/deleted' => 'users#deleted'
 
   resources :records, only: [:index, :show]
+  get '/records/top' => 'records#top'
 
   resources :artists
 
