@@ -4,6 +4,7 @@ class CreateTunes < ActiveRecord::Migration[5.2]
       t.integer :record_id
       t.integer :disc_no
       t.integer :tune_order
+      t.string  :tune_name
 
       t.timestamps
     end
