@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_12_075007) do
 ActiveRecord::Schema.define(version: 2019_08_12_093954) do
 
   create_table "admins", force: :cascade do |t|
@@ -60,6 +59,7 @@ ActiveRecord::Schema.define(version: 2019_08_12_093954) do
     t.integer "record_id"
     t.integer "disc_no"
     t.integer "tune_order"
+    t.string "tune_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
