@@ -3,11 +3,5 @@ class Artist < ApplicationRecord
 
     validates :name, presence: true, uniqueness: true
 
-    def self.search(search)
-        if search
-          Artist.where(['content LIKE ?', "%#{search}%"])
-        else
-          Artist.all
-        end
-    end
+    has_many :records, dependent: :destroy
 end

@@ -1,5 +1,9 @@
 class RecordsController < ApplicationController
 
+
+    def top
+    end
+    
     def index
     end
 
@@ -13,13 +17,10 @@ class RecordsController < ApplicationController
     def create
     end
 
-    def edit
+    def index
     end
 
-    def update
-    end
-
-    def destroy
+    def show
     end
 
 end
