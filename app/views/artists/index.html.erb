@@ -1,0 +1,36 @@
+<div class="container">
+    <section class="row">
+        <h1 class="col-xs-12">アーティスト一覧管理</h1>
+
+        <div class="col-xs-10 col-xs-offset-1 artist-ind-table">
+            <table class="table artist-table">
+                <thead>
+                    <tr>
+                        <th class="col col-xs-1 text-center table-h">ID</th>
+                        <th class="col col-xs-3 text-center table-h">アーティスト名</th>
+                        <th class="col col-xs-6 text-center table-h">アーティスト概要</th>
+                        <th class="col col-xs-2 text-center table-h"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @artists.each do |artist| %>
+                        <tr>
+                            <td class="artist-table a-t-id"><%= artist.id %></td>
+                            <td class="artist-table"><%= artist.name %></td>
+                            <td><%= artist.description %></td>
+                            <td class="artist-table">
+                                <%= link_to "編集", edit_artist_path(artist.id), class:"btn btn-success btn-sm" %>
+                                <%= link_to "削除", artist_path(artist.id), class:"btn btn-info btn-sm", method: :delete %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-1"></div>
+        
+        <div class="col-xs-12 text-center">
+            <%= link_to "新規登録", new_artist_path, class:"btn btn-danger btn-lg artist-show-btn" %>
+        </div>
+    </section>
+</div>
