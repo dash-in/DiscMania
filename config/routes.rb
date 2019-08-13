@@ -31,9 +31,11 @@ end
   get '/records/top' => 'records#top'
 
   resources :artists
+  get  '/typeahead' => 'artists#typeahead_action'
 
   namespace :admin do
     resources :records # => /admin/records etc
   end
+
+  get '/admin/records/artists' => 'admin/records#artists'
 end
-cd /vagrant/discmania

@@ -4,4 +4,6 @@ class Record < ApplicationRecord
 	has_many :tunes ,dependent: :destroy
 	belongs_to :artist
 
+	attachment :image
+
 end
