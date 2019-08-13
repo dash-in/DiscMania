@@ -19,11 +19,11 @@ end
 
   root 'records#index'
 
-  resources :admins
+  resources :admins, only: [:show, :edit, :update]
 
   resources :settings, only: [:show, :edit, :update]
 
-  resources :users, only: [:index, :show, :edit, :update, :destroy]
+  resources :users, only: [:show, :edit, :update, :destroy]
   get '/users/deleting' => 'users#deleting'
   get '/users/deleted' => 'users#deleted'
 
@@ -36,3 +36,4 @@ end
     resources :records # => /admin/records etc
   end
 end
+cd /vagrant/discmania

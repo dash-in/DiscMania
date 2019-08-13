@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>ユーザー一覧</h2>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th>ユーザーID</th>
+            <th>ユーザー名</th>
+            <th>住所</th>
+            <th>メールアドレス</th>
+            <th>最終ログイン日時</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <% @users.each do |user| %>
+              <td>
+                <%= link_to user_path(user.id) do %>
+                <%= user.id %>
+                <% end %>
+              </td>
+              <td>
+                <%= user.last_name + user.first_name %>
+              </td>
+              <td>
+                <%= user.address %>
+              </td>
+              <td>
+                <%= user.email %>
+              </td>
+              <td>
+                <%= user.current_sign_in_at %>
+              </td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
