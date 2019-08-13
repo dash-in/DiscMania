@@ -1,6 +1,10 @@
 class ArtistsController < ApplicationController
     before_action :authenticate_admin!
 
+    def typeahead_action
+        render json: Artist.select("#{params[:item]}").where(Artist.arel_table["#{params[:item]}".to_sym].matches("%#{params[:term]}%")).uniq
+    end
+
     def index
         @artists = Artist.all
     end

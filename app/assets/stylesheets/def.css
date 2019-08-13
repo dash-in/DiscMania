@@ -8,6 +8,7 @@
 
 h1 {
     font-weight: bold !important;
+    margin-bottom: 80px !important;
 }
 
 .container {
@@ -105,4 +106,19 @@ h1 {
 
 .artist-show {
     margin-top: 50px !important;
+}
+
+
+/* レコード */
+
+.records-info {
+    background: white;
+    border: 1.5px solid rgb(196, 192, 192);
+    padding: 30px;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+.record-form-title {
+    font-weight: bold;
 }
