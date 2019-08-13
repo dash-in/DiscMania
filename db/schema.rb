@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_11_050146) do
+ActiveRecord::Schema.define(version: 2019_08_12_093954) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 2019_08_11_050146) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "artists", force: :cascade do |t|
+    t.text "name"
+    t.text "description"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "records", force: :cascade do |t|
     t.text "name"
     t.string "image_id"
@@ -34,6 +42,8 @@ ActiveRecord::Schema.define(version: 2019_08_11_050146) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "body"
+    t.integer "artist_id"
   end
 
   create_table "settings", force: :cascade do |t|
@@ -41,6 +51,15 @@ ActiveRecord::Schema.define(version: 2019_08_11_050146) do
     t.float "tax"
     t.text "shop_address"
     t.text "shop_tel"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tunes", force: :cascade do |t|
+    t.integer "record_id"
+    t.integer "disc_no"
+    t.integer "tune_order"
+    t.string "tune_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

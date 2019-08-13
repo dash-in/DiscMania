@@ -1,9 +1,8 @@
-class Admin::UsersController < Admin::ApplicationController
-    before_action :set_user
+class Admin::UsersController < ApplicationController
 
-    def index
-      @users = User.all
-    end
+  def index
+    @users = User.all
+  end
 
   def show
     @user = User.find(params[:id])
@@ -37,5 +36,4 @@ class Admin::UsersController < Admin::ApplicationController
   def user_params
     params.require(:user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :address, :post_number, :tel, :email, :password, :image, :handlename, :dl_flg)
   end
-
 end
