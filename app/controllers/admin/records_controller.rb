@@ -24,7 +24,7 @@ class Admin::RecordsController < ArtistsController
     def create
       @record = Form::Record.new(record_params)
       if @record.save
-        redirect_to admin_records_path, notice: "レコード「#{@order.name}」を登録しました。"
+        redirect_to admin_records_path, notice: "レコード「#{@record.name}」を登録しました。"
       else
         render :new
       end
@@ -32,7 +32,7 @@ class Admin::RecordsController < ArtistsController
   
     def update
       if @record.update_attributes(record_params)
-        redirect_to admin_records_path, notice: "レコード「#{@order.name}」を更新しました。"
+        redirect_to admin_records_path, notice: "レコード「#{@record.name}」を更新しました。"
       else
         render :edit
       end
