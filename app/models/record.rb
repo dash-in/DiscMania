@@ -6,4 +6,6 @@ class Record < ApplicationRecord
 
 	attachment :image
 
+	accepts_nested_attributes_for :tunes, allow_destroy: true
+
 end

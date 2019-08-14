@@ -1,0 +1,105 @@
+<%= form_for(@record, url: path, method: method) do |f| %>
+        
+        <label class="col-xs-12">
+            <h4 class="col-xs-12 record-form-title">ジャケット画像</h4>
+                <%= f.attachment_field :image %>
+             <div class="col-xs-1"></div>
+        </label>
+    
+        <label class="col-xs-12">
+            <h4 class="col-xs-12 record-form-title">レコードタイトル</h4>
+            <%= f.text_field :name, class:"col-xs-10 col-xs-offset-1 form-control h4" %>
+            <div class="col-xs-1"></div>
+        </label>
+        
+        <label class="col-xs-12">
+            <h4 class="col-xs-12 record-form-title">アーティスト名</h4>
+            <%= f.collection_select :artist_id, f.object.selectable_artists, :id, :name, {}, class: 'col-xs-10 col-xs-offset-1 form-control h4' %>
+            <div class="col-xs-1"></div>
+        </label>
+
+        <label class="col-xs-12">
+            <h4 class="col-xs-12 record-form-title">レーベル</h4>
+            <%= f.text_field :label, class:"col-xs-10 col-xs-offset-1 form-control h4" %>
+            <div class="col-xs-1"></div>
+        </label>
+
+        <label class="col-xs-12">
+            <h4 class="col-xs-12 record-form-title">ジャンル</h4>
+            <div class="col-xs-10 col-xs-offset-1">
+                <label><%= f.radio_button :genre, "Japanese Rock / Pops / Indies" %> Japanese Rock / Pops / Indies </label></br>
+                <label><%= f.radio_button :genre, "Rock / Pops / Indies" %> Rock / Pops / Indies </label></br>
+                <label><%= f.radio_button :genre, "Electric Dance Music" %> Electric Dance Music </label></br>
+                <label><%= f.radio_button :genre, "Old Rock" %> Old Rock </label></br>
+                <label><%= f.radio_button :genre, "Hard Rock / Heavy Metal" %> Hard Rock / Heavy Metal </label></br>
+                <label><%= f.radio_button :genre, "PUNK" %> PUNK </label></br>
+                <label><%= f.radio_button :genre, "JAZZ" %> JAZZ </label></br>
+                <label><%= f.radio_button :genre, "CLASSIC" %> CLASSIC </label></br>
+                <label><%= f.radio_button :genre, "Sound Track" %> Sound Track </label></br>
+                <label><%= f.radio_button :genre, "昭和歌謡曲 / 演歌" %> 昭和歌謡曲 / 演歌</label></br>
+                <label><%= f.radio_button :genre, "アイドル" %> アイドル </label></br>
+                <label><%= f.radio_button :genre, "K-POP" %> K-POP </label>
+            </div>
+            <div class="col-xs-1"></div>
+        </label>
+
+        <label class="col-xs-12">
+            <h4 class="col-xs-12 record-form-title">在庫数</h4>
+            <%= f.number_field :stock, class:"col-xs-10 col-xs-offset-1 form-control h4" %>
+            <div class="col-xs-1"></div>
+        </label>
+
+        <label class="col-xs-12">
+            <h4 class="col-xs-12 record-form-title">金額（税別）</h4>
+            <%= f.number_field :price, class:"col-xs-10 col-xs-offset-1 form-control h2" %>
+            <div class="col-xs-1"></div>
+        </label>
+
+    <section class="col-xs-12 records-info">
+        <label class="col-xs-12">
+            <h4 class="col-xs-12 record-form-title mb-3">レコード詳細</h4>
+            <%= f.text_area :body, rows: 8, class:"form-control" %>
+        </label>
+    </section>
+
+    <section class="col-xs-12 records-info">
+        <h4><b>収録曲登録</b></h4>
+    
+        <div class="col-xs-10 col-xs-offset-1">
+            <table class="table table-list col-xs-12">
+                <thead>
+                    <tr>
+                        <th class="col col-xs-2 text-center">disc number</th>
+                        <th class="col col-xs-2 text-center">曲順</th>
+                        <th class="col col-xs-6 text-center">曲名</th>
+                        <th　class="col col-xs-2">&nbsp;</th>
+                    </tr>
+                </thead>
+            
+                <tbody id='detail-association-insertion-point'>
+                    <div class="form-group">
+                        <%= f.fields_for :tunes do |tune| %>
+                            <%= render 'tune_fields', f: tune %>
+                        <% end %>
+                    </div>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-1"></div>
+        
+        <div class="col-xs-12 text-center">
+            <%= link_to_add_association '曲を追加', f, :tunes,
+                class: 'btn btn-success btn-lg mt-3',
+                data: {
+                    association_insertion_node: '#detail-association-insertion-point',
+                    association_insertion_method: 'append' 
+                }
+            %>
+        </div>
+    
+    </section>
+
+    <div class="col-xs-12 text-center">
+        <%= f.submit "レコードを登録する", class:"btn btn-primary btn-lg artist-show-btn" %>
+    </div>
+  <% end %>

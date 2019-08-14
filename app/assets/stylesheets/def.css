@@ -126,3 +126,9 @@ h1 {
 .record-form-title {
     font-weight: bold;
 }
+
+.record-new-table {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+}
