@@ -6,9 +6,6 @@ class Admin::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-  if @user.id != current_user.id
-     redirect_to user_path(current_user)
-   end
   end
 
   def deleting
@@ -19,9 +16,6 @@ class Admin::UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    if @user.id != current_user.id
-       redirect_to users_path(current_user)
-    end
   end
 
   def update
@@ -31,6 +25,7 @@ class Admin::UsersController < ApplicationController
     else render :edit
     end
   end
+
   def destroy
     @user = User.find(params[:id])
     @user.destroy
