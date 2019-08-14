@@ -36,6 +36,5 @@ end
   namespace :admin do
     resources :records # => /admin/records etc
   end
-
-  get '/admin/records/artists' => 'admin/records#artists'
+  get '/admin/records/search' => 'admin/records#search'
 end

@@ -1,16 +1,27 @@
 class Admin::RecordsController < ArtistsController
-    before_action :set_record, only: [:show, :edit, :update]
-  
+
     def index
-      @q = Record.search
+      @jpops = Record.where(genre: 'Japanese Rock / Pops / Indies').limit(4).order('created_at DESC')
+      @pops = Record.where(genre: 'Rock / Pops / Indies').limit(4).order('created_at DESC')
+      @edms = Record.where(genre: 'Electric Dance Music').limit(4).order('created_at DESC')
+      @ors = Record.where(genre: 'Old Rock').limit(4).order('created_at DESC')
+      @hrs = Record.where(genre: 'Hard Rock').limit(4).order('created_at DESC')
+      @punks = Record.where(genre: 'PUNK').limit(4).order('created_at DESC')
+      @jazzs = Record.where(genre: 'JAZZ').limit(4).order('created_at DESC')
+      @classics = Record.where(genre: 'CLASSIC').limit(4).order('created_at DESC')
+      @sts = Record.where(genre: 'Sound Track').limit(4).order('created_at DESC')
+      @sks = Record.where(genre: '昭和歌謡曲').limit(4).order('created_at DESC')
+      @idles = Record.where(genre: 'アイドル').limit(4).order('created_at DESC')
+      @kpops = Record.where(genre: 'K-POP').limit(4).order('created_at DESC')
+      @setting = Setting.find(1)
+    end
+
+    def search
+      @records = Form::Record.search(params[:search])
     end
 
     def show
-    end
-  
-    def search
-      @q = Record.search(search_params)
-      @records = @q.result.preload(:artist)
+      @record = Form::Record.find(params[:id])
     end
   
     def new
@@ -44,10 +55,6 @@ class Admin::RecordsController < ArtistsController
     end
   
     private
-  
-    def set_record
-      @record = Form::Record.find(params[:id])
-    end
   
     def search_params
       search_conditions = %i(

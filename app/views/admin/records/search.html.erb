@@ -1,0 +1,34 @@
+<p>検索</p>
+<%= form_with(search_path,:method => 'get') do |f| %>
+    <%= f.text_field :search %>
+    <label class="col-xs-12">
+        <h4 class="col-xs-12 record-form-title">ジャンル</h4>
+        <div class="col-xs-10 col-xs-offset-1">
+            <label><%= f.radio_button :genre, "Japanese Rock / Pops / Indies" %> Japanese Rock / Pops / Indies </label></br>
+            <label><%= f.radio_button :genre, "Rock / Pops / Indies" %> Rock / Pops / Indies </label></br>
+            <label><%= f.radio_button :genre, "Electric Dance Music" %> Electric Dance Music </label></br>
+            <label><%= f.radio_button :genre, "Old Rock" %> Old Rock </label></br>
+            <label><%= f.radio_button :genre, "Hard Rock / Heavy Metal" %> Hard Rock / Heavy Metal </label></br>
+            <label><%= f.radio_button :genre, "PUNK" %> PUNK </label></br>
+            <label><%= f.radio_button :genre, "JAZZ" %> JAZZ </label></br>
+            <label><%= f.radio_button :genre, "CLASSIC" %> CLASSIC </label></br>
+            <label><%= f.radio_button :genre, "Sound Track" %> Sound Track </label></br>
+            <label><%= f.radio_button :genre, "昭和歌謡曲 / 演歌" %> 昭和歌謡曲 / 演歌</label></br>
+            <label><%= f.radio_button :genre, "アイドル" %> アイドル </label></br>
+            <label><%= f.radio_button :genre, "K-POP" %> K-POP </label>
+        </div>
+        <div class="col-xs-1"></div>
+    </label>
+  <%= f.submit 'Search' %>
+<% end %>
+
+<ul><% @records.each do |record| %>
+    <li>
+      <%= record.name %>
+      <%= record.artist.name %>
+      <%= record.price %>
+    </li>
+    <%= link_to "編集",edit_post_path(post) %>
+    <%= link_to "削除",post, method: :delete %>
+    <% end %>
+  </ul>
