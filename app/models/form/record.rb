@@ -1,5 +1,5 @@
 class Form::Record < Record
-    REGISTRABLE_ATTRIBUTES = %i(image_id name artist_id label genre stock price body)
+    REGISTRABLE_ATTRIBUTES = %i(image name artist_id label genre stock price body)
     has_many :tunes, class_name: 'Form::Tune'
   
     after_initialize { tunes.build unless self.persisted? || tunes.present? }
