@@ -1,0 +1,15 @@
+<tr class="nested-fields">
+    <%= f.hidden_field :id %>
+    <td>
+        <%= f.number_field :disc_no, class: 'form-control disc_number' %>
+    </td>
+    <td>
+        <%= f.number_field :tune_order, class: 'form-control tune_order' %>
+    </td>
+    <td>
+        <%= f.text_field :tune_name, class: 'form-control tune_name' %>
+    </td>
+    <td>
+        <%= link_to_remove_association '削除', f, class: 'btn btn-info text-center' %>
+    </td>
+</tr>
