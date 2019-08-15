@@ -132,3 +132,48 @@ h1 {
     width: 90%;
     margin: 0 auto;
 }
+
+.disc-space {
+    padding: 10px;
+    margin: 15px 0;
+}
+
+.stock-f {
+    margin: 0 0 5px 0 !important;
+    margin: 0;
+    height:20px;
+    background: #ff6347;
+    border-radius: 5px;
+    text-align: center;
+    width: 80px;
+}
+
+.stock-f p {
+    color: white;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.stock-t {
+    margin: 0 0 5px 0;
+    height:20px;
+    line-height: 20px;
+    background: #4169e1;
+    border-radius: 5px;
+    text-align: center;
+    width: 80px;
+}
+
+.stock-t p {
+    color: white;
+    font-size: 12px !important;
+    line-height: 20px !important;
+}
+
+.record-image {
+    margin-bottom: 5px !important;
+}
+
+.records-genre {
+    margin-bottom: 50px;
+}

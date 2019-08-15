@@ -79,3 +79,5 @@ gem 'ransack'
 
 gem 'cocoon'
 
+gem 'kaminari','~> 1.1.1'
+
