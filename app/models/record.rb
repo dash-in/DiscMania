@@ -8,9 +8,4 @@ class Record < ApplicationRecord
 
 	accepts_nested_attributes_for :tunes, allow_destroy: true
 
-	def self.search(search)
-		return Record.all unless search
-		Record.where(['name LIKE ? OR artist.name LIKE ? OR genre LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
-	end
-
 end
