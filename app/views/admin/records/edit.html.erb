@@ -1,0 +1,9 @@
+<div class="container">
+    <section class="row">
+        <% content_for(:title) do %>
+            レコード情報編集フォーム
+        <% end %>
+          
+        <%= render 'form', path: admin_records_path, method: :post %>
+    </section>
+</div>

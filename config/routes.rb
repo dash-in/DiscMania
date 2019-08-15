@@ -28,13 +28,16 @@ end
   get '/users/deleted' => 'users#deleted'
 
   resources :records, only: [:index, :show]
-  get '/records/top' => 'records#top'
+  get '/records/search'
 
   resources :artists
   get  '/typeahead' => 'artists#typeahead_action'
 
   namespace :admin do
-    resources :records # => /admin/records etc
+    resources :records do
+      collection do
+        get :search
+      end
+    end
   end
-  get '/admin/records/search' => 'admin/records#search'
 end
