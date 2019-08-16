@@ -4,18 +4,18 @@ class RecordsController < ApplicationController
 
   def index
     @q = Form::Record.includes(:tune).search
-    @jpops = Form::Record.where(genre: "Japanese Rock / Pops / Indies").limit(4).order(:stock)
-    @pops = Form::Record.where(genre: "Rock / Pops / Indies").limit(4).order(:stock)
-    @edms = Form::Record.where(genre: "Electric Dance Music").limit(4).order(:stock)
-    @ors = Form::Record.where(genre: "Old Rock").limit(4).order(:stock)
-    @hrs = Form::Record.where(genre: "Hard Rock / Heavy Metal").limit(4).order(:stock)
-    @punks = Form::Record.where(genre: "PUNK").limit(4).order(:stock)
-    @jazzs = Form::Record.where(genre: "JAZZ").limit(4).order(:stock)
-    @classics = Form::Record.where(genre: "CLASSIC").limit(4).order(:stock)
-    @sts = Form::Record.where(genre: "Sound Track").limit(4).order(:stock)
-    @sks = Form::Record.where(genre: "昭和歌謡曲 / 演歌").limit(4).order(:stock)
-    @idles = Form::Record.where(genre: "アイドル").limit(4).order(:stock)
-    @kpops = Form::Record.where(genre: "K-POP").limit(4).order(:stock)
+    @jpops = Form::Record.where(genre: "Japanese Rock / Pops / Indies").limit(4).order(created_at: "DESC")
+    @pops = Form::Record.where(genre: "Rock / Pops / Indies").limit(4).order(created_at: "DESC")
+    @edms = Form::Record.where(genre: "Electric Dance Music").limit(4).order(created_at: "DESC")
+    @ors = Form::Record.where(genre: "Old Rock").limit(4).order(created_at: "DESC")
+    @hrs = Form::Record.where(genre: "Hard Rock / Heavy Metal").limit(4).order(created_at: "DESC")
+    @punks = Form::Record.where(genre: "PUNK").limit(4).order(created_at: "DESC")
+    @jazzs = Form::Record.where(genre: "JAZZ").limit(4).order(created_at: "DESC")
+    @classics = Form::Record.where(genre: "CLASSIC").limit(4).order(created_at: "DESC")
+    @sts = Form::Record.where(genre: "Sound Track").limit(4).order(created_at: "DESC")
+    @sks = Form::Record.where(genre: "昭和歌謡曲 / 演歌").limit(4).order(created_at: "DESC")
+    @idles = Form::Record.where(genre: "アイドル").limit(4).order(created_at: "DESC")
+    @kpops = Form::Record.where(genre: "K-POP").limit(4).order(created_at: "DESC")
     @setting = Setting.find(1)
   end
 
