@@ -38,6 +38,8 @@ end
   resources :artists
   get  '/typeahead' => 'artists#typeahead_action'
 
+  resources :cart_items, only: [:index, :create, :update, :destroy]
+
   namespace :admin do
     resources :records do
       collection do
