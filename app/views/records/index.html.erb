@@ -275,7 +275,7 @@
 
 <div class="container">
     <section class="row">
-        <%= search_form_for(@q, url: search_admin_records_path, html: { method: :get, class: 'form-horizontal', role: 'form' }) do |f| %>
+        <%= search_form_for(@q, url: search_records_path, html: { method: :get, class: 'form-horizontal', role: 'form' }) do |f| %>
             <%= render 'search_form', f: f %>
         <% end %>
     </section>

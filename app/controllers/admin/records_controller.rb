@@ -41,7 +41,7 @@ class Admin::RecordsController < ArtistsController
   def create
     @record = Form::Record.new(record_params)
     if @record.save
-      redirect_to admin_records_path, notice: "レコード「#{@record.name}」を登録しました。"
+      redirect_to search_admin_records_path, notice: "レコード「#{@record.name}」を登録しました。"
     else
       render :new
     end
@@ -57,7 +57,7 @@ class Admin::RecordsController < ArtistsController
 
   def destroy
     @record.destroy
-    redirect_to admin_records_url, notice: 'レコードを削除しました。'
+    redirect_to search_admin_records_url, notice: 'レコードを削除しました。'
   end
 
   private
