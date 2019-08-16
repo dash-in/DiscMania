@@ -27,8 +27,10 @@ end
   get '/users/deleting' => 'users#deleting'
   get '/users/deleted' => 'users#deleted'
 
+  resources :shipping_infos, only: [:edit, :update, :destroy]
+
   resources :records, only: [:index, :show]
-  get '/records/top' => 'records#top'
+  get '/records/search'
 
   resources :artists
   get  '/typeahead' => 'artists#typeahead_action'
@@ -36,8 +38,10 @@ end
   resources :cart_items, only: [:index, :create, :update, :destroy]
 
   namespace :admin do
-    resources :records # => /admin/records etc
+    resources :records do
+      collection do
+        get :search
+      end
+    end
   end
-
-  get '/admin/records/artists' => 'admin/records#artists'
 end
