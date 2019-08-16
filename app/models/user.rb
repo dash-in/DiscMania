@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   attachment :image
   acts_as_paranoid
+
+  has_many :shipping_infos
 end
