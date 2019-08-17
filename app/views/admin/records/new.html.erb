@@ -1,8 +1,6 @@
 <div class="container">
     <section class="row">
-        <% content_for(:title) do %>
-            新規レコード登録フォーム
-        <% end %>
+    <h2 class="text-center"><b>レコード新規登録フォーム</b></h2>
           
         <%= render 'form', path: admin_records_path, method: :post %>
     </section>

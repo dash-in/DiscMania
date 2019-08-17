@@ -1,9 +1,7 @@
 <div class="container">
     <section class="row">
-        <% content_for(:title) do %>
-            レコード情報編集フォーム
-        <% end %>
+        <h2 class="text-center"><b>レコード情報編集フォーム</b></h2>
           
-        <%= render 'form', path: admin_records_path, method: :post %>
+        <%= render 'form', path: admin_record_path(@record), method: :patch %>
     </section>
 </div>

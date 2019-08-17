@@ -7,5 +7,9 @@ class User < ApplicationRecord
   attachment :image
   acts_as_paranoid
 
+
+  has_many :cart_items
+
   has_many :shipping_infos
+
 end

@@ -135,7 +135,7 @@ h1 {
 
 .disc-space {
     padding: 10px;
-    margin: 15px 0;
+    margin: 15px auto 0;
 }
 
 .stock-f {
@@ -171,9 +171,52 @@ h1 {
 }
 
 .record-image {
-    margin-bottom: 5px !important;
+    margin: 0 auto 5px !important;
 }
 
 .records-genre {
-    margin-bottom: 50px;
+    margin-bottom: 10px;
+}
+
+.search-form-genre {
+    margin: 15px auto;
+}
+
+.search-title {
+    margin: 15px auto;
+}
+
+.search-forms {
+    padding: 15px;
+    border: 2px solid darkgray;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.man-form {
+    padding: 0 !important;
+}
+
+.rec-table-pad {
+    padding: 0 8px;
+}
+
+.table-pad {
+    height: 75px;
+}
+
+.records-table {
+    margin: 30px auto;
+}
+
+.search-btn-spc {
+    margin-right: 40px;
+}
+
+.search-btns {
+    margin-top: 8px;
+}
+
+.rec-ind-title {
+    color: gray !important;
 }
