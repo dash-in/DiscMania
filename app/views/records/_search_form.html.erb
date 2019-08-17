@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row search-forms">
+        <div>
+            <div class="search-title">
+                <h4 class="text-center"><b>商品検索フォーム</b></h4>
+                <h5 class="text-center">商品を絞り込んでご覧になりたい場合は下記フォームより検索できます。</h5>
+            </div>
+            <label class="col-xs-4" for="">
+                <div class="col-xs-12">
+                    <%= f.text_field :name_cont, class: 'form-control', placeholder: "レコード名で探す" %>
+                </div>
+            </label>
+
+            <label class="col-xs-4" for="">
+                <div class="col-xs-12">
+                    <%= f.text_field :artist_name_cont, class: 'form-control', placeholder: "アーティストで探す" %>
+                </div>
+            </label>
+
+
+            <label class="col-xs-4" for="">
+                <div class="col-xs-12">
+                    <%= f.text_field :tunes_tune_name_cont, class: 'form-control', placeholder: "曲で探す" %>
+                </div>
+            </label>
+        </div>
+
+        <div class="col-xs-12 search-form-genre">
+            <div class="col-xs-4 col-xs-offset-1">
+                <label><%= f.radio_button :genre_eq, "Japanese Rock / Pops / Indies" %> Japanese Rock / Pops / Indies </label></br>
+                <label><%= f.radio_button :genre_eq, "Rock / Pops / Indies" %> Rock / Pops / Indies </label></br>
+                <label><%= f.radio_button :genre_eq, "Electric Dance Music" %> Electric Dance Music </label></br>
+                <label><%= f.radio_button :genre_eq, "Old Rock" %> Old Rock </label>
+            </div>
+
+            <div class="col-xs-4">
+                <label><%= f.radio_button :genre_eq, "Hard Rock / Heavy Metal" %> Hard Rock / Heavy Metal </label></br>
+                <label><%= f.radio_button :genre_eq, "PUNK" %> PUNK </label></br>
+                <label><%= f.radio_button :genre_eq, "JAZZ" %> JAZZ </label></br>
+                <label><%= f.radio_button :genre_eq, "CLASSIC" %> CLASSIC </label>
+            </div>
+
+            <div class="col-xs-3">
+                <label><%= f.radio_button :genre_eq, "Sound Track" %> Sound Track </label></br>
+                <label><%= f.radio_button :genre_eq, "昭和歌謡曲 / 演歌" %> 昭和歌謡曲 / 演歌</label></br>
+                <label><%= f.radio_button :genre_eq, "アイドル" %> アイドル </label></br>
+                <label><%= f.radio_button :genre_eq, "K-POP" %> K-POP </label>
+            </div>
+        </div>
+
+        
+
+        <div class="col-sm-12 row text-center">
+        <%= link_to search_records_path, class: 'btn btn-default btn-left search-btn-spc' do %>クリア<% end %>
+        <button class="btn btn-default btn-primary" type="submit"><i class="fa fa-search"></i> 検索</button>
+        </div>
+    </div>
+</div>

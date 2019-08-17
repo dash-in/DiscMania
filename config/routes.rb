@@ -29,8 +29,11 @@ end
 
   resources :shipping_infos, only: [:edit, :update, :destroy]
 
-  resources :records, only: [:index, :show]
-  get '/records/search'
+  resources :records, only: [:index, :show] do
+    collection do
+      get :search
+    end
+  end
 
   resources :artists
   get  '/typeahead' => 'artists#typeahead_action'

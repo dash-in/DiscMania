@@ -2,10 +2,355 @@
   <p><%= flash[:notice] %></p>
 <% end %>
 
-<% content_for(:title) do %>
-  商品検索
-<% end %>
+<div class="container">
+  <section class="row">
 
-<%= search_form_for(@q, url: search_admin_records_path, html: { method: :get, class: 'form-horizontal', role: 'form' }) do |f| %>
-  <%= render 'search_form', f: f %>
-<% end %>
+    <h2 class="text-center"><b>ジャンル別少在庫TOP4</b></h1>
+
+    <section class="col-xs-12 records-genre">
+      <h3 class="rec-ind-title"><b>Japanese Rock / Pops / Indies</b></h3>
+      <div class="col-xs-12">
+        <% @jpops.each do |record| %>
+          <div class="col-xs-3 disc-space">
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
+            <% end %>
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <h4><b><%= record.name %></b></h4>
+            <% end %>
+            <p><%= record.artist.name %>　<%= link_to "編集", edit_admin_record_path(record.id), class:"btn btn-primary btn-sm" %></p>
+            <p>¥ <%= record.price.floor %>（税込）</p>
+            <%= form_for record, url: admin_record_path(record) do |f| %>
+              <b class="col-xs-12">在庫数</b>
+              <div class="col-xs-8 man-form">
+                  <%= f.number_field :stock, class:"form-control" %>
+              </div>
+              <div class="col-xs-4 man-form">
+                <%= f.submit "更新", class:"btn btn-success" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <%= link_to "もっと見る", search_admin_records_path, class:"col-xs-12 text-right" %>
+    </section>
+    
+    <section class="col-xs-12 records-genre">
+      <h3 class="rec-ind-title"><b>Rock / Pops / Indies</b></h3>
+      <div class="col-xs-12">
+        <% @pops.each do |record| %>
+          <div class="col-xs-3 disc-space">
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
+            <% end %>
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <h4><b><%= record.name %></b></h4>
+            <% end %>
+            <p><%= record.artist.name %>　<%= link_to "編集", edit_admin_record_path(record.id), class:"btn btn-primary btn-sm" %></p>
+            <p>¥ <%= record.price.floor %>（税込）</p>
+            <%= form_for record, url: admin_record_path(record) do |f| %>
+              <b class="col-xs-12">在庫数</b>
+              <div class="col-xs-8 man-form">
+                  <%= f.number_field :stock, class:"form-control" %>
+              </div>
+              <div class="col-xs-4 man-form">
+                <%= f.submit "更新", class:"btn btn-success" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <%= link_to "もっと見る", search_admin_records_path, class:"col-xs-12 text-right" %>
+    </section>
+
+    <section class="col-xs-12 records-genre">
+      <h3 class="rec-ind-title"><b>Electric Dance Music</b></h3>
+      <div class="col-xs-12">
+        <% @edms.each do |record| %>
+          <div class="col-xs-3 disc-space">
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
+            <% end %>
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <h4><b><%= record.name %></b></h4>
+            <% end %>
+            <p><%= record.artist.name %>　<%= link_to "編集", edit_admin_record_path(record.id), class:"btn btn-primary btn-sm" %></p>
+            <p>¥ <%= record.price.floor %>（税込）</p>
+            <%= form_for record, url: admin_record_path(record) do |f| %>
+              <b class="col-xs-12">在庫数</b>
+              <div class="col-xs-8 man-form">
+                  <%= f.number_field :stock, class:"form-control" %>
+              </div>
+              <div class="col-xs-4 man-form">
+                <%= f.submit "更新", class:"btn btn-success" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <%= link_to "もっと見る", search_admin_records_path, class:"col-xs-12 text-right" %>
+    </section>
+    
+    <section class="col-xs-12 records-genre">
+      <h3 class="rec-ind-title"><b>Old Rock</b></h3>
+      <div class="col-xs-12">
+        <% @ors.each do |record| %>
+          <div class="col-xs-3 disc-space">
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
+            <% end %>
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <h4><b><%= record.name %></b></h4>
+            <% end %>
+            <p><%= record.artist.name %>　<%= link_to "編集", edit_admin_record_path(record.id), class:"btn btn-primary btn-sm" %></p>
+            <p>¥ <%= record.price.floor %>（税込）</p>
+            <%= form_for record, url: admin_record_path(record) do |f| %>
+              <b class="col-xs-12">在庫数</b>
+              <div class="col-xs-8 man-form">
+                  <%= f.number_field :stock, class:"form-control" %>
+              </div>
+              <div class="col-xs-4 man-form">
+                <%= f.submit "更新", class:"btn btn-success" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <%= link_to "もっと見る", search_admin_records_path, class:"col-xs-12 text-right" %>
+    </section>
+
+    <section class="col-xs-12 records-genre">
+      <h3 class="rec-ind-title"><b>Hard Rock</b></h3>
+      <div class="col-xs-12">
+        <% @hrs.each do |record| %>
+          <div class="col-xs-3 disc-space">
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
+            <% end %>
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <h4><b><%= record.name %></b></h4>
+            <% end %>
+            <p><%= record.artist.name %>　<%= link_to "編集", edit_admin_record_path(record.id), class:"btn btn-primary btn-sm" %></p>
+            <p>¥ <%= record.price.floor %>（税込）</p>
+            <%= form_for record, url: admin_record_path(record) do |f| %>
+              <b class="col-xs-12">在庫数</b>
+              <div class="col-xs-8 man-form">
+                  <%= f.number_field :stock, class:"form-control" %>
+              </div>
+              <div class="col-xs-4 man-form">
+                <%= f.submit "更新", class:"btn btn-success" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <%= link_to "もっと見る", search_admin_records_path, class:"col-xs-12 text-right" %>
+    </section>
+
+    <section class="col-xs-12 records-genre">
+      <h3 class="rec-ind-title"><b>PUNK</b></h3>
+      <div class="col-xs-12">
+        <% @punks.each do |record| %>
+          <div class="col-xs-3 disc-space">
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
+            <% end %>
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <h4><b><%= record.name %></b></h4>
+            <% end %>
+            <p><%= record.artist.name %>　<%= link_to "編集", edit_admin_record_path(record.id), class:"btn btn-primary btn-sm" %></p>
+            <p>¥ <%= record.price.floor %>（税込）</p>
+            <%= form_for record, url: admin_record_path(record) do |f| %>
+              <b class="col-xs-12">在庫数</b>
+              <div class="col-xs-8 man-form">
+                  <%= f.number_field :stock, class:"form-control" %>
+              </div>
+              <div class="col-xs-4 man-form">
+                <%= f.submit "更新", class:"btn btn-success" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <%= link_to "もっと見る", search_admin_records_path, class:"col-xs-12 text-right" %>
+    </section>
+
+    <section class="col-xs-12 records-genre">
+      <h3 class="rec-ind-title"><b>JAZZ</b></h3>
+      <div class="col-xs-12">
+        <% @jazzs.each do |record| %>
+          <div class="col-xs-3 disc-space">
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
+            <% end %>
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <h4><b><%= record.name %></b></h4>
+            <% end %>
+            <p><%= record.artist.name %>　<%= link_to "編集", edit_admin_record_path(record.id), class:"btn btn-primary btn-sm" %></p>
+            <p>¥ <%= record.price.floor %>（税込）</p>
+            <%= form_for record, url: admin_record_path(record) do |f| %>
+              <b class="col-xs-12">在庫数</b>
+              <div class="col-xs-8 man-form">
+                  <%= f.number_field :stock, class:"form-control" %>
+              </div>
+              <div class="col-xs-4 man-form">
+                <%= f.submit "更新", class:"btn btn-success" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <%= link_to "もっと見る", search_admin_records_path, class:"col-xs-12 text-right" %>
+    </section>
+
+    <section class="col-xs-12 records-genre">
+      <h3 class="rec-ind-title"><b>Classic</b></h3>
+      <div class="col-xs-12">
+        <% @classics.each do |record| %>
+          <div class="col-xs-3 disc-space">
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
+            <% end %>
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <h4><b><%= record.name %></b></h4>
+            <% end %>
+            <p><%= record.artist.name %>　<%= link_to "編集", edit_admin_record_path(record.id), class:"btn btn-primary btn-sm" %></p>
+            <p>¥ <%= record.price.floor %>（税込）</p>
+            <%= form_for record, url: admin_record_path(record) do |f| %>
+              <b class="col-xs-12">在庫数</b>
+              <div class="col-xs-8 man-form">
+                  <%= f.number_field :stock, class:"form-control" %>
+              </div>
+              <div class="col-xs-4 man-form">
+                <%= f.submit "更新", class:"btn btn-success" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <%= link_to "もっと見る", search_admin_records_path, class:"col-xs-12 text-right" %>
+    </section>
+
+    <section class="col-xs-12 records-genre">
+      <h3 class="rec-ind-title"><b>Sound Track</b></h3>
+      <div class="col-xs-12">
+        <% @sts.each do |record| %>
+          <div class="col-xs-3 disc-space">
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
+            <% end %>
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <h4><b><%= record.name %></b></h4>
+            <% end %>
+            <p><%= record.artist.name %>　<%= link_to "編集", edit_admin_record_path(record.id), class:"btn btn-primary btn-sm" %></p>
+            <p>¥ <%= record.price.floor %>（税込）</p>
+            <%= form_for record, url: admin_record_path(record) do |f| %>
+              <b class="col-xs-12">在庫数</b>
+              <div class="col-xs-8 man-form">
+                  <%= f.number_field :stock, class:"form-control" %>
+              </div>
+              <div class="col-xs-4 man-form">
+                <%= f.submit "更新", class:"btn btn-success" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <%= link_to "もっと見る", search_admin_records_path, class:"col-xs-12 text-right" %>
+    </section>
+
+    <section class="col-xs-12 records-genre">
+      <h3 class="rec-ind-title"><b>昭和歌謡曲</b></h3>
+      <div class="col-xs-12">
+        <% @sks.each do |record| %>
+          <div class="col-xs-3 disc-space">
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
+            <% end %>
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <h4><b><%= record.name %></b></h4>
+            <% end %>
+            <p><%= record.artist.name %>　<%= link_to "編集", edit_admin_record_path(record.id), class:"btn btn-primary btn-sm" %></p>
+            <p>¥ <%= record.price.floor %>（税込）</p>
+            <%= form_for record, url: admin_record_path(record) do |f| %>
+              <b class="col-xs-12">在庫数</b>
+              <div class="col-xs-8 man-form">
+                  <%= f.number_field :stock, class:"form-control" %>
+              </div>
+              <div class="col-xs-4 man-form">
+                <%= f.submit "更新", class:"btn btn-success" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <%= link_to "もっと見る", search_admin_records_path, class:"col-xs-12 text-right" %>
+    </section>
+
+    <section class="col-xs-12 records-genre">
+      <h3 class="rec-ind-title"><b>アイドル</b></h3>
+      <div class="col-xs-12">
+        <% @idles.each do |record| %>
+          <div class="col-xs-3 disc-space">
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
+            <% end %>
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <h4><b><%= record.name %></b></h4>
+            <% end %>
+            <p><%= record.artist.name %>　<%= link_to "編集", edit_admin_record_path(record.id), class:"btn btn-primary btn-sm" %></p>
+            <p>¥ <%= record.price.floor %>（税込）</p>
+            <%= form_for record, url: admin_record_path(record) do |f| %>
+              <b class="col-xs-12">在庫数</b>
+              <div class="col-xs-8 man-form">
+                  <%= f.number_field :stock, class:"form-control" %>
+              </div>
+              <div class="col-xs-4 man-form">
+                <%= f.submit "更新", class:"btn btn-success" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <%= link_to "もっと見る", search_admin_records_path, class:"col-xs-12 text-right" %>
+    </section>
+
+    <section class="col-xs-12 records-genre">
+      <h3 class="rec-ind-title"><b>K-POP</b></h3>
+      <div class="col-xs-12">
+        <% @kpops.each do |record| %>
+          <div class="col-xs-3 disc-space">
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
+            <% end %>
+            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+              <h4><b><%= record.name %></b></h4>
+            <% end %>
+            <p><%= record.artist.name %>　<%= link_to "編集", edit_admin_record_path(record.id), class:"btn btn-primary btn-sm" %></p>
+            <p>¥ <%= record.price.floor %>（税込）</p>
+            <%= form_for record, url: admin_record_path(record) do |f| %>
+              <b class="col-xs-12">在庫数</b>
+              <div class="col-xs-8 man-form">
+                  <%= f.number_field :stock, class:"form-control" %>
+              </div>
+              <div class="col-xs-4 man-form">
+                <%= f.submit "更新", class:"btn btn-success" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <%= link_to "もっと見る", search_admin_records_path, class:"col-xs-12 text-right" %>
+    </section>
+  </section>
+</div>
+
+<div class="container">
+
+  <div class="row">
+    <%= search_form_for(@q, url: search_admin_records_path, html: { method: :get, role: 'form' }) do |f| %>
+      <%= render 'search_form', f: f %>
+    <% end %>
+  </div>
+  
+</div>

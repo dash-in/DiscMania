@@ -3,6 +3,7 @@ class Record < ApplicationRecord
 
 	has_many :tunes ,dependent: :destroy
 	belongs_to :artist
+
 	has_one :cart_item
 
 	attachment :image
