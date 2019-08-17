@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   root 'records#index'
 
-  resources :admins, only: [:show, :edit, :update]
+  resources :admins
 
   resources :settings, only: [:show, :edit, :update]
 

@@ -15,6 +15,53 @@ h1 {
     margin-top: 50px;
 }
 
+
+/* ヘッダー フッター　*/
+.header{
+    margin: 0 auto ;
+    background-color: #000000 ;
+    display: flex;
+    align-items: center;
+}
+
+.mainimg{
+    margin-right: auto;
+}
+
+.logo-img{
+    border-radius: 10px ;
+}
+
+.breadcrumb-nav{
+    margin-left: auto;
+    font-size: 13px;
+    background-color: #000000 !important;
+    padding-top: 20px !important;
+}
+
+.user-icon{
+    font-size: 25px;
+}
+
+.footer{
+    margin: 50px 0px;
+    background-color: #000000 ;
+}
+
+.footer-box{
+    padding: 10px;
+}
+
+.footer-main{
+    margin: 0 0px;
+    font-size: 20px;
+}
+
+.footer-text{
+    font-size: 15px;
+    margin: 0 0px;
+}
+
 /* Setting フォーム */
 
 .set-form {
