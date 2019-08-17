@@ -1,11 +1,12 @@
 <div class="container">
   <section class="row">
-    <% content_for(:title) do %>
-      商品検索
-    <% end %>
     
     <%= search_form_for(@q, url: search_admin_records_path, html: { method: :get, class: 'form-horizontal', role: 'form' }) do |f| %>
       <%= render 'search_form', f: f %>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <p><%= flash[:notice] %></p>
     <% end %>
 
     <h3 class="text-center mb-4"><b>商品一覧</b></h3>

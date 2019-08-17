@@ -216,3 +216,7 @@ h1 {
 .search-btns {
     margin-top: 8px;
 }
+
+.rec-ind-title {
+    color: gray !important;
+}
