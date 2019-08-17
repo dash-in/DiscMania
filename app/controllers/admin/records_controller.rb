@@ -48,7 +48,12 @@ class Admin::RecordsController < ArtistsController
   end
 
   def update
-    if @record.update_attributes(update_record_params)
+    if params[:record].nil?
+      update_params = record_params
+    else
+      update_params = update_record_params
+    end
+    if @record.update_attributes(update_params)
       redirect_to search_admin_records_path, notice: "レコード「#{@record.name}」を更新しました。"
     else
       render :edit
