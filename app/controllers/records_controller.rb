@@ -27,6 +27,7 @@ class RecordsController < ApplicationController
 
   def show
     @record = Record.find(params[:id])
+    @setting = Setting.find(1)
   end
 
   private
