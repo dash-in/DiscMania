@@ -41,7 +41,7 @@
         <%= link_to "logout", destroy_admin_session_path, method: :delete, class: 'glyphicon glyphicon-log-in' %>
 
       <% else %>
-        <h2 class="title"> 
+        <h2 class="title">
           <%= @record.name %>
         </h2>
         <p class="id">
@@ -58,6 +58,7 @@
           <%= hidden_field_tag(:record_id, @record.id) %>
           <%= submit_tag "カートに入れる", class: "btn btn-warning" %>
         <% end %>
+        
       <% end %>
     </div>
   </div>

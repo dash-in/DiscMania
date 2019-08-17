@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @order.user_id %>
+</p>
+
+<p>
+  <strong>Shipping info:</strong>
+  <%= @order.shipping_info_id %>
+</p>
+
+<p>
+  <strong>Payment method:</strong>
+  <%= @order.payment_method %>
+</p>
+
+<p>
+  <strong>Actual shipping:</strong>
+  <%= @order.actual_shipping %>
+</p>
+
+<p>
+  <strong>Actual tax:</strong>
+  <%= @order.actual_tax %>
+</p>
+
+<p>
+  <strong>Total price:</strong>
+  <%= @order.total_price %>
+</p>
+
+<p>
+  <strong>Receipt status:</strong>
+  <%= @order.receipt_status %>
+</p>
+
+<p>
+  <strong>Shipping status:</strong>
+  <%= @order.shipping_status %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
