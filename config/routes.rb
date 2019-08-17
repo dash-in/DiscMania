@@ -27,11 +27,18 @@ end
   get '/users/deleting' => 'users#deleting'
   get '/users/deleted' => 'users#deleted'
 
-  resources :records, only: [:index, :show]
-  get '/records/search'
+  resources :shipping_infos, only: [:edit, :update, :destroy]
+
+  resources :records, only: [:index, :show] do
+    collection do
+      get :search
+    end
+  end
 
   resources :artists
   get  '/typeahead' => 'artists#typeahead_action'
+
+  resources :cart_items, only: [:index, :create, :update, :destroy]
 
   namespace :admin do
     resources :records do

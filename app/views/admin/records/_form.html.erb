@@ -2,7 +2,7 @@
         
         <label class="col-xs-12">
             <h4 class="col-xs-12 record-form-title">ジャケット画像</h4>
-                <%= f.attachment_field :image %>
+                <%= f.attachment_field :image, class:"col-xs-10 col-xs-offset-1 h4" %>
              <div class="col-xs-1"></div>
         </label>
     
@@ -17,7 +17,7 @@
             <div class="col-xs-10">
             <%= link_to "アーティスト登録", '/artists/new', class:"btn btn-success btn-sm", target: "_blank" %>
             </div>
-            <%= f.collection_select :artist_id, f.object.selectable_artists, :id, :name, {}, class: 'col-xs-10 col-xs-offset-1 form-control h4' %>
+            <%= f.collection_select :artist_id, f.object.selectable_artists, :id, :name, {}, placeholder: "アーティストを選択してください", class: 'col-xs-10 col-xs-offset-1 form-control h4' %>
             <div class="col-xs-1"></div>
         </label>
 
