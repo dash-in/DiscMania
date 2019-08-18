@@ -1,6 +1,16 @@
 class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_search
+
+  def set_search
+    if params[:search].nil?
+      @search = Record.ransack
+    else
+      @search = Record.includes(:artists).ransack(search_params)
+    end
+    @records = @search.result(distinct: true)
+  end
 
   helper_method :current_cart
 
@@ -26,5 +36,9 @@ class ApplicationController < ActionController::Base
   end
   def after_user_sign_out_path_for(resourse_or_scope)
         top_path
+  end
+
+  def search_params
+    params.require(:search).permit!
   end
 end
