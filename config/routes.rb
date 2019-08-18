@@ -38,6 +38,8 @@ Rails.application.routes.draw do
 
   resources :cart_items, only: [:index, :create, :update, :destroy]
 
+
+
   resources :orders, only: [:show, :new, :create]
   get '/orders/completed' => 'orders#completed'
 
