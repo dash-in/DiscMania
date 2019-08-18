@@ -7,85 +7,75 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
 
   </head>
 
 
-
-
-
   <body>
-
-       <nav class="navbar nav-iro">
-              <div class="container-fluid">
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample7">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                  <a href="#">
-                    <%= image_tag 'DISC_MANIA.png',size: '180x130'%>
-                  </a>
-                </div>
-
-                <div class="collapse navbar-collapse navbar-right nav-menu-right" id="navbarEexample7">
+    <header class="header">
+            <div class="mainimg">
+              <%= link_to "top_path" do %>
+              <%= image_tag "DISC_MANIA.png",size: "160x70" ,:class => "logo-img"%>
+              <% end %>
+            </div>
 
 
-                  <ul class="nav navbar-nav">
-                    <% if admin_signed_in? %>
+          <!-- 検索窓をつける -->
+          <div class="kensaku">
+            <%= search_form_for @search, url: search_admin_records_path do |f| %>
+            <%= f.search_field :name_cont, placeholder: '商品レコード名' %>
+            <%= f.search_field :artist_name_cont, placeholder: 'アーティスト名' %>
+            <%= f.submit %>
+            <% end %>
+          </div>
+
+          <ol class="breadcrumb breadcrumb-nav">
+                  <% if admin_signed_in? %>
                     <!-- アドミンがログインの場合 -->
-                      <li><%=link_to  "受注一覧","#" %></li>
-                      <li><%= link_to "商品登録", "#"%></li>
-                      <li><%= link_to "商品一覧", admin_records_path %></li>
-                      <li><%= link_to "ユーザ一覧", admin_users_path %></li>
+                    <li class="header-text"><%=link_to  "受注一覧","#" %></li>
+                    <li class="header-text"><%= link_to "商品登録", new_admin_record_path %></li>
+                    <li class="header-text"><%= link_to "商品一覧", admin_records_path %></li>
+                    <li class="header-text"><%= link_to "ユーザ一覧", admin_users_path %></li>
+                    <!-- いつか消します -->
+                    <li class="header-text"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
 
-                    <% else %>
+                  <% else %>
                       <% if user_signed_in? %>
                       <!--ユーザがログインしてる -->
-                          <li><%= link_to "商品一覧", records_path %></li>
-                          <li><%= link_to "カート", "#"%></li>
-                          <li><%= link_to current_user.last_name + current_user.first_name, user_path(current_user.id) %><li>
-                          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-
+                          <li class="user-icon">
+                          <%= link_to "", user_path(current_user.id), class: "fas fa-user-circle" %></li>
+                          <li  class="header-text"><%= link_to "商品一覧", records_path %></li>
+                          <li  class="header-text"><%= link_to "カート", "#" %></li>
+                          <li  class="header-text"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
 
                       <% else %>
                       <!--  ユーザがログインしてない -->
-                          <li><%= link_to "商品一覧", records_path  %></li>
-                          <li><%= link_to "ログイン", new_user_session_path %><li>
-                          <li><%= link_to "会員登録", new_user_registration_path %></li>
+                          <li  class="header-text"><%= link_to "商品一覧", records_path  %></li>
+                          <li  class="header-text"><%= link_to "ログイン", new_user_session_path %></li>
+                          <li  class="header-text"><%= link_to "会員登録", new_user_registration_path %></li>
                       <% end %>
-
-                    <% end %>
-                  </ul>
-                </div>
-              </div>
-       </nav>
-
-
+                  <% end %>
+          </ol>
+    </header>
 
                 <%= yield %>
 
 
-
-                 <footer class="footer style-2">
-                    <div class="container">
-                      <div class="row">
-                        <div class="col-md-8">
-                        </div>
-                        <div class="col-md-4">
-                          <div class="col">
-                            <h3>DiscMania</h3>
-                              <p class="footer-text">〒380-****　長野県△△市○○町×××-××</p>
-                              <p class="footer-text">TEL:026 - ○○○○ - ○○○○</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </footer>
+    <footer class="footer style-2">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8"></div>
+          <div class="col-md-4">
+            <div class="footer-box">
+            <p class="footer-main">DiscMania</p>
+            <p class="footer-text">〒380-****　長野県△△市○○町×××-××</p>
+            <p class="footer-text">TEL:026 - ○○○○ - ○○○○</p>
+            </div>
+          </div>
+        </div>
+       </div>
+    </footer>
   </body>
-
-
 </html>
 
