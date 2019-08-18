@@ -4,18 +4,35 @@ class CartItemsController < ApplicationController
   end
 
   def create
-    session[:cart_item] = [] unless session[:cart_item]
-    session[:cart_item] << [record_id: params[:record_id], quantity: params[:quantity]]
-    puts session[:cart_item]
-    flash[:success] = "カートに追加しました！"
-    redirect_back(fallback_location: root_url)
-
+    @cart_item = CartItem.new(cart_item_params)
+    @user = current_user
+    @cart_item.user_id = current_user.id
+      if @cart_item.save
+        flash[:success] = "カートに入れました！"
+      redirect_back(fallback_location: root_url)
+    end
   end
 
   def update
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.update(cart_item_params)
+    redirect_back(fallback_location: root_url)
+  end
+
+  def show_update
+  	@cart_item = CartItem.find(params[:id])
+  	@quantity = @cart_item.quantity
+  	@cart_item.quantity = @quantity + cart_item_params[:quantity].to_i
+  	@cart_item.save
+  	redirect_back(fallback_location: root_url)
   end
 
   def destroy
   end
+
+  private
+    def cart_item_params
+      params.require(:cart_item).permit(:record_id, :quantity)
+    end
 end
 
