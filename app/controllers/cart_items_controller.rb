@@ -1,6 +1,7 @@
 class CartItemsController < ApplicationController
+
   def index
-  	@cart_item = session[:cart_item]
+  	@cart_item = Record.joins(:artist)
   end
 
   def create
@@ -30,9 +31,11 @@ class CartItemsController < ApplicationController
   def destroy
   end
 
+
   private
     def cart_item_params
       params.require(:cart_item).permit(:record_id, :quantity)
     end
+
 end
 
