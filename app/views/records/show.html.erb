@@ -41,7 +41,7 @@
         <%= link_to "logout", destroy_admin_session_path, method: :delete, class: 'glyphicon glyphicon-log-in' %>
 
       <% else %>
-        <h2 class="title"> 
+        <h2 class="title">
           <%= @record.name %>
         </h2>
         <p class="id">
@@ -58,7 +58,6 @@
           <%= hidden_field_tag(:record_id, @record.id) %>
           <%= submit_tag "カートに入れる", class: "btn btn-warning" %>
         <% end %>
-        
       <% end %>
     </div>
   </div>
@@ -72,29 +71,20 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12">
-      
-      <h3>ソングリスト</h3>
-      <table>
-        <thead>
-          <% previous_disc = nil %>
-          <% @record.tunes.each do |tunes| %>
-            <% if previous_disc != tunes.disc_no %>
-              <tr>
-                <th class="list-head">Disc<%= tunes.disc_no %></th>
-              </tr>
-            <% end %>
-              <% previous_disc = tunes.disc_no %>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="list"><%= tunes.tune_order %></td>
-            <td class="list"><%= tunes.tune_name %></td>
-          <% end %>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <h3>ソングリスト</h3>
+    <% previous_disc = nil %>
+    <% @record.tunes.each do |tunes| %>
+      <% if previous_disc != tunes.disc_no %>
+      <div class="col-xs-4">
+        <h4 class="list-head">Disc<%= tunes.disc_no %></h4>
+    <% end %>
+    <% previous_disc = tunes.disc_no %>
+        <p class="list">
+          <%= tunes.tune_order %>　
+          <%= tunes.tune_name %>
+        </p>
+    <% end %>
+      </div>
   </div>
 </div>
         <!-- ユーザーレビューは最後に実装します。 -->
