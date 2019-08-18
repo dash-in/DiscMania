@@ -28,6 +28,7 @@ class RecordsController < ApplicationController
   def show
     @record = Record.find(params[:id])
     @setting = Setting.find(1)
+    # @cart_item.user_id = current_user.id
   end
 
   private
