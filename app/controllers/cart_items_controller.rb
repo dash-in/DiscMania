@@ -1,7 +1,7 @@
 class CartItemsController < ApplicationController
 
   def index
-  	@cart_item = Record.joins(:artist)
+  	@cart_item = CartItem.all
   end
 
   def create
@@ -17,7 +17,15 @@ class CartItemsController < ApplicationController
   end
 
   def destroy
+
+
   end
+
+  def cart_item
+    params.require(:cart_item).permit(:record_id, :user_id, :quantity)
+  end
+
+
 
 end
 
