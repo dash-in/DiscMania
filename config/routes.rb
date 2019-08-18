@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:show, :new, :create]
   get '/orders/completed' => 'orders#completed'
 
+  # 名前空間上のroute
   namespace :admin do
 
     resources :users
