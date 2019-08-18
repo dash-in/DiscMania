@@ -1,6 +1,7 @@
 class CartItemsController < ApplicationController
+
   def index
-  	@cart_item = session[:cart_item]
+  	@cart_item = Record.joins(:artist)
   end
 
   def create
@@ -17,5 +18,6 @@ class CartItemsController < ApplicationController
 
   def destroy
   end
+
 end
 

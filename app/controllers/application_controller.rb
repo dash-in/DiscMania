@@ -12,6 +12,9 @@ class ApplicationController < ActionController::Base
     @records = @search.result(distinct: true)
   end
 
+  helper_method :current_cart
+
+
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [
