@@ -1066,3 +1066,60 @@ Processing by RecordsController#show as HTML
 Completed 200 OK in 3577ms (Views: 3363.0ms | ActiveRecord: 30.4ms)
 
 
+Started GET "/records/1" for 10.0.2.2 at 2019-08-18 02:48:41 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RecordsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mForm::Record Load (6.4ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."deleted_at" IS NULL AND "records"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:36
+  [1m[36mCACHE Record Load (0.1ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."deleted_at" IS NULL AND "records"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:29
+  [1m[36mSetting Load (6.7ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:30
+  Rendering records/show.html.erb within layouts/application
+  [1m[36mArtist Load (6.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."deleted_at" IS NULL AND "artists"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/records/show.html.erb:48
+  [1m[36mTune Load (6.6ms)[0m  [1m[34mSELECT "tunes".* FROM "tunes" WHERE "tunes"."record_id" = ?[0m  [["record_id", 1]]
+  ↳ app/views/records/show.html.erb:76
+  Rendered records/show.html.erb within layouts/application (108.7ms)
+Completed 200 OK in 3493ms (Views: 3307.0ms | ActiveRecord: 25.9ms)
+
+
+Started GET "/records/1" for 10.0.2.2 at 2019-08-18 02:49:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RecordsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mForm::Record Load (7.9ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."deleted_at" IS NULL AND "records"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:36
+  [1m[36mCACHE Record Load (0.1ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."deleted_at" IS NULL AND "records"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:29
+  [1m[36mSetting Load (7.3ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:30
+  Rendering records/show.html.erb within layouts/application
+  [1m[36mArtist Load (7.9ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."deleted_at" IS NULL AND "artists"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/records/show.html.erb:48
+  [1m[36mTune Load (7.4ms)[0m  [1m[34mSELECT "tunes".* FROM "tunes" WHERE "tunes"."record_id" = ?[0m  [["record_id", 1]]
+  ↳ app/views/records/show.html.erb:76
+  Rendered records/show.html.erb within layouts/application (122.9ms)
+Completed 200 OK in 3559ms (Views: 3344.1ms | ActiveRecord: 30.5ms)
+
+
+Started GET "/records/1" for 10.0.2.2 at 2019-08-18 02:50:59 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RecordsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mForm::Record Load (6.5ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."deleted_at" IS NULL AND "records"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:36
+  [1m[36mCACHE Record Load (0.1ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."deleted_at" IS NULL AND "records"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:29
+  [1m[36mSetting Load (6.8ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:30
+  Rendering records/show.html.erb within layouts/application
+  [1m[36mArtist Load (6.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."deleted_at" IS NULL AND "artists"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/records/show.html.erb:48
+  [1m[36mTune Load (6.5ms)[0m  [1m[34mSELECT "tunes".* FROM "tunes" WHERE "tunes"."record_id" = ?[0m  [["record_id", 1]]
+  ↳ app/views/records/show.html.erb:76
+  Rendered records/show.html.erb within layouts/application (112.9ms)
+Completed 200 OK in 13565ms (Views: 13377.9ms | ActiveRecord: 26.2ms)
+
+
