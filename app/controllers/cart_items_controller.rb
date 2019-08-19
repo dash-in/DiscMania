@@ -1,7 +1,7 @@
 class CartItemsController < ApplicationController
 
   def index
-    @cart_item = CartItem.where("id > 1")
+    @cart_item = CartItem.where("user_id > 0")
   end
 
   def create
@@ -15,7 +15,7 @@ class CartItemsController < ApplicationController
   end
 
   def update
-    @cart_item = CartItem.find(params[:id])
+    @cart_item = CartItem.find_by("quantity")
     @cart_item.update(cart_item_params)
     redirect_back(fallback_location: root_url)
   end
@@ -25,18 +25,18 @@ class CartItemsController < ApplicationController
   	@quantity = @cart_item.quantity
   	@cart_item.quantity = @quantity + cart_item_params[:quantity].to_i
   	@cart_item.save
-  	redirect_back(fallback_location: root_url)
+  	redirect_back(fallback_location: root_path)
   end
 
   def destroy
     @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
-    redirect_to cart_item_path
+    redirect_back(fallback_location: root_path)
   end
 
   private
     def cart_item_params
-      params.require(:cart_item).permit(:record_id, :quantity)
+      params.require(:cart_item).permit(:record_id, :quantity, :user_id)
     end
 
 
