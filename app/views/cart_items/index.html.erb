@@ -4,14 +4,7 @@
   <p class="top">※一回のご注文で複数の商品をご注文いただいた場合は、原則として全ての商品が揃ってから一括発送いたします。</p>
   <br>
   <div class="if">
-
-    <% if @cart_item.empty? %>
-
-     <p align="center">現在、カートに商品は入っておりません。</p>
-     <br>
-
-     <% else %>
-
+    <% @cart_item.each do |cart| %>
       <table border  width="100%">
       <tr align="center" height="50">
         <td></td>
@@ -21,31 +14,30 @@
       	<td>金額</td>
         <td></td>
       </tr>
-  	  <% @cart_item.each do |record| %>
       <tr align="center" height="100">
-  	  <td></td>
   	  <td>
-        <%= record.name %><br>
-        <%= record.artist.name %><br>
-        <%= record.label %>
+        <%= attachment_image_tag cart.record,:image, format: 'jpeg', size: "80×80", fallback: "no_image.jpg", size:'80x80' %>
       </td>
-      <td>￥<%= record.price.to_s(:delimited) %>（税込）</td>
-      <td><%= record.cart_item.quantity %></td>
+  	  <td>
+        <%= cart.record.name %><br>
+        <%= cart.record.artist.name %><br>
+        <%= cart.record.label %>
+      </td>
+      <td>￥<%= cart.record.price.to_s(:delimited) %>（税込）</td>
       <td>
-        ￥（税込）
+        <%= cart.record.cart_item.quantity %>
       </td>
-      <td><%= link_to "カートから削除", class: 'btn btn-danger' %></td>
-      <% end %>
+      <td>￥ <%= subtotal = cart.record.price * cart.record.cart_item.quantity %>（税込）</td>
+      <td></td>
+      </tr>
+      </table>
       <br>
-  </tr>
-  </table>
-  <br>
-  <br>
-      <div class="total">税込合計金額 ? 円</div>
-  <br>
-  <br>
-  <% end %>
+      <% end %>
+      <div class="total">税込合計金額  ?? 円</div>
+      <br>
+      <br>
  </div>
+
    <div class="caution clearfix">
     <h3>ご注意ください</h3>
     <p class="a">以前のご注文との同封発送はできません。</p>
@@ -59,5 +51,4 @@
    <button class="btn btn-danger col-xs-6">レジに進む</button>
    <% end %>
   </div>
-  <br>
- </div>
+</div>

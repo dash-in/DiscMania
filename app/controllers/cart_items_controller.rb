@@ -1,7 +1,7 @@
 class CartItemsController < ApplicationController
 
   def index
-  	@cart_item = CartItem.all + Artist.all + Record.all
+    @cart_item = CartItem.where("id > 1")
   end
 
   def create
@@ -29,8 +29,9 @@ class CartItemsController < ApplicationController
   end
 
   def destroy
-
-
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.destroy
+    redirect_to cart_item_path
   end
 
   private
