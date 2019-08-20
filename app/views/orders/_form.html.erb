@@ -47,8 +47,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :shipping_status %>
-    <%= form.number_field :shipping_status %>
+    <%= form.label :shipping_status%>
+    <%= form.select :shipping_status,[["発送準備中","undelivery"],["配送中","delivery"],["配送済み","delivered"]]%>
   </div>
 
   <div class="actions">
