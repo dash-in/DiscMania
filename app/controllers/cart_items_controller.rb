@@ -3,6 +3,8 @@ class CartItemsController < ApplicationController
 
   def index
     @cart_item = CartItem.where(user_id: current_user.id )
+    @setting = Setting.find(1)
+    @sum = 0
   end
 
   def create

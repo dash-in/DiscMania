@@ -5,7 +5,6 @@
   <br>
   <div class="if">
     <% if @cart_item.empty? %>
-
     <h2 align="center">カートには何も入っていません!!</h2>
     <h4 align="center"><%= link_to "買い物を続ける", records_path %></h4>
     <br>
@@ -21,6 +20,7 @@
         <td></td>
       </tr>
       <% @cart_item.each do |cart| %>
+      <% sum = 0 %>
       <tr align="center" height="100">
   	  <td>
         <%= attachment_image_tag cart.record, :image, format: 'jpeg', size: "80×80", fallback: "no_image.jpg", size:'80x80' %>
@@ -30,7 +30,9 @@
         <%= cart.record.artist.name %><br>
         <%= cart.record.label %>
       </td>
-      <td>￥<%= cart.record.price.to_s(:delimited) %>（税込）</td>
+      <td>￥
+        <%= cart.record.price %>
+      </td>
       <td>
         <%= form_for cart, url: cart_item_path(cart), method: :patch do  |f| %>
         <%= f.number_field :quantity %>
@@ -38,14 +40,17 @@
         <% end %>
       </td>
       <td>
-          <%= sub_total = cart.record.price * cart.record.cart_item.quantity %>
+          <% @sub_total  = (cart.record.price * cart.record.cart_item.quantity * @setting.tax).floor%>
+          <% @sum += @sub_total %>
+        ￥<%= @sub_total %>（税込）
       </td>
       <td><%= link_to "カートから消す", cart,url: cart_item_path(@cart_item), method: :delete, class: "btn btn-danger" %></td>
       </tr>
       <% end %>
-        <div class="total">税込合計金額 ??円</div>
       </table>
-
+      <div class="total">
+        税込合計金額(※送料含む)￥<%= @sum + 500 .floor %>円
+      </div>
       <br>
       <% end %>
       <br>
