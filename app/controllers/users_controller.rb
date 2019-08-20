@@ -6,6 +6,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @shippings = @user.shipping_infos
+    @order_details = Order.where(user_id: 1).includes(:order_details).map(&:order_details).flatten
+    @setting = Setting.find(1)
   if @user.id != current_user.id
      redirect_to user_path(current_user)
    end
