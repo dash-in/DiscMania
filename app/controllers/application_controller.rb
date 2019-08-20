@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_cart
 
+  protect_from_forgery with: :exception
 
   protected
   def configure_permitted_parameters
