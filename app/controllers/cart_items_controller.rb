@@ -1,7 +1,8 @@
 class CartItemsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
-    @cart_item = CartItem.where("user_id > 0")
+    @cart_item = CartItem.where(user_id: current_user.id )
   end
 
   def create
@@ -15,13 +16,13 @@ class CartItemsController < ApplicationController
   end
 
   def update
-    @cart_item = CartItem.find_by("quantity")
-    @cart_item.update(cart_item_params)
-    redirect_back(fallback_location: root_url)
+       @cart_item = CartItem.find(params[:id])
+       @cart_item.update(cart_item_params)
+       redirect_back(fallback_location: root_url)
   end
 
   def show_update
-  	@cart_item = CartItem.find(params[:id])
+  	@cart_item = CartItem.find_by(params[:id])
   	@quantity = @cart_item.quantity
   	@cart_item.quantity = @quantity + cart_item_params[:quantity].to_i
   	@cart_item.save
