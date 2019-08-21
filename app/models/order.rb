@@ -10,5 +10,6 @@ class Order < ApplicationRecord
   validates :shipping_post_num, presence: true
   validates :shipping_address, presence: true
 
-  enum shipping_status: { undelivery: 0, delivery: 1, delivered: 2 }
+   enum shipping_status: { undelivery: 0, delivery: 1, delivered: 2 }
+   enum receipt_status: { undeposit: 0, deposit:1 }
 end
