@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div>
+            <h1>ご注文ありがとうございます！</h1>
+            <p>商品のご注文を承りました。</p>
+            <p>ご入金および発送に関しましては、追ってメールにてご案内いたします。</p>
+        </div>
+
+        <div>
+            <h2>引き続き商品を探す</h2>
+            <%= link_to "お買い物ページへ", records_path, class:"btn btn-success btn-lg" %>
+        </div>
+
+        <div>
+            <h2>購入内容を確認する</h2>
+            <%= link_to "お買い物ページへ", order_path(@order.id), class:"btn btn-success btn-lg" %>
+        </div>
+    </div>
+</div>
