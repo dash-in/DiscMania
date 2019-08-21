@@ -8,9 +8,13 @@ class CartItemsController < ApplicationController
     @cart_item = CartItem.new(cart_item_params)
     @user = current_user
     @cart_item.user_id = current_user.id
-    if @cart_item.save
-      flash[:success] = "カートに入れました！"
-      redirect_back(fallback_location: root_url)
+    if @user 
+      if @cart_item.save
+        flash[:success] = "カートに入れました！"
+        redirect_back(fallback_location: root_url)
+      end
+    else
+      redirect_to new_user_session_path
     end
   end
 

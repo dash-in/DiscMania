@@ -1,44 +1,101 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @order.user_id %>
-</p>
-
-<p>
-  <strong>Shipping info:</strong>
-  <%= @order.shipping_info_id %>
-</p>
-
-<p>
-  <strong>Payment method:</strong>
-  <%= @order.payment_method %>
-</p>
-
-<p>
-  <strong>Actual shipping:</strong>
-  <%= @order.actual_shipping %>
-</p>
-
-<p>
-  <strong>Actual tax:</strong>
-  <%= @order.actual_tax %>
-</p>
-
-<p>
-  <strong>Total price:</strong>
-  <%= @order.total_price %>
-</p>
-
-<p>
-  <strong>Receipt status:</strong>
-  <%= @order.receipt_status %>
-</p>
-
-<p>
-  <strong>Shipping status:</strong>
-  <%= @order.shipping_status %>
-</p>
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <h2>受注概要</h2>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th>受注ID</th>
+            <td>受注ID: <%= @order.id %></td>
+            <td>受注日: <%= @order.created_at.strftime('%Y/%m/%d') %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th>お客様情報</th>
+            <td>お客様ID:<%= @user.id %></td>
+            <td>ユーザー名: <%= @user.last_name %> <%= @user.first_name %></td>
+            <td>Email:<%= @user.email %></td>
+          </tr>
+          <tr>
+            <th>発送先情報</th>
+            <td>発送ステータス: <%= @order.shipping_status_i18n %></td>
+            <td>宛名: 大谷 翔平</td>
+            <td>住所: アメリカ合衆国</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <h2>受注内容</h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th></th>
+            <th>レコード名</th>
+            <th>購入数</th>
+            <th>価格</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <h2>支払い情報</h2>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td>合計金額:￥<%= number_with_delimiter (@order.total_price) %></td>
+          </tr>
+          <tr>
+            <td>支払い方法: <%= @order.payment_method %></td>
+          </tr>
+          <tr>
+            <td>入金ステータス: <%= @order.receipt_status_i18n %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <h2>発送先情報</h2>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td>宛名:￥<%= number_with_delimiter (@order.total_price) %></td>
+          </tr>
+          <tr>
+            <td>電話番号: <%= @order.payment_method %></td>
+          </tr>
+          <tr>
+            <td>郵便番号:〒 <%= @order.receipt_status_i18n %></td>
+          </tr>
+          <tr>
+            <td>住所:</td>
+          </tr>
+          <tr>
+            <td>発送ステータス: <%= @order.shipping_status_i18n %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <%= link_to 'マイページに戻る', user_path(@user.id), class: "btn btn-success center-block" %>
+</div>
+<% end %>

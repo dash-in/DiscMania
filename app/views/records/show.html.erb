@@ -38,7 +38,6 @@
         <% end %><br>
         <%= link_to '商品情報を編集する', edit_admin_record_path(@record), class: "btn btn-success bottun--1" %>
         <%= link_to 'この商品を削除する', admin_record_path(@record), class: 'btn btn-danger', method: :delete, "data-confirm" => "本当に削除しますか？" %>
-        <%= link_to "logout", destroy_admin_session_path, method: :delete, class: 'glyphicon glyphicon-log-in' %>
 
       <% else %>
         <h2 class="title">

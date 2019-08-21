@@ -14,6 +14,6 @@ class User < ApplicationRecord
 
   has_many :orders
 
-  # User.joins(orders: :order_details).select("users.*,orders.*,order_details.*")
+
 
 end

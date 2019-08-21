@@ -92,7 +92,7 @@
                     <% @order_details.each do |order_detail| %>
                     <tr>
                         <td><%= order_detail.created_at.strftime('%Y/%m/%d')%></td>
-                        <td>￥<%= number_with_delimiter (order_detail.order.total_price * @setting.tax + @setting.shipping).floor %></td>
+                        <td>￥<%= number_with_delimiter (order_detail.order.total_price).floor %></td>
                         <td><%= order_detail.order.payment_method %></td>
                         <td><%= order_detail.order.shipping_status_i18n %></td>
                         <td><%= link_to "詳しく見る", order_path(order_detail.id), class:"btn btn-success btn-xs" %></td>

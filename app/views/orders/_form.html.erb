@@ -43,7 +43,7 @@
 
   <div class="field">
     <%= form.label :receipt_status %>
-    <%= form.number_field :receipt_status %>
+    <%= form.select :receipt_status,[["未入金","undeposit"],["入金済み","deposit"]] %>
   </div>
 
   <div class="field">
