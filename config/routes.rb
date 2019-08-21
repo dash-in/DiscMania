@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :orders
 
+  get 'admin_orders/index'
+  get 'admin_orders/show'
+  get 'admin_orders/edit'
+  get 'admin_orders/destroy'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
@@ -36,13 +39,15 @@ Rails.application.routes.draw do
   resources :artists
   get  '/typeahead' => 'artists#typeahead_action'
 
+
   resources :cart_items, only: [:index, :create, :update, :destroy] do
     member do
       put :show_update
     end
   end
-  resources :orders, only: [:show, :new, :create]
+
   get '/orders/completed' => 'orders#completed'
+  resources :orders, only: [:show, :new, :create]
 
   # 名前空間上のroute
   namespace :admin do
