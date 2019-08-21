@@ -36,11 +36,13 @@ Rails.application.routes.draw do
   resources :artists
   get  '/typeahead' => 'artists#typeahead_action'
 
+
   resources :cart_items, only: [:index, :create, :update, :destroy] do
     member do
       put :show_update
     end
   end
+
   resources :orders, only: [:show, :new, :create]
   get '/orders/completed' => 'orders#completed'
 

@@ -1,31 +1,85 @@
 <div class="container">
  <div class="row">
   <h2>カート</h2>
-  <p class="border">※一回のご注文で複数の商品をご注文いただいた場合は、原則として全ての商品が揃ってから一括発送いたします。</p>
+  <p class="top">※一回のご注文で複数の商品をご注文いただいた場合は、原則として全ての商品が揃ってから一括発送いたします。</p>
   <br>
-  <table width="100%" height="100%">
-  <tr align="center">
-    <td></td>
-  	<td>商品</td>
-  	<td>単価</td>
-  	<td>数量</td>
-  	<td>金額</td>
-  </tr>
-  	  <% @cart_item.each do |record| %>
-      <tr align="center">
-  	  <td><%= attachment_image_tag @record,:image, format: 'jpeg', size: "100×100", fallback: "no_image.jpg", size:'100x100' %></td>
+  <div class="if">
+    <% if @cart_item.empty? %>
+    <h2 align="center">カートには何も入っていません!!</h2>
+    <h4 align="center"><%= link_to "買い物を続ける", records_path %></h4>
+    <br>
+    <br>
+    <% else %>
+      <table border  width="100%">
+      <tr align="center" height="50">
+        <td></td>
+      	<td>商品</td>
+      	<td>単価</td>
+      	<td>数量</td>
+      	<td>金額</td>
+        <td></td>
+      </tr>
+      <% @cart_item.each do |cart| %>
+      <% sum = 0 %>
+      <tr align="center" height="100">
   	  <td>
-        <%= record.name %><br>
-        <%= record.artist.name %><br>
-        <%= record.label %>
+        <%= attachment_image_tag cart.record, :image, format: 'jpeg', size: "80×80", fallback: "no_image.jpg", size:'80x80' %>
       </td>
-      <td>￥<%= record.price.to_s(:delimited) %>（税込）</td>
-      <td>1git</td>
-      <td>￥<%= record.price.to_s(:delimited) %>（税込）</td>
-      <td><button class="btn btn-danger">カートから削除</button></td>
+  	  <td>
+        <%= cart.record.name %><br>
+        <%= cart.record.artist.name %><br>
+        <%= cart.record.label %>
+      </td>
+      <td>￥
+        <%= cart.record.price %>
+      </td>
+      <td>
+        <%= form_for cart, url: cart_item_path(cart), method: :patch do  |f| %>
+        <%= f.number_field :quantity %>
+        <%= submit_tag "数量更新", class: "btn-xs btn-info" %>
+        <% end %>
+      </td>
+      <td>
+          <% @sub_total  = (cart.record.price * cart.record.cart_item.quantity * @setting.tax).floor%>
+          <% @sum += @sub_total %>
+        ￥<%= @sub_total %>（税込）
+      </td>
+      <td><%= link_to "カートから消す", cart,url: cart_item_path(@cart_item), method: :delete, class: "btn btn-danger" %></td>
+      </tr>
       <% end %>
-  </tr>
-  </table>
-  <div class="total"></div>
+      </table>
+      <div class="total">
+        税込合計金額(※送料含む)￥<%= @sum + 500 .floor %>円
+      </div>
+      <br>
+      <% end %>
+      <br>
+      <br>
+
  </div>
+
+   <div class="caution clearfix">
+      <h3>ご注意ください</h3>
+      <p class="a">以前のご注文との同封発送はできません。</p>
+      <p class="b">ご注文完了後の支払い方法の変更は行えません。</p>
+      <p class="c">送料は一配送につき全国一律５００円になります。</p>
+      <p class="d">カート内商品は一括発送いたします。</p>
+     </div>
+     <br>
+     <% unless @cart_item.blank? %>
+     <%= link_to "買い物を続ける", records_path, class:"btn btn-info col-xs-6" %>
+     <button class="btn btn-danger col-xs-6">レジに進む</button>
+     <% end %>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <div class="postage">
+       <h2>送料について</h2>
+       <p class="">DiscManiaでは、全国一律５００円（税込）をいただいております。</p>
+     </div>
+   </div>
+  </div>
 </div>
