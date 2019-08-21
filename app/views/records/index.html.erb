@@ -16,7 +16,7 @@
             <% else %>
               <div class="stock-t"><p>即日発送</p></div>
             <% end %>
-            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+            <%= link_to record_path(record.id), target: "_blank" do %>
               <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
             <% end %>
             <h4><b><%= record.name %></b></h4>
@@ -38,7 +38,7 @@
             <% else %>
               <div class="stock-t"><p>即日発送</p></div>
             <% end %>
-            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+            <%= link_to record_path(record.id), target: "_blank" do %>
               <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
             <% end %>
             <h4><b><%= record.name %></b></h4>
@@ -60,7 +60,7 @@
             <% else %>
               <div class="stock-t"><p>即日発送</p></div>
             <% end %>
-            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+            <%= link_to record_path(record.id), target: "_blank" do %>
               <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
             <% end %>
             <h4><b><%= record.name %></b></h4>
@@ -82,7 +82,7 @@
             <% else %>
               <div class="stock-t"><p>即日発送</p></div>
             <% end %>
-            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+            <%= link_to record_path(record.id), target: "_blank" do %>
               <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
             <% end %>
             <h4><b><%= record.name %></b></h4>
@@ -104,7 +104,7 @@
             <% else %>
               <div class="stock-t"><p>即日発送</p></div>
             <% end %>
-            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+            <%= link_to record_path(record.id), target: "_blank" do %>
               <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
             <% end %>
             <h4><b><%= record.name %></b></h4>
@@ -126,7 +126,7 @@
             <% else %>
               <div class="stock-t"><p>即日発送</p></div>
             <% end %>
-            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+            <%= link_to record_path(record.id), target: "_blank" do %>
               <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
             <% end %>
             <h4><b><%= record.name %></b></h4>
@@ -148,7 +148,7 @@
             <% else %>
               <div class="stock-t"><p>即日発送</p></div>
             <% end %>
-            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+            <%= link_to record_path(record.id), target: "_blank" do %>
               <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
             <% end %>
             <h4><b><%= record.name %></b></h4>
@@ -170,7 +170,7 @@
             <% else %>
               <div class="stock-t"><p>即日発送</p></div>
             <% end %>
-            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+            <%= link_to record_path(record.id), target: "_blank" do %>
               <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
             <% end %>
             <h4><b><%= record.name %></b></h4>
@@ -192,12 +192,12 @@
             <% else %>
               <div class="stock-t"><p>即日発送</p></div>
             <% end %>
-            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+            <%= link_to record_path(record.id), target: "_blank" do %>
               <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
             <% end %>
             <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
-            <>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
+            <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
           </div>
         <% end %>
       </div>
@@ -214,7 +214,7 @@
             <% else %>
               <div class="stock-t"><p>即日発送</p></div>
             <% end %>
-            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+            <%= link_to record_path(record.id), target: "_blank" do %>
               <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
             <% end %>
             <h4><b><%= record.name %></b></h4>
@@ -236,7 +236,7 @@
             <% else %>
               <div class="stock-t"><p>即日発送</p></div>
             <% end %>
-            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+            <%= link_to record_path(record.id), target: "_blank" do %>
               <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
             <% end %>
             <h4><b><%= record.name %></b></h4>
@@ -258,7 +258,7 @@
             <% else %>
               <div class="stock-t"><p>即日発送</p></div>
             <% end %>
-            <%= link_to admin_record_path(record.id), target: "_blank" do %>
+            <%= link_to record_path(record.id), target: "_blank" do %>
               <%= attachment_image_tag record, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class:'text-center record-image' %></br>
             <% end %>
             <h4><b><%= record.name %></b></h4>

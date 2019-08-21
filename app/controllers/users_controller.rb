@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+
   def index
     @users = User.all
   end
@@ -14,10 +14,10 @@ class UsersController < ApplicationController
    end
   end
 
-  def deleting
+  def withdraw
   end
 
-  def deleted
+  def unsubscribe
   end
 
     def edit
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to admin_users_path
+    redirect_to users_unsubscribe_path
   end
 
 private
