@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'admin_orders/index'
+  get 'admin_orders/show'
+  get 'admin_orders/edit'
+  get 'admin_orders/destroy'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
