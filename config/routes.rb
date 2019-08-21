@@ -24,9 +24,9 @@ Rails.application.routes.draw do
 
   resources :settings, only: [:show, :edit, :update]
 
+  get '/users/withdraw' => 'users#withdraw'
+  get '/users/unsubscribe' => 'users#unsubscribe'
   resources :users, only: [:show, :edit, :update, :destroy]
-  get '/users/deleting' => 'users#deleting'
-  get '/users/deleted' => 'users#deleted'
 
   resources :shipping_infos, only: [:edit, :update, :destroy]
 

@@ -197,7 +197,7 @@
             <% end %>
             <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
-            <>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
+            <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
           </div>
         <% end %>
       </div>
