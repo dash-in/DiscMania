@@ -38,7 +38,6 @@
         <% end %><br>
         <%= link_to '商品情報を編集する', edit_admin_record_path(@record), class: "btn btn-success bottun--1" %>
         <%= link_to 'この商品を削除する', admin_record_path(@record), class: 'btn btn-danger', method: :delete, "data-confirm" => "本当に削除しますか？" %>
-        <%= link_to "logout", destroy_admin_session_path, method: :delete, class: 'glyphicon glyphicon-log-in' %>
 
       <% else %>
         <h2 class="title">
@@ -53,19 +52,27 @@
         <h4 class="price">￥
          <%= number_with_delimiter (@record.price.to_i * @setting.tax).floor %>
         </h4>
-        <% cart_item = CartItem.find_by(user_id:current_user.id, record_id:@record.id) %>
-        <% if cart_item %>
-          <%= form_tag(show_update_cart_item_path(cart_item), method: :put) do %>
-            <%= number_field_tag("cart_item[quantity]") %>
-            <%= hidden_field_tag("cart_item[record_id]", @record.id) %>
-            <%= submit_tag "カートに入れる", class: "btn btn-warning" %>
+        <% if user_signed_in? %>
+          <% cart_item = CartItem.find_by(user_id:current_user.id, record_id:@record.id) %>
+          <% if cart_item %>
+            <%= form_tag(show_update_cart_item_path(cart_item), method: :put) do %>
+              <%= number_field_tag("cart_item[quantity]") %>
+              <%= hidden_field_tag("cart_item[record_id]", @record.id) %>
+              <%= submit_tag "カートに入れる", class: "btn btn-warning" %>
+            <% end %>
+          <% else %>
+            <%= form_tag(cart_items_path, method: :post) do %>
+              <%= number_field_tag("cart_item[quantity]") %>
+              <%= hidden_field_tag("cart_item[record_id]", @record.id) %>
+              <%= submit_tag "カートに入れる", class: "btn btn-warning" %>
+            <% end %>
           <% end %>
-        <% else %>
-          <%= form_tag(cart_items_path, method: :post) do %>
-            <%= number_field_tag("cart_item[quantity]") %>
-            <%= hidden_field_tag("cart_item[record_id]", @record.id) %>
-            <%= submit_tag "カートに入れる", class: "btn btn-warning" %>
-          <% end %>
+        <% else%>
+            <%= form_tag(cart_items_path, method: :post) do %>
+              <%= number_field_tag("cart_item[quantity]") %>
+              <%= hidden_field_tag("cart_item[record_id]", @record.id) %>
+              <%= submit_tag "カートに入れる", class: "btn btn-warning" %>
+            <% end %>
         <% end %>
       <% end %>
     </div>
@@ -100,6 +107,7 @@
     </div>
   </div>
 </div>
+<<<<<<< HEAD
 <br>
 <br>
         <!-- ユーザーレビューは最後に実装します。 -->
@@ -143,3 +151,6 @@
            </div>
          </div>
         </div>
+=======
+        <!-- ユーザーレビューは最後に実装します -->
+>>>>>>> master

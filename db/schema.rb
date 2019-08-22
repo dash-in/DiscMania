@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_08_21_103932) do
+=======
+ActiveRecord::Schema.define(version: 2019_08_21_095047) do
+>>>>>>> master
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -35,7 +39,7 @@ ActiveRecord::Schema.define(version: 2019_08_21_103932) do
   create_table "cart_items", force: :cascade do |t|
     t.integer "record_id"
     t.integer "user_id"
-    t.integer "quantity"
+    t.integer "quantity", default: 0
     t.datetime "created_at", null: false
     t.datetime "edited_at"
     t.datetime "updated_at", null: false
@@ -58,8 +62,8 @@ ActiveRecord::Schema.define(version: 2019_08_21_103932) do
     t.integer "actual_shipping"
     t.float "actual_tax"
     t.integer "total_price"
-    t.integer "receipt_status"
-    t.integer "shipping_status"
+    t.integer "receipt_status", default: 0
+    t.integer "shipping_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "shipping_name"
@@ -109,7 +113,7 @@ ActiveRecord::Schema.define(version: 2019_08_21_103932) do
 
   create_table "tunes", force: :cascade do |t|
     t.integer "record_id"
-    t.integer "disc_no"
+    t.integer "disc_no", default: 1
     t.integer "tune_order"
     t.string "tune_name"
     t.datetime "created_at", null: false

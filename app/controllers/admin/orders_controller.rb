@@ -1,8 +1,10 @@
 class Admin::OrdersController < ApplicationController
     before_action :set_order, only: [:show, :edit, :destroy]
+    
+    def index
+        @orders = Order.all
+    end
 
-    # GET /orders/1
-    # GET /orders/1.json
     def show
     end
 
@@ -23,7 +25,7 @@ class Admin::OrdersController < ApplicationController
         # Use callbacks to share common setup or constraints between actions.
         def set_order
         @order = Order.find(params[:id])
-        @order_details = OrderDetail.where(order_id = @order.id)
+        @order_details = OrderDetail.where(order_id: @order.id)
         end
 
         # Never trust parameters from the scary internet, only allow the white list through.
