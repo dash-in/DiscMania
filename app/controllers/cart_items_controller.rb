@@ -7,8 +7,7 @@ class CartItemsController < ApplicationController
     @sum = 0
   end
 
-
-   def create
+  def create
     @cart_item = CartItem.new(cart_item_params)
     @user = current_user
     @cart_item.user_id = current_user.id
@@ -18,25 +17,26 @@ class CartItemsController < ApplicationController
         redirect_to cart_items_path
       end
     else
-      redirect_to new_user_session_path
+        redirect_to new_user_session_path
     end
   end
 
   def update
-       @cart_item = CartItem.find(params[:id])
-       @cart_item.update(cart_item_params)
-       flash[:success] = "カート内容が変更されました"
-       redirect_back(fallback_location: root_url)
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.update(cart_item_params)
+    flash[:success] = "カート内容が変更されました"
+    redirect_to cart_items_path
   end
 
-  def show_update
-  	@cart_item = CartItem.find_by(params[:id])
-  	@quantity = @cart_item.quantity
-  	@cart_item.quantity = @quantity + cart_item_params[:quantity].to_i
-  	@cart_item.save
-    flash[:success] = "カートに追加されました！"
-  	redirect_to cart_items_path
-  end
+  # 一度消します
+  # def show_update
+  # 	@cart_item = CartItem.find_by(params[:id])
+  # 	@quantity = @cart_item.quantity
+  # 	@cart_item.quantity = @quantity + cart_item_params[:quantity].to_i
+  # 	@cart_item.save
+  #   flash[:success] = "カートに追加されました！"
+  # 	redirect_to cart_items_path
+  # end
 
   def destroy
     @cart_item = CartItem.find(params[:id])

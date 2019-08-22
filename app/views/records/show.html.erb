@@ -53,29 +53,46 @@
         <h4 class="price">￥
          <%= number_with_delimiter (@record.price.to_i * @setting.tax).floor %>
         </h4>
+
+
+        <!-- ここから新しいカート追加 -->
+        <% stock_array= []
+        @record.stock.times do |quantity|
+          if quantity < 31
+            stock_array.push(quantity)
+          else
+            break
+          end %>
+        <% end %>
+
         <% if user_signed_in? %>
-          <% cart_item = CartItem.find_by(user_id:current_user.id, record_id:@record.id) %>
+        <% cart_item = CartItem.find_by(user_id:current_user.id, record_id:@record.id) %>
           <% if cart_item %>
-            <%= form_tag(show_update_cart_item_path(cart_item), method: :put) do %>
-              <%= number_field_tag("cart_item[quantity]") %>
-              <%= hidden_field_tag("cart_item[record_id]", @record.id) %>
-              <%= submit_tag "カートに入れる", class: "btn btn-warning" %>
+            <%= form_for(cart_item, url: cart_item_path(cart_item),html:{method: "put"}) do |f| %>
+            <%= f.select :quantity, stock_array %>
+            <%= f.label :quantity, "個" %>
+            <%= f.hidden_field :record_id, :value => @record.id %>
+            <%= f.submit "カートに入れる", class:"btn btn-primary" %>
             <% end %>
           <% else %>
-            <%= form_tag(cart_items_path, method: :post) do %>
-              <%= number_field_tag("cart_item[quantity]") %>
-              <%= hidden_field_tag("cart_item[record_id]", @record.id) %>
-              <%= submit_tag "カートに入れる", class: "btn btn-warning" %>
+            <%= form_for @cart_item do |f| %>
+            <%= f.select :quantity, stock_array %>
+            <%= f.label :quantity, "個" %>
+            <%= f.hidden_field :record_id, :value => @record.id %>
+            <%= f.submit "カートに入れる", class:"btn btn-primary" %>
             <% end %>
           <% end %>
-        <% else%>
-            <%= form_tag(cart_items_path, method: :post) do %>
-              <%= number_field_tag("cart_item[quantity]") %>
-              <%= hidden_field_tag("cart_item[record_id]", @record.id) %>
-              <%= submit_tag "カートに入れる", class: "btn btn-warning" %>
-            <% end %>
-       <% end %>
-      <% end %>
+        <% else %>
+          <%= form_for @cart_item do |f| %>
+          <%= f.select :quantity, stock_array %>
+          <%= f.label :quantity, "個" %>
+          <%= f.hidden_field :record_id, :value => @record.id %>
+          <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+          <% end %>
+        <% end %>
+        <% end %>
+
+
     </div>
   </div>
 
@@ -97,7 +114,7 @@
         <% end %>
             <% previous_disc_no = tune.disc_no %>
             <p class="list">
-              <%= tune.tune_order %>　
+              <%= tune.tune_order %>
               <%= tune.tune_name %>
             </p>
             <!-- もし、recordの曲が最後、または、曲のディスクナンバーと次の曲のディスクナンバーが一致しなかったとき -->
