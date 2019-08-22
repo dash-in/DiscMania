@@ -17,7 +17,7 @@ class CartItemsController < ApplicationController
         redirect_to cart_items_path
       end
     else
-        redirect_to new_user_session_path
+      redirect_to new_user_session_path
     end
   end
 

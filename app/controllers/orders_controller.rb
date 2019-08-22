@@ -6,7 +6,10 @@ class OrdersController < ApplicationController
   # GET /orders/1.json
   def show
     @order = Order.find(params[:id])
-    
+    @orders = Order.where(id: params[:id])
+    @user = @order.user
+    if @user != current_user
+      redirect_to user_path(@user.id)
   end
 
   # GET /orders/new
