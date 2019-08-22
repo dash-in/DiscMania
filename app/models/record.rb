@@ -12,6 +12,8 @@ class Record < ApplicationRecord
 	has_many :order_details
 	has_many :cart_items
 
+	has_many :reviews
+
 	belongs_to :artist
 
 	has_one :cart_item

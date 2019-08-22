@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :cart_items
   has_many :shipping_infos
   has_many :orders
+  has_many :reviews, dependent: :destroy
 
   # User.joins(orders: :order_details).select("users.*,orders.*,order_details.*")
 
