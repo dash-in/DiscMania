@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
     if @user != current_user
       redirect_to user_path(@user.id)
   end
+end
 
   # GET /orders/new
   def new
