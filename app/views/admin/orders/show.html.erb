@@ -1,19 +1,168 @@
 <div class="container">
     <div class="row">
-        <section class="col-xs-10 col-xs-offset-1">
-            <h2>受注概要</h2>
-            <div class="col-xs-4">
-                <h3>基本情報</h3>
-            </div>
-            <div class="col-xs-8">
-                <p>
-                    受注ID：<%= @order.id %>　　　
-                    受注日時：<%= simple_time(@order.created_at) %>
-                
-                </p>
-            </div>
-        </section>
-        <div class="col-xs-1"></div>
+
+        <div class="col-xs-12">
+            <h2 class="text-center"><b>受注詳細</b></h2>
+            <section class="col-xs-10 col-xs-offset-1 ad-or-dir">
+                <h3 class="ad-or-dir-tit">受注概要</h3>
+                <table class="table ad-or-sh-tb">
+                    <thead>
+                        <tr>
+                            <th class="col text-center col-xs-1">ID</th>
+                            <th class="col text-center col-xs-3">受注日時</th>
+                            <th class="col text-center col-xs-1">発注者</th>
+                            <th class="col text-center col-xs-1">金額</th>
+                            <th class="col text-center col-xs-2">入金方法</th>
+                            <th class="col text-center col-xs-2">入金ステータス</th>
+                            <th class="col text-center col-xs-2">発送ステータス</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center"><%= @order.id %></td>
+                            <td class="text-center"><%= simple_time(@order.created_at) %></td>
+                            <td class="text-center"><%= link_to @order.user.handlename, user_path(@order.user_id) %></td>
+                            <td class="text-center"><%= @order.total_price %></td>
+                            <td class="text-center"><%= @order.payment_method %></td>
+                            <td class="text-center"><a href="#"><%= @order.receipt_status_i18n %></a></td>
+                            <td class="text-center"><a href="#"><%= @order.shipping_status_i18n %></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <div class="col-xs-1"></div>
+        </div>
+
+        <div class="col-xs-12">
+            <section class="col-xs-10 col-xs-offset-1 ad-or-dir">
+                <h3 class="ad-or-dir-tit">受注詳細</h3>
+                <table class="table ad-or-sh-tb">
+                    <thead>
+                        <tr>
+                            <th class="col text-center col-xs-1">ID</th>
+                            <th class="col text-center col-xs-4">レコード名</th>
+                            <th class="col text-center col-xs-2">アーティスト</th>
+                            <th class="col text-center col-xs-3">購入数</th>
+                            <th class="col text-center col-xs-2">在庫数</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @order_details.each do |od| %>
+                            <tr>
+                                <td class="text-center ad-od-t"><%= od.record_id %></td>
+                                <td class="text-center ad-od-t"><%= od.record.name %></td>
+                                <td class="text-center ad-od-t"><%= od.record.artist.name %></td>
+                                <td class="text-center ad-od-t">
+                                    <%= form_for(od, url: order_detail_path(od),html:{method: "patch"}) do |o| %>
+                                        <div class="col-xs-8 ad-od-qu">
+                                            <%= o.number_field :quantity, class:"form-control" %>
+                                        </div>
+                                        <div class="col-xs-4 ad-od-qu">
+                                            <%= o.submit "変更", class:"btn btn-success btn-sm" %>
+                                        </div>
+                                    <% end %>
+                                </td>
+                                <td class="text-center ad-od-t"><%= od.record.stock %></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </section>
+            <div class="col-xs-1"></div>
+        </div>
+
+        <div class="col-xs-12">
+            <%= form_for(@order, url: admin_order_path(@order),html:{method: "patch"}) do |f| %>_
+                <section class="col-xs-10 col-xs-offset-1 ad-or-dir">
+                    <h3 class="ad-or-dir-tit col-xs-12">入金ステータス</h3>
+                    <div class="ad-or-tb-sta">
+                        <table class="table ad-or-sh-tb">
+                            <tbody>
+                                    <tr>
+                                        <td class="ad-od-t"><h4>購入合計金額（送料・税込）：</h4></td>
+                                        <td class="ad-od-t"><h4>￥<%= number_with_delimiter (@order.total_price) %></h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ad-od-t"><h4>支払い方法：</h4></td>
+                                        <td class="ad-od-t"><h4><%= @order.payment_method %></h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ad-od-t"><h4>入金ステータス：</h4></td>
+                                        <td class="ad-od-t">
+                                            <%= f.select :receipt_status, [["入金未確認", 0],["入金済",1]], class:"form-control" %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ad-od-t"><h4>入金日時：</h4></td>
+                                        <td class="ad-od-t">
+                                            <div class="input-group form_group" data-target-input="nearest">
+                                                <%= f.text_field :paid_at, id: "deadline", value:simple_time(@order.paid_at), class: "form-control datepicker", data: { target: '#deadline'} %>
+                                                <div class="input-group-append" data-target="#deadline" data-toggle="datetimepicker">
+                                                    <div class="input-group-text"><i class="fa fa-calendar text-right"></i></div>
+                                                </div> 
+                                            </div>
+                                        </td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <div class="col-xs-1"></div>
+                <div class="col-xs-12 text-center">
+                    <%= f.submit "変更を保存", class:"btn btn-success" %>
+                </div>
+            <% end %>
+        </div>
+
+        <div class="col-xs-12">
+            <%= form_for(@order, url: admin_order_path(@order),html:{method: "patch"}) do |f| %>
+                <section class="col-xs-10 col-xs-offset-1 ad-or-dir">
+                    <h3 class="ad-or-dir-tit col-xs-12">配送ステータス</h3>
+                    <div class="ad-or-tb-sta">
+                        <table class="table ad-or-sh-tb">
+                            <tbody>
+                                
+                                    <tr>
+                                        <td class="ad-od-t"><h4>宛名：</h4></td>
+                                        <td class="ad-od-t"><h4><%= @order.shipping_name %></h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ad-od-t"><h4>郵便番号：</h4></td>
+                                        <td class="ad-od-t"><h4><%= @order.shipping_post_num %></h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ad-od-t"><h4>配送先住所：</h4></td>
+                                        <td class="ad-od-t"><h4><%= @order.shipping_address %></h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ad-od-t"><h4>配送ステータス：</h4></td>
+                                        <td class="ad-od-t">
+                                            <%= f.select :receipt_status, [["未配送", 0],["配送中", 1],["配送済", 2]], class:"form-control" %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ad-od-t"><h4>配送日時：</h4></td>
+                                        <td class="ad-od-t">
+                                            <div class="input-group form_group" data-target-input="nearest">
+                                                <%= f.text_field :shipped_at, id: "deadline", value:simple_time(@order.shipped_at), class: "form-control datepicker", data: { target: '#deadline'} %>
+                                                <div class="input-group-append" data-target="#deadline" data-toggle="datetimepicker">
+                                                    <div class="input-group-text"><i class="fa fa-calendar text-right"></i></div>
+                                                </div> 
+                                            </div>
+                                        </td>   
+                                    </tr>
+                            </tbody>
+                        </table>
+                        
+                                        
+                    </div>
+                </section>
+                <div class="col-xs-1"></div>
+                <div class="col-xs-12 text-center">
+                    <%= f.submit "変更を保存", class:"btn btn-success" %>
+                </div>
+            <% end %>
+        </div>
 
     </div>
 </div>

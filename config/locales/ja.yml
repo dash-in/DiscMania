@@ -72,5 +72,5 @@ ja:
         delivery: "配送中"
         delivered: "配送済み"
       receipt_status:
-        undeposit: "入金は確認できていません"
-        deposit: "お支払い済みです"
+        undeposit: "入金未確認"
+        deposit: "入金済"

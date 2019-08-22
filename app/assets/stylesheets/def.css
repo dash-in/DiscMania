@@ -312,3 +312,54 @@ h1 {
 .order-decide {
     margin-top: 50px;
 }
+
+
+/* admin/orders */
+
+.ad-od-t {
+    line-height: 34px !important;
+}
+
+.ad-or-sh-tb {
+    margin: 30px auto;
+}
+
+.ad-or-dir-tit {
+    color: rgb(94, 94, 94) !important;
+    font-weight: bold;
+}
+
+.ad-or-dir {
+    margin-top: 30px;
+    padding-bottom: 30px
+    border-bottom: solid 2px rgb(94, 94, 94);
+}
+
+.date-picker {
+    width: 150px !important;
+}
+
+.ad-or-tb-sta {
+    width: 600px;
+    margin: 35px auto 0;
+}
+
+.ad-od-qu {
+    padding:0 !important;
+    line-height: 34px !important;
+}
+
+.datepicker {
+    position: relative;
+}
+
+.input-group-append {
+    position: absolute;
+    top: 0;
+    left: 200px;
+    z-index: 10;
+}
+
+.fa-calendar {
+    color: tomato !important;
+}

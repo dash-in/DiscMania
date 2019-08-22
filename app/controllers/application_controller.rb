@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
       :address,
       :post_number,
       :tel,
-      :handlename,
+      :hundlename,
       ]
     )
   end
