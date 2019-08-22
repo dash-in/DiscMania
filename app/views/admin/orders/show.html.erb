@@ -164,5 +164,9 @@
             <% end %>
         </div>
 
+        <div class="col-xs-12 text-center delete">
+            <%= link_to "削除", admin_order_path(@order.id), class:"btn btn-info", method: :delete %>
+        </div>
+
     </div>
 </div>
