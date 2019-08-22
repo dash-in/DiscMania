@@ -3,6 +3,7 @@ class RecordsController < ApplicationController
   before_action :set_record, only: [:show]
 
   def index
+    # @record = Record.all
     @q = Form::Record.includes(:tune).search
     @jpops = Form::Record.where(genre: "Japanese Rock / Pops / Indies").limit(4).order(created_at: "DESC")
     @pops = Form::Record.where(genre: "Rock / Pops / Indies").limit(4).order(created_at: "DESC")
@@ -17,6 +18,16 @@ class RecordsController < ApplicationController
     @idles = Form::Record.where(genre: "アイドル").limit(4).order(created_at: "DESC")
     @kpops = Form::Record.where(genre: "K-POP").limit(4).order(created_at: "DESC")
     @setting = Setting.find(1)
+    # ここを追加
+    @cart_item = CartItem.new
+    # @stock_array= []
+    # @record.stock.time do |quantity|
+    #   if quantity < 10
+    #     @stock_array += quantity + 1
+    #   else
+    #     break
+    #   end
+    # end
   end
 
   def search
