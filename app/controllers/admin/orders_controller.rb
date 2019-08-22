@@ -15,6 +15,8 @@ class Admin::OrdersController < ApplicationController
     end
 
     def destroy
+        @order.destroy
+        redirect_to admin_orders_path
     end
 
     private
