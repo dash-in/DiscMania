@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+  	<div class="edit">
+  		<h3>レビュー編集画面</h3>
+  		<br>
+		<%= form_for [@record,@review] do |f| %>
+		<%= f.text_area :review %>
+	<br>
+	<br>
+	<div class="edit-btn">
+		<%= f.submit "レビューを変更する" %>
+	</div>
+	<% end %>
+</div>
+  </div>
+</div>

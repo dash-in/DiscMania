@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   resources :shipping_infos, only: [:edit, :update, :destroy]
 
   resources :records, only: [:index, :show] do
+    resources :reviews, only: [:create, :edit, :update, :destroy]
     collection do
       get :search
     end
@@ -43,11 +44,14 @@ Rails.application.routes.draw do
   resources :cart_items, only: [:index, :create, :update, :destroy] do
     member do
       put :show_update
-    end
+       resource :reviews, only: [:create, :edit, :update, :destroy]
+      end
   end
 
   get '/orders/completed' => 'orders#completed'
   resources :orders, only: [:show, :new, :create]
+
+  resources :order_details, only: [:update, :destroy]
 
   # 名前空間上のroute
   namespace :admin do
