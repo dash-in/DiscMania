@@ -45,6 +45,7 @@ class CartItemsController < ApplicationController
     redirect_to cart_items_path
   end
 
+
   # 一度消します
   # def show_update
   # 	@cart_item = CartItem.find_by(params[:id])
@@ -54,6 +55,7 @@ class CartItemsController < ApplicationController
   #   flash[:success] = "カートに追加されました！"
   # 	redirect_to cart_items_path
   # end
+
 
   def destroy
     @cart_item = CartItem.find(params[:id])
