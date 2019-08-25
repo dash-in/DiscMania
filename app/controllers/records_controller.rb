@@ -17,6 +17,8 @@ class RecordsController < ApplicationController
     @idles = Form::Record.where(genre: "アイドル").limit(4).order(created_at: "DESC")
     @kpops = Form::Record.where(genre: "K-POP").limit(4).order(created_at: "DESC")
     @setting = Setting.find(1)
+    # ここを追加
+    @cart_item = CartItem.new
   end
 
   def search
@@ -26,9 +28,11 @@ class RecordsController < ApplicationController
   end
 
   def show
+    @cart_item = CartItem.new
     @record = Record.find(params[:id])
     @setting = Setting.find(1)
     # @cart_item.user_id = current_user.id
+    @review = Review.new
   end
 
   private

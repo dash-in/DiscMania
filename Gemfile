@@ -86,4 +86,9 @@ gem 'kaminari','~> 1.1.1'
 gem 'rails-i18n'
 
 gem 'enum_help'
+gem 'pry-rails'
 
+gem 'momentjs-rails'
+gem 'bootstrap4-datetime-picker-rails'
+
+gem "font-awesome-rails"

@@ -13,6 +13,12 @@
 //= require rails-ujs
 //= require turbolinks
 //= require jquery
+//= require jquery-ui/widgets/datepicker
+//= require jquery-ui/i18n/datepicker-ja
+//= require jquery_ujs
 //= require cocoon
 //= require bootstrap-sprockets
+//= require moment
+//= require moment/ja.js
+//= require tempusdominus-bootstrap-4.js
 //= require_tree .

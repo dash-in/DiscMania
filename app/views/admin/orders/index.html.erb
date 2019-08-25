@@ -5,25 +5,26 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th class="col"></th>
-                    <th class="col">受注ID</th>
-                    <th class="col">購入年月日</th>
-                    <th class="col">注文者名</th>
-                    <th class="col">受注金額</th>
-                    <th class="col">入金ステータス</th>
-                    <th class="col">発送ステータス</th>
+                    <th class="col col-xs-1"></th>
+                    <th class="col col-xs-1 text-center">ID</th>
+                    <th class="col col-xs-2 text-center">購入年月日</th>
+                    <th class="col col-xs-2 text-center">注文者名</th>
+                    <th class="col col-xs-2 text-center">受注金額</th>
+                    <th class="col col-xs-2 text-center">入金ステータス</th>
+                    <th class="col col-xs-2 text-center">発送ステータス</th>
                 </tr>
             </thead>
             <tbody>
                 <% @orders.each do |order| %>
                     <tr>
-                        <td><%= link_to "詳細", admin_order_path(order.id), class:"btn btn-success" %></td>
-                        <td><%= order.id %></td>
-                        <td><%= simple_date(order.created_at) %></td>
-                        <td><%= order.shipping_name %></td>
-                        <td><%= order.total_price %></td>
-                        <td><%= order.receipt_status_i18n %></td>
-                        <td><%= order.shipping_status_i18n %></td>
+
+                        <td class="ad-od-t text-center"><%= link_to "詳細", admin_order_path(order.id), class:"btn btn-success" %></td>
+                        <td class="ad-od-t text-center"><%= order.id %></td>
+                        <td class="ad-od-t text-center"><%= simple_date(order.created_at) %></td>
+                        <td class="ad-od-t text-center"><%= order.shipping_name %></td>
+                        <td class="ad-od-t text-center"><%= order.total_price %></td>
+                        <td class="ad-od-t text-center"><%= order.receipt_status_i18n %></td>
+                        <td class="ad-od-t text-center"><%= order.shipping_status_18n%></td>
                     </tr>
                 <% end %>
             </tbody>

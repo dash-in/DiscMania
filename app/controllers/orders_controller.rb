@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
     @user = @order.user
     if @user != current_user
       redirect_to user_path(@user.id)
+    end
   end
 end
 
