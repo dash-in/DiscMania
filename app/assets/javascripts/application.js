@@ -15,5 +15,4 @@
 //= require jquery
 //= require cocoon
 //= require bootstrap-sprockets
-//= require best_in_place
 //= require_tree .
