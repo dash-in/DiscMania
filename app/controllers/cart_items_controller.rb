@@ -5,13 +5,27 @@ class CartItemsController < ApplicationController
     @cart_item = CartItem.where(user_id: current_user.id )
     @setting = Setting.find(1)
     @sum = 0
+
+    @stock_array = []
+      @cart_item.each do |cart|
+        cart.record.stock.times do |quantity|
+          if quantity  < 20
+            @stock_array << quantity +1
+          else 
+            break
+          end
+        end
+      end
+
+
   end
 
   def create
+    @stock_array = []
     @cart_item = CartItem.new(cart_item_params)
     @user = current_user
     @cart_item.user_id = current_user.id
-    if @user 
+    if @user
       if @cart_item.save
         flash[:success] = "カートに入れました！"
         redirect_back(fallback_location: root_url)
@@ -22,6 +36,7 @@ class CartItemsController < ApplicationController
   end
 
   def update
+    @stock_array = []
        @cart_item = CartItem.find(params[:id])
        @cart_item.update(cart_item_params)
        redirect_back(fallback_location: root_url)

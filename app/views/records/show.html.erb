@@ -104,6 +104,7 @@
 <br>
         <!-- ユーザーレビューは最後に実装します。 -->
 
+
         <style type="text/css">
           .user_review {
           padding:20px;
@@ -116,18 +117,19 @@
             <table border width="100%" height="100%" style="table-layout:fixed;">
               <% @record.reviews.each do |review| %>
                 <tr>
-                  <td align="center" style="width:20%;"><%= attachment_image_tag @user, :image, format: 'jpeg', size: "80×80", fallback: "no_image.jpg", size:'50x50' %>
-                  <td align="center" style="width:20%"><%= review.user.handlename %></td>
-                  <td align="center"" style="width:20%"><%= review.created_at.strftime('%Y/%m/%d') %></td>
+                  <td align="center" style="width:10%;"><%= attachment_image_tag @user, :image, format: 'jpeg', size: "80×80", fallback: "no_image.jpg", size:'50x50' %>
+                  <td align="center" style="width:15%"><%= review.user.handlename %></td>
+                  <td align="center"" style="width:10%"><%= review.created_at.strftime('%Y/%m/%d') %></td>
                 </tr>
                 <tr>
-                  <td style="width:20%"; class="user_review" colspan="3" >＜レビュー＞<br>  <%= review.review %></td>
+                  <td style="width:90%"; class="user_review" colspan="9" >
+                    ＜レビュー＞<br>
+                    <%= review.review %>
+                  </td>
+                  <% if current_user.id == @user.id %>
+                  <td class="botan" align="center" style="width:10%" colspan="2"><%= link_to "編集", edit_record_review_path(@record.id,review.id), class:"btn btn-warning" %> <%= link_to "削除", record_review_path(@record.id, review.id), method: :delete, class:"btn btn-danger btn-primar" %></td>
+                  <% end %>
                 </tr>
-                <tr>
-                  <td align="center" style="width:%;" colspan="3"><%= link_to "編集", edit_record_review_path(@record.id,review.id), class:"btn btn-warning" %> <%= link_to "削除", record_review_path(@record.id, review.id), method: :delete, class:"btn btn-danger btn-primar" %></td>
-                </tr>
-                <tr>
-                <td colspan="3" border=none ><img src="./image/space.gif" width="1" height="1" alt=""></td>
               <% end %>
             </table>
 

@@ -26,8 +26,10 @@
         <%= attachment_image_tag cart.record, :image, format: 'jpeg', size: "80×80", fallback: "no_image.jpg", size:'80x80' %>
       </td>
   	  <td>
-        <%= cart.record.name %><br>
-        <%= cart.record.artist.name %><br>
+        <%= cart.record.name %>
+        <br>
+        <%= cart.record.artist.name %>
+        <br>
         <%= cart.record.label %>
       </td>
       <td>￥
@@ -35,8 +37,9 @@
       </td>
       <td>
         <%= form_for cart, url: cart_item_path(cart), method: :patch do  |f| %>
-        <%= f.number_field :quantity %>
-        <%= submit_tag "数量更新", class: "btn-xs btn-info" %>
+        <%= f.select :quantity, @stock_array %>
+        <%= f.label :quantity, "個" %>
+        <%= f.submit "数量更新", class: "btn-xs btn-info" %>
         <% end %>
       </td>
       <td>
@@ -49,7 +52,7 @@
       <% end %>
       </table>
       <div class="total">
-        税込合計金額(※送料含む)￥<%= @sum + 500 .floor %>円
+        税込合計金額(※送料含む)￥<%= @sum + @setting.shipping .floor %>円
       </div>
       <br>
       <% end %>
