@@ -56,11 +56,13 @@ h1 {
 .footer-main{
     margin: 0 0px;
     font-size: 20px;
+    color: #BBBBBB;
 }
 
 .footer-text{
     font-size: 15px;
     margin: 0 0px;
+    color: #BBBBBB;
 }
 
 /* Setting フォーム */
