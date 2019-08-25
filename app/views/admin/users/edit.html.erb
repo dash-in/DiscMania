@@ -1,58 +1,84 @@
-<div class="container">
-  <div class="row">
-     <h3>ユーザー情報　編集</h3>
-      <div class="user_edit">
-       <%= form_for(@user) do |f| %>
-       <%= attachment_image_tag @user,:image,fallback: "no_image.jpg",  size:"100x100" %>
-       <br>
-       <%= f.attachment_field :image %>
-       <br>
-        <div class="handlename">
-         <p>ニックネーム：<%= f.text_field :handlename %></p>
-        </div>
+<body>
+<section class="slice slice-lg sct-color-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
 
-        <div class="first_name">
-        	<p>姓：<%= f.text_field :first_name %></p>
-        </div>
+                <div class="form-user style-1 rounded has-shadow-1">
+                    <div class="form-header">
+                        <h2 class="form-header-title">ユーザー情報　編集</h2></div>
 
-        <div class="last_name">
-        	<p>名：<%= f.text_field :last_name %></p>
-        </div>
+                      <div class="form-body">
+                        <div class="row">
+                        <div class="col-xs-12">
 
-        <div class="first_name_kana">
-        	<p>姓　カナ：<%= f.text_field :first_name_kana %></p>
-        </div>
+                          <%= form_for(@user) do |f| %>
+                          <div class="form-group has-icon">
+                            <label class="control-label sr-only" for="inputfhandlename"></label>
+                            <%= attachment_image_tag @user,:image,fallback: "no_image.jpg",  size:"150x150" %>
+                            <%= f.attachment_field :image %>
+                            <label class="control-label  sr-only" for="inputfhandlename">ニックネーム</label>
+                            <%= f.text_field :handlename, autofocus: true, class:"form-control", id:"inputhandlname", placeholder:"ニックネーム"%>
+                          </div>
 
-        <div class="last_name_kana">
-         <p>名　カナ：<%= f.text_field :last_name_kana %></p>
-        </div>
+                          <div class="form-group has-icon">
+                            <label class="control-label sr-only" for="inputlast_name">姓</label>
+                            <%= f.text_field :first_name, autofocus: true, class:"form-control", id:"inputlast_name", placeholder:"姓"%>
+                          </div>
 
-        <div class="post_number">
-         <p>郵便番号：<%= f.text_field :post_number %>※半角数字ハイフンなし</p>
-        </div>
+                          <div class="form-group has-icon">
+                            <label class="control-label sr-only" for="inputfirst_name">名</label>
+                            <%= f.text_field :last_name, autofocus: true, class:"form-control", id:"inputlast_name", placeholder:"名"%>
+                          </div>
 
-        <div class="adress">
-         <p>住所：<%= f.text_field :address %></p>
-        </div>
+                          <div class="form-group has-icon">
+                            <label class="control-label sr-only" for="inputlast_name_name">姓カナ</label>
+                            <%= f.text_field :first_name_kana, autofocus: true, class:"form-control", id:"inputlast_name_kana", placeholder:"姓カナ"%>
+                          </div>
 
-        <div class="user.tel ">
-         <p>電話番号：<%= f.text_field :tel  %></p>
-        </div>
+                          <div class="form-group has-icon">
+                            <label class="control-label sr-only" for="inputfirst_name_name">名カナ</label>
+                            <%= f.text_field :last_name_kana, autofocus: true, class:"form-control", id:"inputfirst_name_kana", placeholder:"名カナ"%>
+                          </div>
 
-        <div class="email">
-         <p>メールアドレス：<%= f.text_field :email %>※半角英数</p>
-        </div>
+                          <div class="form-group has-icon">
+                            <label class="control-label sr-only" for="inputfpost_number">郵便番号</label>
+                            <%= f.text_field :post_number, autofocus: true, class:"form-control", id:"inputfpost_number", placeholder:"〒"%>
+                          </div>
 
-        <div class="encrypted_password">
-         <p>パスワード：<%= f.text_field :password %>※6ケタ以上</p>
-        </div>
+                          <div class="form-group has-icon">
+                            <label class="control-label sr-only" for="inputfaddress">住所</label>
+                            <%= f.text_field :address, autofocus: true, class:"form-control", id:"inputaddress", placeholder:"住所"%>
+                          </div>
 
-        <div class="encryptedpassword">
-         <p>パスワード（確認）：<%= f.text_field :password %>※6ケタ以上</p>
-        </div>
+                          <div class="form-group has-icon">
+                            <label class="control-label sr-only" for="inputftel">電話番号</label>
+                            <%= f.text_field :tel, autofocus: true, class:"form-control", id:"inputtel", placeholder:"電話番号"%>
+                          </div>
 
-        <%= f.submit "登録内容を変更する", class:"btn btn-danger" %>
-        <% end %>
+                          <div class="form-group has-icon">
+                            <label class="control-label sr-only" for="inputfmail">email</label>
+                            <%= f.email_field :email, autofocus: true, class:"form-control", id:"inputemail", placeholder:"メールアドレス"%>
+                          </div>
+
+                          <div class="form-group has-icon">
+                          <%= f.submit "登録内容を変更する", class:"form-control btn btn-primary" %></div>
+                          <div class="form-group has-icon">
+                          <%= link_to"パスワード変更に進む", edit_user_registration_path , class:"form-control btn btn-success" %>
+                          <%= link_to"退会ページに進む", users_withdraw_path , class:"form-control btn btn-danger" %></div>
+                      <% end %>
+                    </div>
+
+                    </div>
+
+
+                  </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
+</section>
+</body>
+
+

@@ -5,6 +5,19 @@ class CartItemsController < ApplicationController
     @cart_item = CartItem.where(user_id: current_user.id )
     @setting = Setting.find(1)
     @sum = 0
+
+    @stock_array = []
+      @cart_item.each do |cart|
+        cart.record.stock.times do |quantity|
+          if quantity
+            @stock_array << quantity +1
+          else
+            break
+          end
+        end
+      end
+
+
   end
 
   def create

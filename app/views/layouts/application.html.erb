@@ -5,10 +5,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
-
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
 
@@ -46,7 +45,6 @@
                           <li  class="header-text"><%= link_to "商品一覧", records_path %></li>
                           <li  class="header-text"><%= link_to "カート", cart_items_path %></li>
                           <li  class="header-text"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-
                       <% else %>
                       <!--  ユーザがログインしてない -->
                           <li  class="header-text"><%= link_to "商品一覧", records_path  %></li>
@@ -60,7 +58,7 @@
                 <%= yield %>
 
 
-    <footer class="footer style-2">
+    <footer class="footer">
       <div class="container">
         <div class="row">
           <div class="col-md-8"></div>
