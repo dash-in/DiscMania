@@ -9,9 +9,9 @@ class CartItemsController < ApplicationController
     @stock_array = []
       @cart_item.each do |cart|
         cart.record.stock.times do |quantity|
-          if quantity  < 20
+          if quantity
             @stock_array << quantity +1
-          else 
+          else
             break
           end
         end
