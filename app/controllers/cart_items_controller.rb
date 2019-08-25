@@ -15,6 +15,10 @@ class CartItemsController < ApplicationController
             break
           end
         end
+        if cart.quantity == 0
+           cart.record_id.destroy
+           redirect_to cart_item_path(cart_id)
+         end
       end
 
 

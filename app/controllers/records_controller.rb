@@ -32,7 +32,6 @@ class RecordsController < ApplicationController
     @record = Record.find(params[:id])
     @setting = Setting.find(1)
     # @user_id = current_user.id
-    # @user = User.find(params[:id])
     @review = Review.new
   end
 
