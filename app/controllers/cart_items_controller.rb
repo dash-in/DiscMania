@@ -21,7 +21,6 @@ class CartItemsController < ApplicationController
   end
 
   def create
-    @stock_array = []
     @cart_item = CartItem.new(cart_item_params)
     @user = current_user
     @cart_item.user_id = current_user.id
@@ -36,7 +35,6 @@ class CartItemsController < ApplicationController
   end
 
   def update
-    @stock_array = []
        @cart_item = CartItem.find(params[:id])
        @cart_item.update(cart_item_params)
        redirect_back(fallback_location: root_url)
