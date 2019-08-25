@@ -11,7 +11,7 @@
       <% else %>
         <span class="badge badge-secondary">在庫なし</span>
       <% end %>
-      <% if admin_sign_in? %>
+      <% if admin_signed_in? %>
         <p>商品ID：
           <%= @record.id%>
         </p>
@@ -20,7 +20,7 @@
         </h2>
         <%= @record.artist_id %>
         <%= @record.label %>
-        <%= @record.prise.to_i * @setting.tax %>
+        <%= @record.price.to_i * @setting.tax %>
         <p>在庫数
           <%= f.text_field :stock %>
         </p>
