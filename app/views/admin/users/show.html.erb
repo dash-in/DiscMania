@@ -41,10 +41,6 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="col-xs-4 col-xs-offset-4">
-                    <%= link_to "編集", edit_user_path(@user.id), class:"btn btn-success" %>
-                    <%= link_to "削除", user_path(@user.id), class:"btn btn-info", method: :delete %>
-                </div>
                 <div class="col-xs-4"></div>
             </div>
         </div>
@@ -63,13 +59,13 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>モリモト</td>
-                        <td>225-xxxx</td>
-                        <td>神奈川県横浜市xx-xx-xx</td>
-                        <td>
-                            <button type="button" class="btn btn-success btn-xs">編集</button>
-                            <button type="button" class="btn btn-info btn-xs">削除</button>
-                        </td>
+                        <% @shippings.each do |shipping| %>
+                          <td><%= shipping.name %></td>
+                          <td><%= shipping.post_number %></td>
+                          <td><%= shipping.address %></td>
+                          <td><%= link_to "編集", edit_shipping_info_path(shipping), class:"btn btn-success btn-xs" %>
+                          <%= link_to "削除",shipping_info_path(shipping), class:"btn btn-info btn-xs", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+                        <% end %>
                     </tr>
                 </tbody>
             </table>
@@ -82,8 +78,6 @@
                 <thead class="thead-light">
                     <tr>
                         <th class="col">購入日</th>
-                        <th class="col">商品名</th>
-                        <th class="col">個数</th>
                         <th class="col">合計金額</th>
                         <th class="col">支払方法</th>
                         <th class="col">取引ステータス</th>
@@ -91,20 +85,21 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <% @order_details.each do |order_detail| %>
                     <tr>
-                        <td>2019/08/06</td>
-                        <td>初めてのクラシック</td>
-                        <td>1</td>
-                        <td>¥ 2,500</td>
-                        <td>クレジットカード</td>
-                        <td>配送済</td>
-                        <td>
-                            <button type="button" class="btn btn-success btn-xs">編集</button>
-                            <button type="button" class="btn btn-info btn-xs">削除</button>
-                        </td>
+                        <td><%= order_detail.created_at.strftime('%Y/%m/%d')%></td>
+                        <td>￥<%= number_with_delimiter (order_detail.order.total_price).floor %></td>
+                        <td><%= order_detail.order.payment_method %></td>
+                        <td><%= order_detail.order.shipping_status_i18n %></td>
+                        <td><%= link_to "詳しく見る", order_path(order_detail.id), class:"btn btn-success btn-xs" %></td>
                     </tr>
+                    <% end %>
                 </tbody>
             </table>
+        </div>
+
+        <div class="col-xs-11 col-xs-offset-1">
+            <%= link_to "このユーザーを編集/削除する", edit_admin_user_path(@user.id), class:"btn btn-warning pull-right" %>
         </div>
         <div class="col-xs-1"></div>
     </section>

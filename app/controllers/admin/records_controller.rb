@@ -29,6 +29,8 @@ class Admin::RecordsController < ArtistsController
   end
 
   def show
+    @record = Record.find(params[:id])
+    @setting = Setting.find(1)
   end
 
   def new
@@ -48,7 +50,7 @@ class Admin::RecordsController < ArtistsController
   end
 
   def update
-    if @record.update_attributes(update_record_params)
+    if @record.update_attributes(record_params)
       redirect_to search_admin_records_path, notice: "レコード「#{@record.name}」を更新しました。"
     else
       render :edit
@@ -83,6 +85,6 @@ class Admin::RecordsController < ArtistsController
   end
 
   def update_record_params
-    params.require(:record).permit(:stock)
+    params.require(:form_record).permit(:stock)
   end
 end

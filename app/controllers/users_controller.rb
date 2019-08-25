@@ -29,9 +29,13 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    login_id = current_user.id
     if @user.update(user_params)
+      if login_id == @user.id
+       bypass_sign_in(@user)
        redirect_to user_path(@user.id)
     else render :edit
+      end
     end
   end
 
