@@ -31,8 +31,10 @@ class CartItemsController < ApplicationController
   	@cart_item = CartItem.find_by(params[:id])
   	@quantity = @cart_item.quantity
   	@cart_item.quantity = @quantity + cart_item_params[:quantity].to_i
-  	@cart_item.save
-  	redirect_back(fallback_location: root_path)
+  	if @cart_item.save
+      flash[:success] = "カートに入れました！"
+  	  redirect_back(fallback_location: root_path)
+    end
   end
 
   def destroy

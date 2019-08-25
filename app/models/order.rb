@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  has_many :order_details
+  has_many :order_details, :dependent => :delete_all
   belongs_to :user
 
   validates :payment_method, presence: true

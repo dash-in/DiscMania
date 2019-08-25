@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_21_044514) do
+ActiveRecord::Schema.define(version: 2019_08_21_095047) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(version: 2019_08_21_044514) do
     t.integer "actual_shipping"
     t.float "actual_tax"
     t.integer "total_price"
-    t.integer "receipt_status"
-    t.integer "shipping_status"
+    t.integer "receipt_status", default: 0
+    t.integer "shipping_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "shipping_name"
@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 2019_08_21_044514) do
 
   create_table "tunes", force: :cascade do |t|
     t.integer "record_id"
-    t.integer "disc_no"
+    t.integer "disc_no", default: 1
     t.integer "tune_order"
     t.string "tune_name"
     t.datetime "created_at", null: false
@@ -131,7 +131,7 @@ ActiveRecord::Schema.define(version: 2019_08_21_044514) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email", "deleted_at"], name: "index_users_on_email_and_deleted_at", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

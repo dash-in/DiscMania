@@ -64,7 +64,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # setting devise
-gem 'devise'
+gem 'devise', '~> 4.4.3'
 
 gem 'devise-i18n'
 gem 'devise-i18n-views'

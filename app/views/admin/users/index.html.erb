@@ -30,7 +30,7 @@
                 <%= user.email %>
               </td>
               <td>
-                <%= user.current_sign_in_at %>
+                <%= user.current_sign_in_at.strftime('%Y/%m/%d')%>
               </td>
           </tr>
         </tbody>

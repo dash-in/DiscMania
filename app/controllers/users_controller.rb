@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+
   def index
     @users = User.all
   end
@@ -14,10 +14,10 @@ class UsersController < ApplicationController
    end
   end
 
-  def deleting
+  def withdraw
   end
 
-  def deleted
+  def unsubscribe
   end
 
     def edit
@@ -29,16 +29,20 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    login_id = current_user.id
     if @user.update(user_params)
+      if login_id == @user.id
+       bypass_sign_in(@user)
        redirect_to user_path(@user.id)
     else render :edit
+      end
     end
   end
 
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to admin_users_path
+    redirect_to users_unsubscribe_path
   end
 
 private
