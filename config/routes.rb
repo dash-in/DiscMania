@@ -51,6 +51,8 @@ Rails.application.routes.draw do
   get '/orders/completed' => 'orders#completed'
   resources :orders, only: [:show, :new, :create]
 
+  resources :order_details, only: [:update, :destroy]
+
   # 名前空間上のroute
   namespace :admin do
 

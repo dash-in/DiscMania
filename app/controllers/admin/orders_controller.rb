@@ -1,24 +1,22 @@
 class Admin::OrdersController < ApplicationController
-    before_action :set_order, only: [:show, :edit, :destroy]
+    before_action :set_order, only: [:show, :edit, :update, :destroy]
     
     def index
         @orders = Order.all
     end
 
     def show
+        @setting = Setting.find(1)
     end
 
-    # GET /orders/1/edit
-    def edit
-    end
-
-    # PATCH/PUT /orders/1
-    # PATCH/PUT /orders/1.json
     def update
-        
+        @order.update(order_params)
+        redirect_back(fallback_location: root_path)
     end
 
     def destroy
+        @order.destroy
+        redirect_to admin_orders_path
     end
 
     private
@@ -32,7 +30,7 @@ class Admin::OrdersController < ApplicationController
         def order_params
             params
             .require(:order)
-            .permit(:payment_method, :shipping_info_id, :actual_shipping, :actual_tax, :total_price)
+            .permit(:payment_method, :shipping_info_id, :actual_shipping, :actual_tax, :total_price, :paid_at, :shipped_at)
         end
 
         def order_detail_params

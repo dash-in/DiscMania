@@ -1,11 +1,12 @@
 <div class="container">
  <div class="row">
+    <%= flash[:success] %>
   <h2>カート</h2>
   <p class="top">※一回のご注文で複数の商品をご注文いただいた場合は、原則として全ての商品が揃ってから一括発送いたします。</p>
   <br>
   <div class="if">
     <% if @cart_item.empty? %>
-    <h2 align="center">カートには何も入っていません!!</h2>
+    <h2 align="center">カートには何も入っていません!</h2>
     <h4 align="center"><%= link_to "買い物を続ける", records_path %></h4>
     <br>
     <br>
