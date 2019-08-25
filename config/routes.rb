@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   resources :admins
 
+
   resources :settings, only: [:show, :edit, :update]
 
   get '/users/withdraw' => 'users#withdraw'
@@ -61,7 +62,7 @@ Rails.application.routes.draw do
     resources :orders
 
     resources :records do
-      collection do
+      collection do 
         get :search
       end
     end
