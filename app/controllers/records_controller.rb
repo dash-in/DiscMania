@@ -4,19 +4,32 @@ class RecordsController < ApplicationController
 
   def index
     @q = Form::Record.includes(:tune).search
-    @jpops = Form::Record.where(genre: "Japanese Rock / Pops / Indies").limit(4).order(created_at: "DESC")
-    @pops = Form::Record.where(genre: "Rock / Pops / Indies").limit(4).order(created_at: "DESC")
-    @edms = Form::Record.where(genre: "Electric Dance Music").limit(4).order(created_at: "DESC")
-    @ors = Form::Record.where(genre: "Old Rock").limit(4).order(created_at: "DESC")
-    @hrs = Form::Record.where(genre: "Hard Rock / Heavy Metal").limit(4).order(created_at: "DESC")
-    @punks = Form::Record.where(genre: "PUNK").limit(4).order(created_at: "DESC")
-    @jazzs = Form::Record.where(genre: "JAZZ").limit(4).order(created_at: "DESC")
-    @classics = Form::Record.where(genre: "CLASSIC").limit(4).order(created_at: "DESC")
-    @sts = Form::Record.where(genre: "Sound Track").limit(4).order(created_at: "DESC")
-    @sks = Form::Record.where(genre: "昭和歌謡曲 / 演歌").limit(4).order(created_at: "DESC")
-    @idles = Form::Record.where(genre: "アイドル").limit(4).order(created_at: "DESC")
-    @kpops = Form::Record.where(genre: "K-POP").limit(4).order(created_at: "DESC")
-    @setting = Setting.find(1)
+    # binding.pry
+    jpops_count_id = Record.where(genre: "Japanese Rock / Pops / Indies").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+      @jpops = jpops_count_id.map{|id| Record.find(id)}
+    pops_count_id = Record.where(genre: "Rock / Pops / Indies").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+      @pops = pops_count_id.map{|id| Record.find(id)}
+    edms_count_id = Record.where(genre: "Electric Dance Music").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+      @edms = edms_count_id.map{|id| Record.find(id)}
+    ors_count_id = Record.where(genre: "Old Rock").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+      @ors = ors_count_id.map{|id| Record.find(id)}
+    hrs_count_id = Record.where(genre: "Hard Rock / Heavy Metal").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+      @hrs = hrs_count_id.map{|id| Record.find(id)}
+    punks_count_id = Record.where(genre: "PUNK").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+      @punks = punks_count_id.map{|id| Record.find(id)}
+    jazzs_count_id = Record.where(genre: "JAZZ").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+      @jazzs = jazzs_count_id.map{|id| Record.find(id)}
+    classics_count_id = Record.where(genre: "CLASSIC").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+      @classics = classics_count_id.map{|id| Record.find(id)}
+    sts_count_id = Record.where(genre: "Sound Track").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+      @sts = sts_count_id.map{|id| Record.find(id)}
+    sks_count_id = Record.where(genre: "昭和歌謡曲 / 演歌").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+      @sks = sks_count_id.map{|id| Record.find(id)}
+    idles_count_id = Record.where(genre: "アイドル").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+      @idles = idles_count_id.map{|id| Record.find(id)}
+    kpops_count_id = Record.where(genre: "K-POP").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+      @kpops = kpops_count_id.map{|id| Record.find(id)}
+    @setting = Setting.find(1)    
     # ここを追加
     @cart_item = CartItem.new
   end
