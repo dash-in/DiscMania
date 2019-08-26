@@ -67,6 +67,7 @@
                   <% end %>
                 </tbody>
             </table>
+            <%= paginate @shippinga, class: "paginate" %>
         </div>
         <div class="col-xs-1"></div>
 
@@ -89,11 +90,12 @@
                         <td>￥<%= number_with_delimiter (order_detail.order.total_price).floor %></td>
                         <td><%= order_detail.order.payment_method %></td>
                         <td><%= order_detail.order.shipping_status_i18n %></td>
-                        <td><%= link_to "詳しく見る", order_path(order_detail.id), class:"btn btn-success btn-xs" %></td>
+                        <td><%= link_to "詳しく見る", admin_order_path(order_detail.id), class:"btn btn-success btn-xs" %></td>
                     </tr>
                     <% end %>
                 </tbody>
             </table>
+            <%= paginate @orderdetail, class: "paginate" %>
         </div>
 
         <div class="col-xs-11 col-xs-offset-1">

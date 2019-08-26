@@ -7,7 +7,9 @@ class Admin::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @shippings = @user.shipping_infos
+    @shippinga = ShippingInfo.page(params[:page]).per(5)
     @order_details = Order.where(user_id: params[:id]).includes(:order_details).map(&:order_details).flatten
+    @orderdetail = OrderDetail.page(params[:page]).per(5)
     @setting = Setting.find(1)
   end
 
