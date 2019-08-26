@@ -1,6 +1,9 @@
 <div class="container">
     <section class="row">
     <h1 class="text-center">受注管理フォーム</h1>
+    <%= search_form_for(@q, url: admin_orders_path, html: { method: :get, class: 'form-horizontal', role: 'form' }) do |f| %>
+        <%= render 'search_form', f: f %>
+    <% end %>
     <div class="col-xs-12">
         <table class="table">
             <thead>
