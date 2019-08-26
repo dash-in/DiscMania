@@ -89,14 +89,14 @@
                                     <tr>
                                         <td class="ad-od-t"><h4>入金ステータス：</h4></td>
                                         <td class="ad-od-t">
-                                            <%= f.select :receipt_status, [["入金未確認", 0],["入金済",1]], class:"form-control" %>
+                                            <%= f.select :receipt_status, [["入金未確認", 'undeposit'],["入金済",'deposit']], class:"form-control" %>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="ad-od-t"><h4>入金日時：</h4></td>
                                         <td class="ad-od-t">
                                             <div class="input-group form_group" data-target-input="nearest">
-                                                <%= f.text_field :paid_at, id: "deadline", value:simple_time(@order.paid_at), class: "form-control datepicker", data: { target: '#deadline'} %>
+                                                    <%= f.text_field :paid_at, id: "deadline", value:simple_time(@order.paid_at), class: "form-control datepicker", data: { target: '#deadline'} %>
                                                 <div class="input-group-append" data-target="#deadline" data-toggle="datetimepicker">
                                                     <div class="input-group-text"><i class="fa fa-calendar text-right"></i></div>
                                                 </div> 
@@ -137,15 +137,15 @@
                                     <tr>
                                         <td class="ad-od-t"><h4>配送ステータス：</h4></td>
                                         <td class="ad-od-t">
-                                            <%= f.select :receipt_status, [["未配送", 0],["配送中", 1],["配送済", 2]], class:"form-control" %>
+                                            <%= f.select :shipping_status, [["未配送", 'undelivery'],["配送中", 'delivery'],["配送済", 'delivered']], class:"form-control" %>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="ad-od-t"><h4>配送日時：</h4></td>
                                         <td class="ad-od-t">
                                             <div class="input-group form_group" data-target-input="nearest">
-                                                <%= f.text_field :shipped_at, id: "deadline", value:simple_time(@order.shipped_at), class: "form-control datepicker", data: { target: '#deadline'} %>
-                                                <div class="input-group-append" data-target="#deadline" data-toggle="datetimepicker">
+                                                <%= f.text_field :shipped_at, id: "shipped_at", value:simple_time(@order.shipped_at), class: "form-control datepicker", data: { target: '#shipped_at'} %>
+                                                <div class="input-group-append" data-target="#shipped_at" data-toggle="datetimepicker">
                                                     <div class="input-group-text"><i class="fa fa-calendar text-right"></i></div>
                                                 </div> 
                                             </div>
