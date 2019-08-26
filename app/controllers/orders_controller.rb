@@ -12,7 +12,6 @@ class OrdersController < ApplicationController
       redirect_to user_path(@user.id)
     end
   end
-end
 
   # GET /orders/new
   def new

@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row search-forms">
+        <div>
+            <label class="col-xs-3" for="">
+                <div class="col-xs-12">
+                    <%= f.text_field :id_eq, class: 'form-control', placeholder: "受注ID" %>
+                </div>
+            </label>
+
+            <label class="col-xs-3" for="">
+                <div class="col-xs-12">
+                    <%= f.text_field :user_id_eq, class: 'form-control', placeholder: "ユーザーID" %>
+                </div>
+            </label>
+
+            <label class="col-xs-6">
+                <div class="col-xs-5">
+                    <%= f.date_field :created_at_gteq, include_blank: true, class:"form-control" %>
+                </div>
+                <div class="col-xs-2">
+                    　〜　
+                </div>
+                <div class="col-xs-5">
+                    <%= f.date_field :created_at_lteq, include_blank: true, class:"form-control" %>
+                </div>
+            </label>
+
+            <label class="col-xs-4" for="">
+                <div class="col-xs-12">
+                    <%= f.text_field :user_last_name_or_user_first_name_cont, class: 'form-control', placeholder: "ユーザー氏名で探す" %>
+                </div>
+            </label>
+
+            <label class="col-xs-4" for="">
+                <div class="col-xs-12">
+                    <%= f.collection_select :receipt_status, @orders, :receipt_status, :receipt_status_i18n %>
+                </div>
+            </label>
+
+            <label class="col-xs-4" for="">
+                <div class="col-xs-12">
+                    <%= f.collection_select :shipping_status, @orders, :shipping_status, :shipping_status_i18n %>
+                </div>
+            </label>
+        </div>  
+
+        <div class="col-sm-12 row text-center">
+        <%= link_to admin_orders_path, class: 'btn btn-default btn-left search-btn-spc' do %>クリア<% end %>
+        <button class="btn btn-default btn-primary" type="submit"><i class="fa fa-search"></i> 検索</button>
+        </div>
+    </div>
+</div>

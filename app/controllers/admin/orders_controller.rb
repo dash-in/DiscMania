@@ -1,8 +1,10 @@
 class Admin::OrdersController < ApplicationController
+    before_action :authenticate_admin!
     before_action :set_order, only: [:show, :edit, :update, :destroy]
     
     def index
-        @orders = Order.all
+        @q = Order.ransack(params[:q])
+        @orders = @q.result(distinct: true).order(:shipping_status, :receipt_status, :created_at)
     end
 
     def show
@@ -30,7 +32,7 @@ class Admin::OrdersController < ApplicationController
         def order_params
             params
             .require(:order)
-            .permit(:payment_method, :shipping_info_id, :actual_shipping, :actual_tax, :total_price, :paid_at, :shipped_at)
+            .permit(:payment_method, :shipping_info_id, :actual_shipping, :actual_tax, :total_price, :paid_at, :shipped_at, :receipt_status, :shipping_status)
         end
 
         def order_detail_params
