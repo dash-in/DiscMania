@@ -50,7 +50,7 @@
                         <% @order_details.each do |od| %>
                             <tr>
                                 <td class="text-center ad-od-t"><%= od.record_id %></td>
-                                <td class="text-center ad-od-t"><%= od.record.name %></td>
+                                <td class="text-center ad-od-t"><%= od.record.name.truncate(20) %></td>
                                 <td class="text-center ad-od-t"><%= od.record.artist.name %></td>
                                 <td class="text-center ad-od-t">
                                     <%= form_for(od, url: order_detail_path(od),html:{method: "patch"}) do |o| %>

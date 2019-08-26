@@ -1,4 +1,5 @@
 class Admin::OrdersController < ApplicationController
+    before_action :authenticate_admin!
     before_action :set_order, only: [:show, :edit, :update, :destroy]
     
     def index
@@ -7,7 +8,6 @@ class Admin::OrdersController < ApplicationController
     end
 
     def show
-        @order = Order.find(params[:id])
         @setting = Setting.find(1)
     end
 
