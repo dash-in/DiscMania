@@ -20,7 +20,7 @@ class User < ApplicationRecord
   validates :post_number, presence: true, format: {with: /\A\d{3}[-]\d{4}$|^\d{3}[-]\d{2}$|^\d{3}$|^\d{5}$|^\d{7}\z/ }
   validates :address, presence: true
   validates :tel, presence: true, format: { with: /\A\d+\d+\d+\z/ }
-  validates :handlename, presence: true, format: {with: /\A[ -~]+\z/}, length: { in: 1..10 }\\\\\\
+  validates :handlename, presence: true, format: {with: /\A[ -~]+\z/}, length: { in: 1..10 }
 
 
 end
