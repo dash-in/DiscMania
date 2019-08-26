@@ -22,13 +22,14 @@
                         <td class="ad-od-t text-center"><%= order.id %></td>
                         <td class="ad-od-t text-center"><%= simple_date(order.created_at) %></td>
                         <td class="ad-od-t text-center"><%= order.shipping_name %></td>
-                        <td class="ad-od-t text-center"><%= order.total_price %></td>
+                        <td class="ad-od-t text-center">￥<%=number_with_delimiter(order.total_price) %></td>
                         <td class="ad-od-t text-center"><%= order.receipt_status_i18n %></td>
-                        <td class="ad-od-t text-center"><%= order.shipping_status_18n%></td>
+                        <td class="ad-od-t text-center"><%= order.shipping_status_i18n%></td>
                     </tr>
                 <% end %>
             </tbody>
         </table>
+        <%= paginate @orders, class: "paginate" %>
     </div>
     </section>
 </div>

@@ -2,10 +2,11 @@ class Admin::OrdersController < ApplicationController
     before_action :set_order, only: [:show, :edit, :update, :destroy]
     
     def index
-        @orders = Order.all
+        @orders = Order.page(params[:page]).per(50)
     end
 
     def show
+        @user = @order.user
         @setting = Setting.find(1)
     end
 

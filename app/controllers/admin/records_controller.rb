@@ -26,6 +26,7 @@ class Admin::RecordsController < ArtistsController
     #   .order(:artist_name, created_at: :desc)
     @q = Form::Record.search(params[:q])
     @records = @q.result(distinct: true).order(:stock)
+    @recorda = Record.page(params[:page]).per(50)
   end
 
   def show

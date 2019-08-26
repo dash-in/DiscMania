@@ -20,6 +20,7 @@
         <p><%= record.artist.name %></p>
         <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
       </div>
-    <% end %>  
+    <% end %>
+    <%= paginate @recorda, class: "paginate" %>
   </section>
 </div>
