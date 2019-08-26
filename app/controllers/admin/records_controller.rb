@@ -42,6 +42,7 @@ class Admin::RecordsController < ArtistsController
 
   def create
     @record = Form::Record.new(record_params)
+    # binding.pry
     if @record.save
       redirect_to search_admin_records_path, notice: "レコード「#{@record.name}」を登録しました。"
     else
@@ -76,12 +77,7 @@ class Admin::RecordsController < ArtistsController
   end
 
   def record_params
-    params
-      .require(:form_record)
-      .permit(
-        Form::Record::REGISTRABLE_ATTRIBUTES +
-        [tunes_attributes: Form::Tune::REGISTRABLE_ATTRIBUTES]
-      )
+    params.require(:form_record).permit(Form::Record::REGISTRABLE_ATTRIBUTES + [tunes_attributes: Form::Tune::REGISTRABLE_ATTRIBUTES])
   end
 
   def update_record_params
