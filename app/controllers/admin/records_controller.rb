@@ -76,12 +76,7 @@ class Admin::RecordsController < ArtistsController
   end
 
   def record_params
-    params
-      .require(:form_record)
-      .permit(
-        Form::Record::REGISTRABLE_ATTRIBUTES +
-        [tunes_attributes: Form::Tune::REGISTRABLE_ATTRIBUTES]
-      )
+    params.require(:form_record).permit(Form::Record::REGISTRABLE_ATTRIBUTES + [tunes_attributes: Form::Tune::REGISTRABLE_ATTRIBUTES])
   end
 
   def update_record_params

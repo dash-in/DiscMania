@@ -1,6 +1,6 @@
 class Tune < ApplicationRecord
 
-	validates :name, presence: true
+	validates :tune_name, presence: true
 
 	belongs_to :record
 end
