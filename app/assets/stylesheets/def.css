@@ -14,7 +14,7 @@
 
 h1 {
     font-weight: bold !important;
-    margin-bottom: 0px !important;
+    margin-bottom: 30px !important;
 }
 
 .container {
@@ -136,6 +136,10 @@ h1 {
 .artist-table {
     line-height: 47px !important;
     margin-left: 30px !important;
+}
+
+.artist-search {
+    padding: 0 !important;
 }
 
 .a-t-id {
