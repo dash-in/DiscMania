@@ -10,18 +10,12 @@ class CartItemsController < ApplicationController
       @cart_item.each do |cart|
         cart.record.stock.times do |quantity|
           if quantity
-            @stock_array << quantity +1
+            @stock_array << quantity
           else
             break
           end
         end
-        if cart.quantity == 0
-           cart.record_id.destroy
-           redirect_to cart_item_path(cart_id)
-         end
       end
-
-
   end
 
   def create
@@ -30,8 +24,11 @@ class CartItemsController < ApplicationController
     @cart_item.user_id = current_user.id
     if @user
       if @cart_item.save
-        flash[:success] = "カートに追加されました"
-        redirect_to cart_items_path
+         flash[:success] = "カートに追加されました"
+         redirect_to cart_items_path
+      if @cart_item.quantity == 0
+         @cart_item.destroy
+      end
       end
     else
       redirect_to new_user_session_path
@@ -43,6 +40,11 @@ class CartItemsController < ApplicationController
     @cart_item.update(cart_item_params)
     flash[:success] = "カート内容が変更されました"
     redirect_to cart_items_path
+
+    if @item = CartItem.find(params[:id])
+       @item.quantity == 0
+       @item.destroy
+     end
   end
 
 
@@ -60,8 +62,11 @@ class CartItemsController < ApplicationController
   def destroy
     @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
-    redirect_back(fallback_location: root_path)
+    redirect_to cart_items_path
   end
+
+
+
 
   private
     def cart_item_params
