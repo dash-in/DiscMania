@@ -35,16 +35,10 @@
       </td>
       <td>
         <%= form_for cart, url: cart_item_path(cart), method: :patch do  |f| %>
-        <% @stock_array = [] %>
-        <% cart.record.stock.times do |quantity| %>
-        <% if @stock_array << quantity + 1 %>
-        <% else %>
-        <% break %>
-        <% end %>
-        <% end %>
-        <%= f.select :quantity, @stock_array %>
-        <%= f.label :quantity, "個" %>
-        <%= f.submit "数量更新", class: "btn-xs btn-info" %>
+
+          <%= f.select :quantity, @stock_array %>
+          <%= f.label :quantity, "個" %>
+          <%= f.submit "数量更新", class: "btn-xs btn-info" %>
         <% end %>
       </td>
       <td>
@@ -57,7 +51,7 @@
       <% end %>
       </table>
       <div class="total">
-        税込合計金額(※送料含む)￥<%= @sum + @setting.shipping %>円
+        税込合計金額(※送料含む)￥<%= @sum + @setting.shipping .floor %>円
       </div>
       <br>
       <% end %>

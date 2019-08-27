@@ -6,7 +6,16 @@ class CartItemsController < ApplicationController
     @setting = Setting.find(1)
     @sum = 0
 
-
+    @stock_array = []
+      @cart_item.each do |cart|
+        cart.record.stock.times do |quantity|
+          if quantity
+            @stock_array << quantity
+          else
+            break
+          end
+        end
+      end
   end
 
   def create 
@@ -17,9 +26,12 @@ class CartItemsController < ApplicationController
       if @cart_item.save
          flash[:success] = "カートに追加されました"
          redirect_to cart_items_path
-      if @cart_item.quantity == 0
-         @cart_item.destroy
-      end
+        if @cart_item.quantity == 0
+           @cart_item.destroy
+         else
+          @cart_item.quantity >> 0
+          @cart_item.save
+        end
       end
     else
       redirect_to new_user_session_path
@@ -28,15 +40,15 @@ class CartItemsController < ApplicationController
 
   def update
     @cart_item = CartItem.find(params[:id])
-    @cart_item.update(cart_item_params)
-    flash[:success] = "カート内容が変更されました"
-    redirect_to cart_items_path
-
-    if @item = CartItem.find(params[:id])
-       @item.quantity == 0
-       @item.destroy
+     if  @cart_item.quantity == 0
+         @cart_item.destroy
+    else
+        @cart_item.update(cart_item_params)
+        redirect_to cart_items_path
+        flash[:success] = "カート内容が変更されました"
      end
   end
+
 
 
   # 一度消します
