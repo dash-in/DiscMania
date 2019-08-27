@@ -69,7 +69,7 @@
      <br>
      <% unless @cart_item.blank? %>
      <%= link_to "買い物を続ける", records_path, class:"btn btn-info col-xs-6" %>
-     <button class="btn btn-danger col-xs-6">レジに進む</button>
+     <%= link_to "レジに進む", new_order_path, class:"btn btn-danger col-xs-6" %>
      <% end %>
      <br>
      <br>

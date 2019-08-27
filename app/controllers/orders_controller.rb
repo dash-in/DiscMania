@@ -12,7 +12,6 @@ class OrdersController < ApplicationController
       redirect_to user_path(@user.id)
     end
   end
-end
 
   # GET /orders/new
   def new
@@ -78,6 +77,7 @@ end
       @incarts.destroy_all
       redirect_to orders_completed_path
     else
+      @shippings = ShippingInfo.where(user_id: current_user)
       render :new
     end
   end

@@ -30,10 +30,12 @@
           <ol class="breadcrumb breadcrumb-nav">
                   <% if admin_signed_in? %>
                     <!-- アドミンがログインの場合 -->
-                    <li class="header-text"><%=link_to  "受注一覧", admin_orders_path %></li>
+                    <li class="header-text"><%= link_to "受注一覧", admin_orders_path %></li>
                     <li class="header-text"><%= link_to "商品登録", new_admin_record_path %></li>
                     <li class="header-text"><%= link_to "商品一覧", admin_records_path %></li>
+                    <li class="header-text"><%= link_to "アーティスト一覧", artists_path %></li>
                     <li class="header-text"><%= link_to "ユーザ一覧", admin_users_path %></li>
+                    <li class="header-text"><%= link_to "各種設定", setting_path(1) %></li>
                     <!-- いつか消します -->
                     <li class="header-text"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
 
