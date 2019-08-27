@@ -57,6 +57,10 @@
 
                 <%= yield %>
 
+                <span id="back">
+                  <%= image_tag "arrow.png",size: "50x50", id:"swipeTop" %>
+                </span>
+
 
     <footer class="footer">
       <div class="container">
@@ -72,6 +76,18 @@
         </div>
        </div>
     </footer>
+
+    <script>
+      $(function() {
+        $('#swipeTop').on('click',function(){
+          $('body, html').animate({
+            scrollTop:0
+          }, 800);
+            return false;
+          // alert('yeah!');
+        });
+      });
+    </script>
   </body>
 </html>
 
