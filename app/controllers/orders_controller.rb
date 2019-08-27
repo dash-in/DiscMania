@@ -44,7 +44,7 @@ class OrdersController < ApplicationController
       prices = prices + (incart.record.price * incart.quantity)
     end
     @order.total_price = (prices * @setting.tax + @setting.shipping).floor
-    
+
     if address_create[:address_create]=="true"
       # p true
       shipping_info = ShippingInfo.new(shipping_info_params)
@@ -78,6 +78,11 @@ class OrdersController < ApplicationController
       redirect_to orders_completed_path
     else
       @shippings = ShippingInfo.where(user_id: current_user)
+      prices = 0
+      @incarts.each do |incart|
+      prices = prices + (incart.record.price * incart.quantity)
+      end
+      @total = prices
       render :new
     end
   end
