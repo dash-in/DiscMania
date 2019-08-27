@@ -16,7 +16,7 @@
           <tr>
             <% @users.each do |user| %>
               <td>
-                <%= link_to user_path(user.id) do %>
+                <%= link_to admin_user_path(user.id) do %>
                 <%= user.id %>
                 <% end %>
               </td>
@@ -30,12 +30,13 @@
                 <%= user.email %>
               </td>
               <td>
-                <%= user.current_sign_in_at.strftime('%Y/%m/%d')%>
+                <%= simple_date(user.current_sign_in_at)%>
               </td>
           </tr>
         </tbody>
         <% end %>
       </table>
+      <%= paginate @users, class: "paginate" %>
     </div>
   </div>
 </div>

@@ -4,10 +4,10 @@
 
 <div class="container">
   <section class="row">
-    <h1 class="text-center">ジャンル別新着レコード情報</h1>
+    <h1 class="text-center">ジャンル別月間TOP4</h1>
 
     <section class="col-xs-12 records-genre">
-      <h2>Japanese Rock / Pops / Indies</h2>
+      <h3 class="record-index-title"><b>Japanese Rock / Pops / Indies</b></h3>
       <div class="col-xs-12">
         <% @jpops.each do |record| %>
           <div class="col-xs-3 disc-space">
@@ -16,8 +16,10 @@
             <% else %>
               <div class="stock-t"><p>即日発送</p></div>
             <% end %>
+
             <%= link_to record_path(record.id) do %>
               <%= attachment_image_tag record, :image, size: "200x200", fallback: "no_image.jpg", class:'text-center record-image' %></br></br>
+
             <% end %>
             <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
@@ -64,11 +66,13 @@
           </div>
         <% end %>
       </div>
-      <%= link_to "もっと見る", search_records_path, class:"col-xs-12 text-right" %>
+      <div class="row">
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
+      </div>
     </section>
 
     <section class="col-xs-12 records-genre">
-      <h2>Rock / Pops / Indies</h2>
+      <h3 class="record-index-title"><b>Rock / Pops / Indies</b></h3>
       <div class="col-xs-12">
         <% @pops.each do |record| %>
           <div class="col-xs-3 disc-space">
@@ -125,11 +129,13 @@
           </div>
         <% end %>
       </div>
-      <%= link_to "もっと見る", search_records_path, class:"col-xs-12 text-right" %>
+      <div class="row">
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
+      </div>
     </section>
 
     <section class="col-xs-12 records-genre">
-      <h2>Electric Dance Music</h2>
+      <h3 class="record-index-title"><b>Electric Dance Music</b></h3>
       <div class="col-xs-12">
         <% @edms.each do |record| %>
           <div class="col-xs-3 disc-space">
@@ -186,11 +192,13 @@
           </div>
         <% end %>
       </div>
-      <%= link_to "もっと見る", search_records_path, class:"col-xs-12 text-right" %>
+      <div class="row">
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-0ffset-10 text-right link h4" %>
+      </div>
     </section>
     
     <section class="col-xs-12 records-genre">
-      <h2>Old Rock</h2>
+      <h3 class="record-index-title"><b>Old Rock</b></h3>
       <div class="col-xs-12">
         <% @ors.each do |record| %>
           <div class="col-xs-3 disc-space">
@@ -247,11 +255,13 @@
           </div>
         <% end %>
       </div>
-      <%= link_to "もっと見る", search_records_path, class:"col-xs-12 text-right" %>
+      <div class="row">
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
+      </div>
     </section>
 
     <section class="col-xs-12 records-genre">
-      <h2>Hard Rock</h2>
+      <h3 class="record-index-title"><b>Hard Rock</b></h3>
       <div class="col-xs-12">
         <% @hrs.each do |record| %>
           <div class="col-xs-3 disc-space">
@@ -308,11 +318,13 @@
           </div>
         <% end %>
       </div>
-      <%= link_to "もっと見る", search_records_path, class:"col-xs-12 text-right" %>
+      <div class="row">
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
+      </div>
     </section>
 
     <section class="col-xs-12 records-genre">
-      <h2>PUNK</h2>
+      <h3 class="record-index-title"><b>PUNK</b></h3>
       <div class="col-xs-12">
         <% @punks.each do |record| %>
           <div class="col-xs-3 disc-space">
@@ -369,11 +381,13 @@
           </div>
         <% end %>
       </div>
-      <%= link_to "もっと見る", search_records_path, class:"col-xs-12 text-right" %>
+      <div class="row">
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
+      </div>
     </section>
 
     <section class="col-xs-12 records-genre">
-      <h2>JAZZ</h2>
+      <h3 class="record-index-title"><b>JAZZ</b></h3>
       <div class="col-xs-12">
         <% @jazzs.each do |record| %>
           <div class="col-xs-3 disc-space">
@@ -430,11 +444,13 @@
           </div>
         <% end %>
       </div>
-      <%= link_to "もっと見る", search_records_path, class:"col-xs-12 text-right" %>
+      <div class="row">
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
+      </div>
     </section>
 
     <section class="col-xs-12 records-genre">
-      <h2>Classic</h2>
+      <h3 class="record-index-title"><b>Classic</b></h3>
       <div class="col-xs-12">
         <% @classics.each do |record| %>
           <div class="col-xs-3 disc-space">
@@ -491,11 +507,13 @@
           </div>
         <% end %>
       </div>
-      <%= link_to "もっと見る", search_records_path, class:"col-xs-12 text-right" %>
+      <div class="row">
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
+      </div>
     </section>
 
     <section class="col-xs-12 records-genre">
-      <h2>Sound Track</h2>
+      <h3 class="record-index-title"><b>Sound Track</b></h3>
       <div class="col-xs-12">
         <% @sts.each do |record| %>
           <div class="col-xs-3 disc-space">
@@ -552,11 +570,13 @@
           </div>
         <% end %>
       </div>
-      <%= link_to "もっと見る", search_records_path, class:"col-xs-12 text-right" %>
+      <div class="row">
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
+      </div>
     </section>
 
     <section class="col-xs-12 records-genre">
-      <h2>昭和歌謡曲</h2>
+      <h3 class="record-index-title"><b>昭和歌謡曲</b></h3>
       <div class="col-xs-12">
         <% @sks.each do |record| %>
           <div class="col-xs-3 disc-space">
@@ -613,11 +633,13 @@
           </div>
         <% end %>
       </div>
-      <%= link_to "もっと見る", search_records_path, class:"col-xs-12 text-right" %>
+      <div class="row">
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
+      </div>
     </section>
 
     <section class="col-xs-12 records-genre">
-      <h2>アイドル</h2>
+      <h3 class="record-index-title"><b>アイドル</b></h3>
       <div class="col-xs-12">
         <% @idles.each do |record| %>
           <div class="col-xs-3 disc-space">
@@ -675,11 +697,13 @@
           </div>
         <% end %>
       </div>
-      <%= link_to "もっと見る", search_records_path, class:"col-xs-12 text-right" %>
+      <div class="row">
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
+      </div>
     </section>
 
     <section class="col-xs-12 records-genre">
-      <h2>K-POP</h2>
+      <h3 class="record-index-title"><b>K-POP</b></h3>
       <div class="col-xs-12">
         <% @kpops.each do |record| %>
           <div class="col-xs-3 disc-space">
@@ -736,7 +760,9 @@
           </div>
         <% end %>
       </div>
-      <%= link_to "もっと見る", search_records_path, class:"col-xs-12 text-right" %>
+      <div class="row">
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
+      </div>
     </section>
   </section>
 </div>
