@@ -72,6 +72,7 @@ gem "bootstrap-sass", ">= 3.4.1"
 
 gem 'jquery-ui-rails'
 gem 'jquery-rails'
+gem 'rails-ujs'
 
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
@@ -92,3 +93,5 @@ gem 'momentjs-rails'
 gem 'bootstrap4-datetime-picker-rails'
 
 gem "font-awesome-rails"
+
+gem "animate-rails"

@@ -1,6 +1,10 @@
 class Order < ApplicationRecord
-  has_many :order_details, :dependent => :delete_all
   belongs_to :user
+
+  has_many :order_details, :dependent => :delete_all
+
+  acts_as_paranoid
+
 
   validates :payment_method, presence: true
   validates :actual_shipping, presence: true
