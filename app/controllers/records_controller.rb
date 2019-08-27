@@ -29,7 +29,7 @@ class RecordsController < ApplicationController
       @idles = idles_count_id.map{|id| Record.find(id)}
     kpops_count_id = Record.where(genre: "K-POP").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
       @kpops = kpops_count_id.map{|id| Record.find(id)}
-    @setting = Setting.find(1)    
+    @setting = Setting.find(1) 
     # ここを追加
     @cart_item = CartItem.new
   end
