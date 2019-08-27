@@ -3,11 +3,15 @@ class Admin::OrdersController < ApplicationController
     before_action :set_order, only: [:show, :edit, :update, :destroy]
     
     def index
+        @orders = Order.all
+        @ordera = Order.page(params[:page]).per(50)
         @q = Order.ransack(params[:q])
         @orders = @q.result(distinct: true).order(:shipping_status, :receipt_status, :created_at)
+
     end
 
     def show
+        @user = @order.user
         @setting = Setting.find(1)
     end
 

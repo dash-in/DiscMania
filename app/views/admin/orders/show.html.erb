@@ -21,7 +21,10 @@
                         <tr>
                             <td class="text-center"><%= @order.id %></td>
                             <td class="text-center"><%= simple_time(@order.created_at) %></td>
-                            <td class="text-center"><%= link_to @order.user.handlename, user_path(@order.user_id) %></td>
+                            <td class="text-center"><%= link_to user_path(@order.user_id) do %>
+                                <%= @user.handlename %>
+                                <% end %>
+                            </td>
                             <td class="text-center"><%= @order.total_price %></td>
                             <td class="text-center"><%= @order.payment_method %></td>
                             <td class="text-center"><a href="#"><%= @order.receipt_status_i18n %></a></td>
