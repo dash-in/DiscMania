@@ -49,8 +49,8 @@
                 <td><%= attachment_image_tag order_detail.record, :image, format: 'jpeg', size: "60×60", fallback: "no_image.jpg", size:'60x60'%></td>
                 <td><%= order_detail.record.name %></td>
                 <td><%= order_detail.quantity %></td>
-                <td><%= order_detail.unit_price %>
-                <td><%= order_detail.price %></td>
+                <td>￥<%= number_with_delimiter(order_detail.unit_price) %>
+                <td>￥<%= number_with_delimiter(order_detail.price) %></td>
               <% end %>
             <% end %>
           </tr>

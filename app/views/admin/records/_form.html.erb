@@ -1,5 +1,15 @@
 <%= form_for(@record, url: path, method: method) do |f| %>
-        
+  <% if @record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@record.errors.count, "件") %> のエラーがあります。</h2>
+
+      <ul>
+      <% @record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
         <label class="col-xs-12">
             <h4 class="col-xs-12 record-form-title">ジャケット画像</h4>
                 <%= f.attachment_field :image, class:"col-xs-10 col-xs-offset-1 h4" %>
