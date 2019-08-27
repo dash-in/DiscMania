@@ -26,18 +26,25 @@
         <%= attachment_image_tag cart.record, :image, format: 'jpeg', size: "80×80", fallback: "no_image.jpg", size:'80x80' %>
       </td>
   	  <td>
-        <%= cart.record.name %>
-        <%= cart.record.artist.name %>
+        <%= cart.record.name %><br>
+        <%= cart.record.artist.name %><br>
         <%= cart.record.label %>
       </td>
       <td>￥
         <%= cart.record.price %>
       </td>
       <td>
+        <% stock_array = []
+              cart.record.stock.times do |quantity|
+              if stock_array.push(quantity)
+                else
+                    break
+                 end %>
+            <% end %>
         <%= form_for cart, url: cart_item_path(cart), method: :patch do  |f| %>
-        <%= f.select :quantity, @stock_array %>
-        <%= f.label :quantity, "個" %>
-        <%= f.submit "数量更新", class: "btn-xs btn-info" %>
+          <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1 ) %>
+          <%= f.label :quantity, "個" %>
+          <%= f.submit "数量更新", class: "btn-xs btn-info" %>
         <% end %>
       </td>
       <td>
@@ -54,8 +61,6 @@
       </div>
       <br>
       <% end %>
-      <br>
-      <br>
 
  </div>
 
@@ -63,7 +68,7 @@
       <h3>ご注意ください</h3>
       <p class="a">以前のご注文との同封発送はできません。</p>
       <p class="b">ご注文完了後の支払い方法の変更は行えません。</p>
-      <p class="c">送料は一配送につき全国一律５００円になります。</p>
+      <p class="c">送料は一配送につき全国一律<%= @setting.shipping %>円になります。</p>
       <p class="d">カート内商品は一括発送いたします。</p>
      </div>
      <br>
@@ -76,12 +81,9 @@
      <br>
      <br>
      <br>
-     <br>
-     <br>
-     <br>
      <div class="postage">
        <h2>送料について</h2>
-       <p class="">DiscManiaでは、全国一律５００円（税込）をいただいております。</p>
+       <p class="">DiscManiaでは、全国一律<%= @setting.shipping %>円（税込）をいただいております。</p>
      </div>
    </div>
   </div>
