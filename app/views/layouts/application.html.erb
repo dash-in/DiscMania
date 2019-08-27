@@ -43,7 +43,10 @@
                       <% if user_signed_in? %>
                       <!--ユーザがログインしてる -->
                           <li class="user-icon">
-                          <%= link_to "", user_path(current_user.id), class: "fas fa-user-circle" %></li>
+                          <%= link_to user_path(current_user.id) do %>
+                          <%= attachment_image_tag current_user,:image, fallback: "no_image.jpg",  size:"30x30" ,:class => "logo-img"%>
+                          <% end %>
+                          </li>
                           <li  class="header-text"><%= link_to "商品一覧", records_path %></li>
                           <li  class="header-text"><%= link_to "カート", cart_items_path %></li>
                           <li  class="header-text"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>

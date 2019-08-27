@@ -35,7 +35,16 @@
       </td>
       <td>
         <%= form_for cart, url: cart_item_path(cart), method: :patch do  |f| %>
-        <%= f.select :quantity, @stock_array %>
+
+        <% stock_array= []
+         cart.record.stock.times do |quantity|
+          if
+            stock_array.push(quantity)
+          else
+            break
+          end %>
+        <% end %>
+        <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
         <%= f.label :quantity, "個" %>
         <%= f.submit "数量更新", class: "btn-xs btn-info" %>
         <% end %>
