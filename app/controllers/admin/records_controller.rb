@@ -47,7 +47,7 @@ class Admin::RecordsController < ArtistsController
     # binding.pry
     if artist_input[:artist_input]=="true"
       # p 'test'
-      
+
       artist = Artist.new(artist_params)
       artist.save
       @record.artist_id = artist.id
@@ -95,7 +95,15 @@ class Admin::RecordsController < ArtistsController
   end
 
   def update_record_params
-    params.require(:form_record).permit(:stock)
+    params.require(:record).permit(:stock)
+  end
+
+  def artist_params
+    params.require(:artist).permit(:name, :description)
+  end
+
+  def artist_input
+    params.require(:form_record).permit(:artist_input)
   end
 
   def artist_params

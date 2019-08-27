@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @setting = Setting.find(1)
   if @user.id != current_user.id
      redirect_to user_path(current_user)
-   end
+   end 
   end
 
   def withdraw
