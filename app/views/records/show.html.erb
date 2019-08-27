@@ -150,12 +150,16 @@
                     ＜レビュー＞<br>
                     <%= review.review %>
                   </td>
-                  <td class="botan" align="center" style="width:10%" colspan="2"><%= link_to "編集", edit_record_review_path(@record.id,review.id), class:"btn btn-warning" %> <%= link_to "削除", record_review_path(@record.id, review.id), method: :delete, class:"btn btn-danger btn-primar" %></td>
+                  <% if user_signed_in? && current_user.id == review.user_id %>
+                  <td class="botan" align="center" style="width:10%" colspan="2">
+                    <%= link_to "編集", edit_record_review_path(@record.id,review.id), class:"btn btn-warning" %> <%= link_to "削除", record_review_path(@record.id, review.id), method: :delete, class:"btn btn-danger btn-primar" %>
+                  </td>
                 </tr>
+              <% end %>
               <% end %>
             </table>
 
-
+      <% if user_signed_in? %>
         <div class="new_review">
           <h3>レビューの投稿</h3>
            <div class="#">
@@ -164,6 +168,7 @@
               <%= f.submit "送信する",class:"btn btn-danger left" %>
               <% end %>
             </div>
+            <% end %>
            </div>
          </div>
         </div>
