@@ -1,0 +1,68 @@
+
+ja:
+  activerecord:
+    models:
+      artist: "アーティスト"
+      cart_item: "カート内商品"
+      order_detail: "購入履歴"
+      order: "オーダー"
+      record: "レコード"
+      review: "レビュー"
+      setting: "各種設定"
+      shipping_info: "配送先情報"
+      tune: "楽曲"
+      user: "ユーザー"
+    attributes:
+      artist:
+        name: "アーティストの氏名"
+        description: "アーティスト概要"
+      cart_item:
+        quantity: "購入数"
+      order_detail:
+        quantity: "購入数"
+        price: "小計"
+        unit_price: "商品単価"
+        shipping_info: "配送先情報"
+      order:
+        payment_method: "入金方法"
+        shipping_name: "配送先宛名"
+        shipping_post_num: "配送先郵便番号"
+        shipping_address: "配送先住所"
+      record:
+        name: "商品名"
+        image: "ジャケット画像"
+        price: "商品価格"
+        label: "レーベル"
+        genre: "ジャンル"
+        stock: "在庫数"
+        body: "詳細情報"
+      review:
+        review: "レビュー内容"
+      setting:
+        shipping: 送料"
+        tax: "消費税率"
+        shop_address: "店舗住所"
+        shop_tel: "店舗電話番号"
+      shipping_info:
+        name: "宛名"
+        post_number: "郵便番号"
+        address: "住所"
+      record/tunes:
+        disc_no: "ディスクナンバー"
+        tune_order: "曲順"
+        tune_name: "曲名"
+      tune: 
+        disc_no: "ディスクナンバー"
+        tune_order: "曲順"
+        tune_name: "曲名"
+      user:
+        email: "メールアドレス"
+        first_name: "苗字"
+        last_name: "名前"
+        first_name_kana: "苗字の読み方"
+        last_name_kana: "名前の読み方"
+        address: "住所"
+        post_number: "郵便番号"
+        tel: "電話番号"
+        handlename: "ニックネーム"
+        image: "画像"
