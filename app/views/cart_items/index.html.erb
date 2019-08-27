@@ -45,6 +45,7 @@
           <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1 ) %>
           <%= f.label :quantity, "個" %>
           <%= f.submit "数量更新", class: "btn-xs btn-info" %>
+
         <% end %>
       </td>
       <td>
