@@ -45,7 +45,6 @@ class RecordsController < ApplicationController
     @cart_item = CartItem.new
     @record = Record.find(params[:id])
     @setting = Setting.find(1)
-    # @user_id = current_user.id
     @review = Review.new
   end
 
