@@ -35,8 +35,8 @@
           <%= number_with_delimiter (@record.price.to_i * @setting.tax).floor %>
         </h4>
         <p class="stock">在庫数</p>
-          <%= form_for(@record, url: admin_record_path(@record),html:{method: "put"}) do |f| %>
-          <%= f.number_field :stock %>
+          <%= form_for(@record, url: admin_record_path(@record),html:{method: "patch"}) do |f| %>
+          <%= f.number_field :stock, name: "form_record[stock]" %>
         <%= f.submit "在庫数を更新する", class: "btn btn-primary" %>
         <% end %>
         <br>

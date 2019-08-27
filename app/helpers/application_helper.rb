@@ -1,8 +1,17 @@
 module ApplicationHelper
     def simple_time(time)
-        time.strftime("%Y-%m-%d %H:%M")
+        if time == nil
+            nil
+        else
+            time.strftime("%Y-%m-%d %H:%M")
+            
+        end
     end 
     def simple_date(time)
-        time.strftime("%Y-%m-%d")
+        if time == nil
+            nil
+        else
+            time.strftime("%Y-%m-%d")
+        end
     end
 end

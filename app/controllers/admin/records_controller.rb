@@ -26,6 +26,7 @@ class Admin::RecordsController < ArtistsController
     #   .order(:artist_name, created_at: :desc)
     @q = Form::Record.search(params[:q])
     @records = @q.result(distinct: true).order(:stock)
+    @recorda = Record.page(params[:page]).per(50)
   end
 
   def show
@@ -35,6 +36,7 @@ class Admin::RecordsController < ArtistsController
 
   def new
     @record = Form::Record.new
+    @artist = Artist.new
   end
 
   def edit
@@ -42,6 +44,18 @@ class Admin::RecordsController < ArtistsController
 
   def create
     @record = Form::Record.new(record_params)
+    # binding.pry
+    if artist_input[:artist_input]=="true"
+      # p 'test'
+      artist = Artist.new(artist_params)
+      artist.save
+      @record.artist_id = artist.id
+    else
+      # binding.pry
+      # p false
+    end
+    # binding.pry
+
     if @record.save
       redirect_to search_admin_records_path, notice: "レコード「#{@record.name}」を登録しました。"
     else
@@ -76,15 +90,18 @@ class Admin::RecordsController < ArtistsController
   end
 
   def record_params
-    params
-      .require(:form_record)
-      .permit(
-        Form::Record::REGISTRABLE_ATTRIBUTES +
-        [tunes_attributes: Form::Tune::REGISTRABLE_ATTRIBUTES]
-      )
+    params.require(:form_record).permit(Form::Record::REGISTRABLE_ATTRIBUTES + [tunes_attributes: Form::Tune::REGISTRABLE_ATTRIBUTES])
   end
 
   def update_record_params
-    params.require(:form_record).permit(:stock)
+    params.require(:record).permit(:stock)
+  end
+
+  def artist_params
+    params.require(:artist).permit(:name, :description)
+  end
+
+  def artist_input
+    params.require(:form_record).permit(:artist_input)
   end
 end

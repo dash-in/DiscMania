@@ -1,23 +1,16 @@
 class Admin::UsersController < ApplicationController
 
   def index
-    @users = User.all
+    @users = User.page(params[:page]).per(50)
   end
 
   def show
     @user = User.find(params[:id])
     @shippings = @user.shipping_infos
-    @order_details = Order.where(user_id: current_user.id).includes(:order_details).map(&:order_details).flatten
+    @shippinga = ShippingInfo.page(params[:page]).per(5)
+    @order_details = Order.where(user_id: params[:id]).includes(:order_details).map(&:order_details).flatten
+    @orderdetail = OrderDetail.page(params[:page]).per(5)
     @setting = Setting.find(1)
-  if @user.id != current_user.id
-     redirect_to user_path(current_user)
-  end
-  end
-
-  def deleting
-  end
-
-  def deleted
   end
 
   def edit

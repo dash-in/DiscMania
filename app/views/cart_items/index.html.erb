@@ -35,6 +35,13 @@
       </td>
       <td>
         <%= form_for cart, url: cart_item_path(cart), method: :patch do  |f| %>
+        <% @stock_array = [] %>
+        <% cart.record.stock.times do |quantity| %>
+        <% if @stock_array << quantity + 1 %>
+        <% else %>
+        <% break %>
+        <% end %>
+        <% end %>
         <%= f.select :quantity, @stock_array %>
         <%= f.label :quantity, "個" %>
         <%= f.submit "数量更新", class: "btn-xs btn-info" %>
@@ -67,7 +74,7 @@
      <br>
      <% unless @cart_item.blank? %>
      <%= link_to "買い物を続ける", records_path, class:"btn btn-info col-xs-6" %>
-     <button class="btn btn-danger col-xs-6">レジに進む</button>
+     <%= link_to "レジへ進む", new_order_path, class:"btn btn-danger col-xs-6" %>
      <% end %>
      <br>
      <br>
