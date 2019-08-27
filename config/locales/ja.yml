@@ -76,20 +76,3 @@ ja:
         deposit: "入金確認済み"
 
 
-
-
-
-
-activerecord:
-    models:
-      order:
-        new:
-          payment_method: "入金方法選択"
-          shipping_name: "配送先宛名"
-          shipping_post_num: "配送先郵便番号"
-          shipping_address: "配送先住所"
-
-
-
-
-
