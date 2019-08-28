@@ -1,17 +1,20 @@
+<body>
 <div class="container">
  <div class="row">
-  <h2>カート</h2>
-  <p class="top">※一回のご注文で複数の商品をご注文いただいた場合は、原則として全ての商品が揃ってから一括発送いたします。</p>
   <br>
   <div class="if">
     <% if @cart_item.empty? %>
-    <h2 align="center">カートには何も入っていません!</h2>
-    <h4 align="center"><%= link_to "買い物を続ける", records_path %></h4>
-    <br>
-    <br>
+    <div class="main">
+      <h3 class="text-center">カートには何も入っていません</h3></div>
+    <div class="sav">
+      <h3 class="text-center sav-text"><%= link_to "買い物を続ける", records_path , :style=>"color:#2f4f4f;" %></h4></div>
     <% else %>
-      <table border  width="100%">
-      <tr align="center" height="50">
+    <div class="main">
+     <h3>以下の商品がカートに入っています</h3>
+    </div>
+
+      <table class="table table-striped">
+      <tr>
         <td></td>
       	<td>商品</td>
       	<td>単価</td>
@@ -21,17 +24,17 @@
       </tr>
       <% @cart_item.each do |cart| %>
       <% sum = 0 %>
-      <tr align="center" height="100">
+      <tr>
   	  <td>
         <%= attachment_image_tag cart.record, :image, format: 'jpeg', size: "80×80", fallback: "no_image.jpg", size:'80x80' %>
       </td>
   	  <td>
-        <%= cart.record.name %><br>
-        <%= cart.record.artist.name %><br>
-        <%= cart.record.label %>
+        <p class=""><%= cart.record.name %></p>
+        <p class=""><%= cart.record.artist.name %></p>
+        <p class=""><%= cart.record.label %></p>
       </td>
-      <td>￥
-        <%= number_with_delimiter cart.record.price %>
+      <td>
+        <p class="kane">￥<%= number_with_delimiter cart.record.price %></p>
       </td>
       <td>
         <% stock_array = []
@@ -44,16 +47,16 @@
         <%= form_for cart, url: cart_item_path(cart), method: :patch do  |f| %>
           <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1 ) %>
           <%= f.label :quantity, "個" %>
-          <%= f.submit "数量更新", class: "btn-xs btn-info" %>
+          <%= f.submit "変更", class: "btn btn-default btn-xs" %>
 
         <% end %>
       </td>
       <td>
-          <%  @sub_total  = (cart.record.price * cart.record.cart_item.quantity * @setting.tax).floor%>
+          <p><%  @sub_total  = (cart.record.price * cart.record.cart_item.quantity * @setting.tax).floor%>
           <% @sum += @sub_total %>
-        ￥<%= number_with_delimiter @sub_total %>（税込）
+        ￥<%= number_with_delimiter @sub_total %>（税込）</p>
       </td>
-      <td><%= link_to "カートから消す", cart,url: cart_item_path(@cart_item), method: :delete, class: "btn btn-danger" %></td>
+      <td><%= link_to "カートから消す", cart,url: cart_item_path(@cart_item), method: :delete, class: "btn btn-danger btn-sm" %></td>
       </tr>
       <% end %>
       </table>
@@ -62,29 +65,34 @@
       </div>
       <br>
       <% end %>
-
+    </div>
+  </div>
  </div>
+     <div class="row">
+      <div class="caution clearfix"> 
+        <h3 class="text-center"><b>ご注意ください</b></h3>
+          <div class="hako1  text-center">
+            <h4 class="aa"><b>一回のご注文で複数の商品をご注文いただいた場合は、原則として全ての商品が揃ってから一括発送いたします。</b></h4></div>
+          <div class="hakoko text-center">
+            <p class="a"><b>カート内商品は一括発送いたします。</b></p>
+           <p class="b"><b>以前のご注文との同封発送はできません。</b></p></div>
+          <div class="hakoko  text-center">
+            <p class="a"><b>送料は一配送につき全国一律<%= @setting.shipping %>円になります。</b></p>
+           <p class="b"><b>ご注文完了後の支払い方法の変更は行えません。</b></p></div>
+      </div>
+    </div>
+</body>
 
-   <div class="caution clearfix">
-      <h3>ご注意ください</h3>
-      <p class="a">以前のご注文との同封発送はできません。</p>
-      <p class="b">ご注文完了後の支払い方法の変更は行えません。</p>
-      <p class="c">送料は一配送につき全国一律<%= @setting.shipping %>円になります。</p>
-      <p class="d">カート内商品は一括発送いたします。</p>
-     </div>
-     <br>
-     <% unless @cart_item.blank? %>
-     <%= link_to "買い物を続ける", records_path, class:"btn btn-info col-xs-6" %>
-
-     <%= link_to "レジへ進む", new_order_path, class:"btn btn-danger col-xs-6" %>
-
-     <% end %>
-     <br>
-     <br>
-     <br>
-     <div class="postage">
-       <h2>送料について</h2>
-       <p class="">DiscManiaでは、全国一律<%= @setting.shipping %>円（税込）をいただいております。</p>
+     <div class="row">
+       <div class="col-xs-1"></div>
+        <% unless @cart_item.blank? %>
+        <div class="col-xs-4">
+          <%= link_to "買い物を続ける", records_path, class:"form-control btn btn-primary" %></div>
+        <div class="col-xs-2"></div>
+        <div class="col-xs-4">
+          <%= link_to "レジへ進む", new_order_path, class:"form-control btn btn-danger" %></div>
+        <div class="col-xs-1"></div>
+        <% end %>
      </div>
    </div>
   </div>

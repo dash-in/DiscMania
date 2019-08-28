@@ -2,59 +2,47 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.clearfix::after {
-  content: "";
-  display: block;
-  clear: both;
+.main{
+	padding-bottom: 30px;
+	border_bottom: 1px ;
 }
 
-.top{
-	border: 1px solid;
-	padding: 10px;
+.sav{
+	padding: 30px;
+	border-bottom: 1px solid;
+    border-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%);
+    border-image-slice: 1;
 }
 
 .total {
 	text-align: right;
 	font-size: 30px;
-	border: 2px solid;
 	padding: 20px;
+	border-bottom: 3px solid;
+    border-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%);
+    border-image-slice: 1;
 }
 
 .caution {
-	border: 2px solid;
-	border-radius: 10px;
-	padding: 0 15px;
+	margin:5em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
 }
 
-.btn btn-info col-xs-6 {
-	margin-left : 10px;
-}
+.kane{
+    margin: 0 auto;
+	}
 
-.a {
-	display: inline-block;
-	float: left;
-	width: 50%;
+.hako{
+	padding: 10px;
 }
-
-
-.b {
-	display: inline-block;
-	float: left;
-	width: 50%;
+.hako1{
+	padding :10px;
 }
-.c {
-	display: inline-block;
-	float: left;
-	width: 50%;
-}
-
-.d {
-	display: inline-block;
-	float: left;
-	width: 50%;
-}
-
-.postage {
-	border :solid 2px;
+.hakoko {
 	padding: 20px;
+	float: left;
+	width: 50%;
 }
