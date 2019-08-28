@@ -83,7 +83,7 @@ class OrdersController < ApplicationController
       prices = prices + (incart.record.price * incart.quantity)
       end
       @total = prices
-      render :new
+      redirect_to new_order_path
     end
   end
 
