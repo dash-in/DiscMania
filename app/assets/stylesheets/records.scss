@@ -1,7 +1,9 @@
 // Place all the styles related to the Records controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+*{
+  font-family: verdana, arial, helvetica, sans-serif;
+}
 .space--1 {
  padding-top: 20px;
 }
@@ -47,15 +49,39 @@ font-size: 17px;
   height: 80%;
   text-align : left;
 }
-textarea {
-  resize: none;
-  width:100%;
-  height: 10em;
-}
 .botan {
   padding: 30px;
 }
-table{
-    border-collapse: separate;
-    border-spacing: 3px;
+.botan1 {
+  color: #808080;
+}
+.user_image{
+  border-radius: 10px;
+}
+.user_info {
+  position: relative;
+  padding: 0.6em;
+  background: #ECF5F9;
+}
+
+.user_info:after {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 30px;
+  border: 15px solid transparent;
+  border-top: 15px solid #e0edff;
+  width: 0;
+  height: 0;
+  }
+
+.review_post{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    padding: 18px;
+    color: #444444;
+    background: #EEEEEE;
+    border-bottom: solid 6px #BBBBBB;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
 }
