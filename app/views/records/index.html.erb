@@ -4,7 +4,7 @@
 
 <div class="container">
   <section class="row">
-    <h1 class="text-center">ジャンル別月間TOP4</h1>
+    <h1 class="text-center">ジャンル別月間売上TOP4</h1>
 
     <section class="col-xs-12 records-genre">
       <h3 class="record-index-title"><b>Japanese Rock / Pops / Indies</b></h3>
@@ -16,15 +16,13 @@
             <% else %>
               <div class="stock-t"><p>即日発送</p></div>
             <% end %>
-            
+
             <%= link_to record_path(record.id) do %>
               <%= attachment_image_tag record, :image, size: "200x200", fallback: "no_image.jpg", class:'text-center record-image' %></br></br>
             <% end %>
             <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
-
-
             <!-- ここを追加　カートボタン -->
             <% stock_array= []
             record.stock.times do |quantity|
@@ -42,28 +40,26 @@
                 <%= form_for(cart_item, url: cart_item_path(cart_item),html:{method: "put"}) do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% else %>
                 <%= form_for @cart_item do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% end %>
@@ -73,23 +69,20 @@
                     <%= f.select :quantity, stock_array %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                 <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                 <% end %>
               <% end %>
           <% end %>
-
-
-
           </div>
         <% end %>
       </div>
       <div class="row">
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
       </div>
     </section>
 
@@ -109,8 +102,6 @@
             <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
-
-
             <!-- ここを追加　カートボタン -->
             <% stock_array= []
             record.stock.times do |quantity|
@@ -128,28 +119,26 @@
                 <%= form_for(cart_item, url: cart_item_path(cart_item),html:{method: "put"}) do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% else %>
                 <%= form_for @cart_item do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% end %>
@@ -159,23 +148,20 @@
                     <%= f.select :quantity, stock_array %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                 <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                 <% end %>
               <% end %>
           <% end %>
-
-
-
           </div>
         <% end %>
       </div>
       <div class="row">
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
       </div>
     </section>
 
@@ -195,9 +181,7 @@
             <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
-
-
-            <!-- ここを追加　カートボタン -->
+           <!-- ここを追加　カートボタン -->
             <% stock_array= []
             record.stock.times do |quantity|
               if quantity < 31
@@ -214,28 +198,26 @@
                 <%= form_for(cart_item, url: cart_item_path(cart_item),html:{method: "put"}) do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% else %>
                 <%= form_for @cart_item do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% end %>
@@ -245,25 +227,26 @@
                     <%= f.select :quantity, stock_array %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                 <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                 <% end %>
               <% end %>
           <% end %>
-
-
           </div>
         <% end %>
       </div>
+
       <div class="row">
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-0ffset-10 text-right link h4" %>
+        
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
+
       </div>
     </section>
-    
+
     <section class="col-xs-12 records-genre">
       <h3 class="record-index-title"><b>Old Rock</b></h3>
       <div class="col-xs-12">
@@ -280,8 +263,6 @@
             <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
-
-
             <!-- ここを追加　カートボタン -->
             <% stock_array= []
             record.stock.times do |quantity|
@@ -299,28 +280,26 @@
                 <%= form_for(cart_item, url: cart_item_path(cart_item),html:{method: "put"}) do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% else %>
                 <%= form_for @cart_item do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% end %>
@@ -330,23 +309,20 @@
                     <%= f.select :quantity, stock_array %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                 <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                 <% end %>
               <% end %>
           <% end %>
-
-
-
           </div>
         <% end %>
       </div>
       <div class="row">
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
       </div>
     </section>
 
@@ -366,9 +342,6 @@
             <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
-
-
-            
             <!-- ここを追加　カートボタン -->
             <% stock_array= []
             record.stock.times do |quantity|
@@ -386,28 +359,26 @@
                 <%= form_for(cart_item, url: cart_item_path(cart_item),html:{method: "put"}) do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% else %>
                 <%= form_for @cart_item do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% end %>
@@ -417,24 +388,20 @@
                     <%= f.select :quantity, stock_array %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                 <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                 <% end %>
               <% end %>
           <% end %>
-
-
-
-
           </div>
         <% end %>
       </div>
       <div class="row">
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
       </div>
     </section>
 
@@ -454,8 +421,6 @@
             <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
-
-
             <!-- ここを追加　カートボタン -->
             <% stock_array= []
             record.stock.times do |quantity|
@@ -473,28 +438,26 @@
                 <%= form_for(cart_item, url: cart_item_path(cart_item),html:{method: "put"}) do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% else %>
                 <%= form_for @cart_item do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% end %>
@@ -504,24 +467,20 @@
                     <%= f.select :quantity, stock_array %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                 <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                 <% end %>
               <% end %>
           <% end %>
-
-
-
-
           </div>
         <% end %>
       </div>
       <div class="row">
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
       </div>
     </section>
 
@@ -541,8 +500,6 @@
             <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
-
-
             <!-- ここを追加　カートボタン -->
             <% stock_array= []
             record.stock.times do |quantity|
@@ -560,28 +517,26 @@
                 <%= form_for(cart_item, url: cart_item_path(cart_item),html:{method: "put"}) do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% else %>
                 <%= form_for @cart_item do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% end %>
@@ -591,23 +546,20 @@
                     <%= f.select :quantity, stock_array %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                 <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                 <% end %>
               <% end %>
           <% end %>
-
-
-
           </div>
         <% end %>
       </div>
       <div class="row">
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
       </div>
     </section>
 
@@ -627,8 +579,6 @@
             <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
-
-
             <!-- ここを追加　カートボタン -->
             <% stock_array= []
             record.stock.times do |quantity|
@@ -646,28 +596,26 @@
                 <%= form_for(cart_item, url: cart_item_path(cart_item),html:{method: "put"}) do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% else %>
                 <%= form_for @cart_item do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% end %>
@@ -677,23 +625,20 @@
                     <%= f.select :quantity, stock_array %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                 <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                 <% end %>
               <% end %>
           <% end %>
-
-
-
           </div>
         <% end %>
       </div>
       <div class="row">
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
       </div>
     </section>
 
@@ -713,8 +658,6 @@
             <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
-
-
             <!-- ここを追加　カートボタン -->
             <% stock_array= []
             record.stock.times do |quantity|
@@ -732,28 +675,26 @@
                 <%= form_for(cart_item, url: cart_item_path(cart_item),html:{method: "put"}) do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% else %>
                 <%= form_for @cart_item do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% end %>
@@ -763,24 +704,20 @@
                     <%= f.select :quantity, stock_array %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                 <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                 <% end %>
               <% end %>
           <% end %>
-
-
-
-
           </div>
         <% end %>
       </div>
       <div class="row">
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
       </div>
     </section>
 
@@ -800,8 +737,6 @@
             <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
-
-
             <!-- ここを追加　カートボタン -->
             <% stock_array= []
             record.stock.times do |quantity|
@@ -819,28 +754,26 @@
                 <%= form_for(cart_item, url: cart_item_path(cart_item),html:{method: "put"}) do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% else %>
                 <%= form_for @cart_item do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% end %>
@@ -850,23 +783,20 @@
                     <%= f.select :quantity, stock_array %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                 <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                 <% end %>
               <% end %>
           <% end %>
-
-
-
           </div>
         <% end %>
       </div>
       <div class="row">
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
       </div>
     </section>
 
@@ -886,8 +816,6 @@
             <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
-
-
             <!-- ここを追加　カートボタン -->
             <% stock_array= []
             record.stock.times do |quantity|
@@ -905,28 +833,26 @@
                 <%= form_for(cart_item, url: cart_item_path(cart_item),html:{method: "put"}) do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% else %>
                 <%= form_for @cart_item do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% end %>
@@ -936,25 +862,20 @@
                     <%= f.select :quantity, stock_array %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                 <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                 <% end %>
               <% end %>
           <% end %>
-
-
-
-
-
           </div>
         <% end %>
       </div>
       <div class="row">
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
       </div>
     </section>
 
@@ -974,8 +895,6 @@
             <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
-
-
             <!-- ここを追加　カートボタン -->
             <% stock_array= []
             record.stock.times do |quantity|
@@ -993,28 +912,26 @@
                 <%= form_for(cart_item, url: cart_item_path(cart_item),html:{method: "put"}) do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% else %>
                 <%= form_for @cart_item do |f| %>
                   <% if record.stock == 0 %>
                     <%= f.select :quantity, stock_array %>
-                    <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                   <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                   <% end %>
                 <% end %>
               <% end %>
@@ -1024,23 +941,20 @@
                     <%= f.select :quantity, stock_array %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+                    <span class="label label-default">在庫がありません</span>
                 <% else %>
                     <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
                     <%= f.label :quantity, "個" %>
                     <%= f.hidden_field :record_id, :value => record.id %>
-                    <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+                    <%= f.submit "カートに入れる", class:"btn btn-primary btn-xs" %>
                 <% end %>
               <% end %>
           <% end %>
-
-
-
           </div>
         <% end %>
       </div>
       <div class="row">
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
       </div>
     </section>
   </section>

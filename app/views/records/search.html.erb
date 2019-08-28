@@ -6,6 +6,7 @@
 
     <h3 class="text-center mb-4"><b>商品一覧</b></h3>
     
+    <div class="row">
     <% @records.each do |record| %>
       <div class="col-xs-3 disc-space">
         <% if record.stock == 0 %>
@@ -20,6 +21,7 @@
         <p><%= record.artist.name %></p>
         <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
       </div>
+
     <% end %>
   </section>
   <%= paginate @records, class: "paginate" %>

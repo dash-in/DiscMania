@@ -4,30 +4,32 @@ class RecordsController < ApplicationController
 
   def index
     @q = Form::Record.includes(:tune).search
+    from = Time.now.at_beginning_of_day
+    to = (from - 1.month)
     # binding.pry
-    jpops_count_id = Record.where(genre: "Japanese Rock / Pops / Indies").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+    jpops_count_id = Record.select('created_at AS registered').joins(:order_details).where(genre: "Japanese Rock / Pops / Indies").where(created_at: to..from).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
       @jpops = jpops_count_id.map{|id| Record.find(id)}
-    pops_count_id = Record.where(genre: "Rock / Pops / Indies").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+    pops_count_id = Record.select('created_at AS registered').joins(:order_details).where(genre: "Rock / Pops / Indies").where(created_at: to..from).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
       @pops = pops_count_id.map{|id| Record.find(id)}
-    edms_count_id = Record.where(genre: "Electric Dance Music").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+    edms_count_id = Record.select('created_at AS registered').joins(:order_details).where(genre: "Electric Dance Music").where(created_at: to..from).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
       @edms = edms_count_id.map{|id| Record.find(id)}
-    ors_count_id = Record.where(genre: "Old Rock").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+    ors_count_id = Record.select('created_at AS registered').joins(:order_details).where(genre: "Old Rock").where(created_at: to..from).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
       @ors = ors_count_id.map{|id| Record.find(id)}
-    hrs_count_id = Record.where(genre: "Hard Rock / Heavy Metal").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+    hrs_count_id = Record.select('created_at AS registered').joins(:order_details).where(genre: "Hard Rock / Heavy Metal").where(created_at: to..from).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
       @hrs = hrs_count_id.map{|id| Record.find(id)}
-    punks_count_id = Record.where(genre: "PUNK").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+    punks_count_id = Record.select('created_at AS registered').joins(:order_details).where(genre: "PUNK").where(created_at: to..from).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
       @punks = punks_count_id.map{|id| Record.find(id)}
-    jazzs_count_id = Record.where(genre: "JAZZ").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+    jazzs_count_id = Record.select('created_at AS registered').joins(:order_details).where(genre: "JAZZ").where(created_at: to..from).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
       @jazzs = jazzs_count_id.map{|id| Record.find(id)}
-    classics_count_id = Record.where(genre: "CLASSIC").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+    classics_count_id = Record.select('created_at AS registered').joins(:order_details).where(genre: "CLASSIC").where(created_at: to..from).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
       @classics = classics_count_id.map{|id| Record.find(id)}
-    sts_count_id = Record.where(genre: "Sound Track").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+    sts_count_id = Record.select('created_at AS registered').joins(:order_details).where(genre: "Sound Track").where(created_at: to..from).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
       @sts = sts_count_id.map{|id| Record.find(id)}
-    sks_count_id = Record.where(genre: "昭和歌謡曲 / 演歌").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+    sks_count_id = Record.select('created_at AS registered').joins(:order_details).where(genre: "昭和歌謡曲 / 演歌").where(created_at: to..from).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
       @sks = sks_count_id.map{|id| Record.find(id)}
-    idles_count_id = Record.where(genre: "アイドル").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+    idles_count_id = Record.select('created_at AS registered').joins(:order_details).where(genre: "アイドル").where(created_at: to..from).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys  
       @idles = idles_count_id.map{|id| Record.find(id)}
-    kpops_count_id = Record.where(genre: "K-POP").joins(:order_details).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
+    kpops_count_id = Record.select('created_at AS registered').joins(:order_details).where(genre: "K-POP").where(created_at: to..from).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
       @kpops = kpops_count_id.map{|id| Record.find(id)}
     @setting = Setting.find(1) 
     # ここを追加
@@ -36,7 +38,9 @@ class RecordsController < ApplicationController
 
   def search
     @q = Form::Record.search(params[:q])
+
     @records = @q.result(distinct: true).joins(:artist).includes(:artist).order("artists.name", created_at: "DESC").page(params[:page]).per(30)
+    @i = 0
     @setting = Setting.find(1)
   end
 
