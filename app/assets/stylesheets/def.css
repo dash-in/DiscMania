@@ -642,3 +642,10 @@ h1 {
 .delete {
     margin-top: 30px !important;
 }
+
+
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+
+  display: block;    
+
+}

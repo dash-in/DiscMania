@@ -31,7 +31,7 @@
         <%= cart.record.label %>
       </td>
       <td>￥
-        <%= cart.record.price %>
+        <%= number_with_delimiter cart.record.price %>
       </td>
       <td>
         <% stock_array = []
@@ -49,16 +49,16 @@
         <% end %>
       </td>
       <td>
-          <% @sub_total  = (cart.record.price * cart.record.cart_item.quantity * @setting.tax).floor%>
+          <%  @sub_total  = (cart.record.price * cart.record.cart_item.quantity * @setting.tax).floor%>
           <% @sum += @sub_total %>
-        ￥<%= @sub_total %>（税込）
+        ￥<%= number_with_delimiter @sub_total %>（税込）
       </td>
       <td><%= link_to "カートから消す", cart,url: cart_item_path(@cart_item), method: :delete, class: "btn btn-danger" %></td>
       </tr>
       <% end %>
       </table>
       <div class="total">
-        税込合計金額(※送料含む)￥<%= @sum + @setting.shipping .floor %>円
+        税込合計金額(※送料含む)￥<%= number_with_delimiter @sum + @setting.shipping.floor %>円
       </div>
       <br>
       <% end %>

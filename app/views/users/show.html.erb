@@ -72,7 +72,7 @@
                    <% end %>
                 </tbody>
             </table>
-            <%= paginate @shippinga, class: "paginate" %>
+            <%= paginate @shippings, class: "paginate", param_name: 'shipping_page'%>
         </div>
         <div class="col-xs-1"></div>
 
@@ -100,7 +100,7 @@
                     <% end %>
                 </tbody>
             </table>
-            <%= paginate @orderdetail, class: "paginate" %>
+            <%= paginate @order_details, class: "paginate", param_name: 'order_detail_page' %>
         </div>
         <div class="col-xs-1"></div>
     </section>
