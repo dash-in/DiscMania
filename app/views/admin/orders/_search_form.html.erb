@@ -4,35 +4,25 @@
             <div class="row">
                 <label class="col-xs-3 s-form" for="">
                     <div class="col-xs-12 s-form">
-                        <span class="form-spacing">
                             <%= f.text_field :id_eq, class: 'form-control', placeholder: "受注ID" %>
-                        </span>
                     </div>
                 </label>
 
                 <label class="col-xs-3 s-form" for="">
                     <div class="col-xs-12 s-form">
-                        <span class="form-spacing">
                             <%= f.text_field :user_id_eq, class: 'form-control', placeholder: "ユーザーID" %>
-                        </span>
                     </div>
                 </label>
 
                 <label class="col-xs-6 s-form row">
                     <div class="col-xs-5 s-form">
-                        <span class="form-spacing">
                             <%= f.date_field :created_at_gteq, include_blank: true, class:"form-control" %>
-                        </span>
                     </div>
                     <div class="col-xs-1 s-form">
-                        <span class="form-spacing time-span">
                             〜
-                        </span>
                     </div>
                     <div class="col-xs-5 s-form">
-                        <span class="form-spacing">
                             <%= f.date_field :created_at_lteq, include_blank: true, class:"form-control" %>
-                        </span>
                     </div>
                     <div class="col-xs-1"></div>
                 </label>
