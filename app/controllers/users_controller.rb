@@ -7,11 +7,13 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @shippings = @user.shipping_infos
+    @shippinga = ShippingInfo.page(params[:page]).per(5)
     @order_details = Order.where(user_id: current_user.id).includes(:order_details).map(&:order_details).flatten
+    @orderdetail = OrderDetail.page(params[:page]).per(5)
     @setting = Setting.find(1)
   if @user.id != current_user.id
      redirect_to user_path(current_user)
-   end
+   end 
   end
 
   def withdraw
@@ -31,11 +33,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     login_id = current_user.id
     if @user.update(user_params)
-      if login_id == @user.id
-       bypass_sign_in(@user)
        redirect_to user_path(@user.id)
     else render :edit
-      end
     end
   end
 

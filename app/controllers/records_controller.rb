@@ -31,7 +31,7 @@ class RecordsController < ApplicationController
       @idles = idles_count_id.map{|id| Record.find(id)}
     kpops_count_id = Record.select('created_at AS registered').joins(:order_details).where(genre: "K-POP").where(created_at: to..from).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
       @kpops = kpops_count_id.map{|id| Record.find(id)}
-    @setting = Setting.find(1)    
+    @setting = Setting.find(1) 
     # ここを追加
     @cart_item = CartItem.new
   end
@@ -41,14 +41,13 @@ class RecordsController < ApplicationController
     @records = @q.result(distinct: true).joins(:artist).includes(:artist).order("artists.name", created_at: "DESC")
     @i = 0
     @setting = Setting.find(1)
+    @recorda = Record.page(params[:page]).per(30)
   end
 
   def show
     @cart_item = CartItem.new
     @record = Record.find(params[:id])
     @setting = Setting.find(1)
-    # @user_id = current_user.id
-    # @user = User.find(params[:id])
     @review = Review.new
   end
 
@@ -64,6 +63,8 @@ class RecordsController < ApplicationController
     )
     params.require(:q).permit(search_conditions)
   end
+
+
 
 
 end

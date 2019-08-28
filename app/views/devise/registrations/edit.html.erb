@@ -15,8 +15,8 @@
                           <%= render "devise/shared/error_messages", resource: resource %>
 
                           <div class="form-group has-icon">
-                            <label class="control-label sr-only" for="inputfmail">現在のemail</label>
-                            <%= f.email_field :email, autofocus: true, class:"form-control", id:"inputemail", placeholder:"現在メールアドレス"%>
+                            <label class="control-label" for="inputfmail">現在のメールアドレス</label>
+                            <%= f.email_field :email, autofocus: true, class:"form-control", id:"inputemail", placeholder:"現在のメールアドレス"%>
                           </div>
 
                           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -25,16 +25,16 @@
 
 
                           <div class="form-group has-icon">
-                            <label class="control-label sr-only" for="inputpassword"></label>
+                            <label class="control-label" for="inputpassword">新しいパスワード</label>
                             <% if @minimum_password_length %>
                               <em>(<%= @minimum_password_length %>桁以上)</em>
                               <% end %>
-                            <%= f.password_field :password, autocomplete: "new-password" , class:"form-control", id:"inputpassword", placeholder:"新パスワード"%>
+                            <%= f.password_field :password, autocomplete: "new-password" , class:"form-control", id:"inputpassword", placeholder:"パスワード"%>
                           </div>
 
                           <div class="form-group has-icon">
                             <label class="control-label sr-only" for="inputpassword_confirmation">password_confirmation</label>
-                            <%= f.password_field :password_confirmation, autocomplete: "new-password" , class:"form-control", id:"inputpassword_confirmation", placeholder:"確認用新パスワード"%>
+                            <%= f.password_field :password_confirmation, autocomplete: "new-password" , class:"form-control", id:"inputpassword_confirmation", placeholder:"確認用パスワード"%>
                           </div>
 
                           <div class="form-group has-icon">

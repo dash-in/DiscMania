@@ -1,4 +1,4 @@
-<div class="container">
+  <div class="container">
   <div class="row">
     <div class="col-xs-4">
       <%= flash[:success] %>
@@ -14,33 +14,6 @@
       <% else %>
         <span class="label label-default">在庫なし</span>
       <% end %>
-
-      <% if admin_signed_in? %>
-        <p class="id">商品ID：
-          <%= @record.id%>
-        </p>
-        <h2 class="title">
-          <%= @record.name %>
-        </h2>
-        <p class="id">
-          <%= @record.artist.name %>
-        </p>
-        <p class="maker">
-          <%= @record.label %>
-        </p>
-        <h4 class="price">￥
-          <%= number_with_delimiter (@record.price.to_i * @setting.tax).floor %>
-        </h4>
-        <p class="stock">在庫数</p>
-          <%= form_for(@record, url: admin_record_path(@record),html:{method: "patch"}) do |f| %>
-          <%= f.number_field :stock %>
-        <%= f.submit "在庫数を更新する", class: "btn btn-primary" %>
-        <% end %><br>
-        <%= link_to '商品情報を編集する', edit_admin_record_path(@record), class: "btn btn-success bottun--1" %>
-        <%= link_to 'この商品を削除する', admin_record_path(@record), class: 'btn btn-danger', method: :delete, "data-confirm" => "本当に削除しますか？" %>
-        <%= link_to "logout", destroy_admin_session_path, method: :delete, class: 'glyphicon glyphicon-log-in' %>
-
-      <% else %>
         <h2 class="title">
           <%= @record.name %>
         </h2>
@@ -54,12 +27,10 @@
          <%= number_with_delimiter (@record.price.to_i * @setting.tax).floor %>
         </h4>
 
-
-
         <!-- ここから新しいカート追加 -->
         <% stock_array= []
         @record.stock.times do |quantity|
-          if quantity < 31
+          if quantity < 30
             stock_array.push(quantity)
           else
             break
@@ -68,30 +39,51 @@
 
         <% if user_signed_in? %>
         <% cart_item = CartItem.find_by(user_id:current_user.id, record_id:@record.id) %>
+
           <% if cart_item %>
             <%= form_for(cart_item, url: cart_item_path(cart_item),html:{method: "put"}) do |f| %>
-            <%= f.select :quantity, stock_array %>
-            <%= f.label :quantity, "個" %>
-            <%= f.hidden_field :record_id, :value => @record.id %>
-            <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+              <% if @record.stock == 0 %>
+                <%= f.select :quantity, stock_array %>
+                <%= f.label :quantity, "個" %>
+                <%= f.hidden_field :record_id, :value => @record.id %>
+                <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+              <% else %>
+                <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
+                <%= f.label :quantity, "個" %>
+                <%= f.hidden_field :record_id, :value => @record.id %>
+                <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+              <% end %>
             <% end %>
           <% else %>
             <%= form_for @cart_item do |f| %>
-            <%= f.select :quantity, stock_array %>
-            <%= f.label :quantity, "個" %>
-            <%= f.hidden_field :record_id, :value => @record.id %>
-            <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+              <% if @record.stock == 0 %>
+                <%= f.select :quantity, stock_array %>
+                <%= f.label :quantity, "個" %>
+                <%= f.hidden_field :record_id, :value => @record.id %>
+                <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+              <% else %>
+                <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
+                <%= f.label :quantity, "個" %>
+                <%= f.hidden_field :record_id, :value => @record.id %>
+                <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+              <% end %>
             <% end %>
           <% end %>
         <% else %>
           <%= form_for @cart_item do |f| %>
-          <%= f.select :quantity, stock_array %>
-          <%= f.label :quantity, "個" %>
-          <%= f.hidden_field :record_id, :value => @record.id %>
-          <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+            <% if @record.stock == 0 %>
+              <%= f.select :quantity, stock_array %>
+              <%= f.label :quantity, "個" %>
+              <%= f.hidden_field :record_id, :value => @record.id %>
+              <%= f.submit "在庫がありません", class:"btn btn-warning" %>
+            <% else %>
+              <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1) %>
+              <%= f.label :quantity, "個" %>
+              <%= f.hidden_field :record_id, :value => @record.id %>
+              <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+            <% end %>
           <% end %>
         <% end %>
-      <% end %>
     </div>
   </div>
 
@@ -150,20 +142,25 @@
                     ＜レビュー＞<br>
                     <%= review.review %>
                   </td>
-                  <td class="botan" align="center" style="width:10%" colspan="2"><%= link_to "編集", edit_record_review_path(@record.id,review.id), class:"btn btn-warning" %> <%= link_to "削除", record_review_path(@record.id, review.id), method: :delete, class:"btn btn-danger btn-primar" %></td>
+                  <% if user_signed_in? && current_user.id == review.user_id %>
+                  <td class="botan" align="center" style="width:10%" colspan="2">
+                    <%= link_to "編集", edit_record_review_path(@record.id,review.id), class:"btn btn-warning" %> <%= link_to "削除", record_review_path(@record.id, review.id), method: :delete, class:"btn btn-danger btn-primar" %>
+                  </td>
                 </tr>
+              <% end %>
               <% end %>
             </table>
 
-
+      <% if user_signed_in? %>
         <div class="new_review">
           <h3>レビューの投稿</h3>
            <div class="#">
              <%= form_for [@record, @review] do |f| %>
               <%= f.text_area :review, placeholder: "コメントをここに" %><br>
               <%= f.submit "送信する",class:"btn btn-danger left" %>
-              <% end %>
+             <% end %>
             </div>
+      <% end %>
            </div>
          </div>
         </div>

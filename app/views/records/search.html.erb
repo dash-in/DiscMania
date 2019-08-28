@@ -14,14 +14,15 @@
         <% else %>
           <div class="stock-t"><p>即日発送</p></div>
         <% end %>
-        <%= link_to record_path(record.id), target: "_blank" do %>
-          <%= attachment_image_tag record, :image, :fill, 2000, 2000, fallback: "no_image.jpg", format: 'jpeg', size:'200x200', class:'text-center record-image' %></br>
+        <%= link_to record_path(record.id)  do %>
+          <%= attachment_image_tag record, :image, size:'200x200', fallback: "no_image.jpg", format: 'jpeg', size:'200x200', class:'text-center record-image' %></br>
         <% end %>
         <h4><b><%= record.name %></b></h4>
         <p><%= record.artist.name %></p>
         <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
       </div>
-    <% end %>  
-    </div>
+
+    <% end %>
+    <%= paginate @recorda, class: "paginate" %>
   </section>
 </div>
