@@ -577,6 +577,15 @@ h1 {
 
 /* admin/orders */
 
+.s-form {
+    padding: 0 5px !important;
+    margin: 5px 0 !important;
+    text-align: center;
+    line-height: 34px;
+}
+
+
+
 .admin-orders-table {
     margin-top: 30px;
 }

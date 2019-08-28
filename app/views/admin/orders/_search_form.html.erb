@@ -1,45 +1,61 @@
 
     <div class="row search-forms">
         <div>
-            <label class="col-xs-3" for="">
-                <div class="col-xs-12">
-                    <%= f.text_field :id_eq, class: 'form-control', placeholder: "受注ID" %>
-                </div>
-            </label>
+            <div class="row">
+                <label class="col-xs-3 s-form" for="">
+                    <div class="col-xs-12 s-form">
+                        <span class="form-spacing">
+                            <%= f.text_field :id_eq, class: 'form-control', placeholder: "受注ID" %>
+                        </span>
+                    </div>
+                </label>
 
-            <label class="col-xs-3" for="">
-                <div class="col-xs-12">
-                    <%= f.text_field :user_id_eq, class: 'form-control', placeholder: "ユーザーID" %>
-                </div>
-            </label>
+                <label class="col-xs-3 s-form" for="">
+                    <div class="col-xs-12 s-form">
+                        <span class="form-spacing">
+                            <%= f.text_field :user_id_eq, class: 'form-control', placeholder: "ユーザーID" %>
+                        </span>
+                    </div>
+                </label>
 
-            <label class="col-xs-6">
-                <div class="col-xs-5">
-                    <%= f.date_field :created_at_gteq, include_blank: true, class:"form-control" %>
-                </div>
-                <div class="col-xs-2">
-                    　〜　
-                </div>
-                <div class="col-xs-5">
-                    <%= f.date_field :created_at_lteq, include_blank: true, class:"form-control" %>
-                </div>
-            </label>
+                <label class="col-xs-6 s-form row">
+                    <div class="col-xs-5 s-form">
+                        <span class="form-spacing">
+                            <%= f.date_field :created_at_gteq, include_blank: true, class:"form-control" %>
+                        </span>
+                    </div>
+                    <div class="col-xs-1 s-form">
+                        <span class="form-spacing time-span">
+                            〜
+                        </span>
+                    </div>
+                    <div class="col-xs-5 s-form">
+                        <span class="form-spacing">
+                            <%= f.date_field :created_at_lteq, include_blank: true, class:"form-control" %>
+                        </span>
+                    </div>
+                    <div class="col-xs-1"></div>
+                </label>
+            </div>
 
-            <label class="col-xs-4" for="">
-                <div class="col-xs-12">
+            <label class="col-xs-4 s-form" for="">
+                <div class="col-xs-12 s-form">
                     <%= f.text_field :user_last_name_or_user_first_name_cont, class: 'form-control', placeholder: "ユーザー氏名で探す" %>
                 </div>
             </label>
 
-            <label class="col-xs-4" for="">
-                <div class="col-xs-12">
-                    <%= f.collection_select :receipt_status, @orders, :receipt_status, :receipt_status_i18n %>
+            <label class="col-xs-4 s-form" for="">
+                <div class="col-xs-12 s-form">
+                    <label><%= f.radio_button :receipt_status_eq, "0" %> 入金未確認　</label>
+                    <label><%= f.radio_button :receipt_status_eq, "1" %> 入金確認済み</label>
                 </div>
             </label>
 
-            <label class="col-xs-4" for="">
-                <div class="col-xs-12">
-                    <%= f.collection_select :shipping_status, @orders, :shipping_status, :shipping_status_i18n %>
+            <label class="col-xs-4 s-form" for="">
+                <div class="col-xs-12 s-form">
+                    <label><%= f.radio_button :shipping_status_eq, "0" %> 配送準備中　</label>
+                    <label><%= f.radio_button :shipping_status_eq, "1" %> 配送中　</label>
+                    <label><%= f.radio_button :shipping_status_eq, "2" %> 配送済み　</label>
                 </div>
             </label>
         </div>  
