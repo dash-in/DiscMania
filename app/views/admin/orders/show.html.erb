@@ -21,14 +21,15 @@
                         <tr>
                             <td class="text-center"><%= @order.id %></td>
                             <td class="text-center"><%= simple_time(@order.created_at) %></td>
+
                             <td class="text-center"><%= link_to user_path(@order.user_id) do %>
                                 <%= @user.handlename %>
                                 <% end %>
                             </td>
                             <td class="text-center"><%= @order.total_price %></td>
                             <td class="text-center"><%= @order.payment_method %></td>
-                            <td class="text-center"><a href="#"><%= @order.receipt_status_i18n %></a></td>
-                            <td class="text-center"><a href="#"><%= @order.shipping_status_i18n %></a></td>
+                            <td class="text-center"><a href="#receipt" class="link"><%= @order.receipt_status_i18n %></a></td>
+                            <td class="text-center"><a href="#shipping" class="link"><%= @order.shipping_status_i18n %></a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -75,9 +76,9 @@
         </div>
 
         <div class="col-xs-12">
-            <%= form_for(@order, url: admin_order_path(@order),html:{method: "patch"}) do |f| %>_
+            <%= form_for(@order, url: admin_order_path(@order),html:{method: "patch"}) do |f| %>
                 <section class="col-xs-10 col-xs-offset-1 ad-or-dir">
-                    <h3 class="ad-or-dir-tit col-xs-12">入金ステータス</h3>
+                    <h3 class="ad-or-dir-tit col-xs-12" id="receipt">入金ステータス</h3>
                     <div class="ad-or-tb-sta">
                         <table class="table ad-or-sh-tb">
                             <tbody>
@@ -120,7 +121,7 @@
         <div class="col-xs-12">
             <%= form_for(@order, url: admin_order_path(@order),html:{method: "patch"}) do |f| %>
                 <section class="col-xs-10 col-xs-offset-1 ad-or-dir">
-                    <h3 class="ad-or-dir-tit col-xs-12">配送ステータス</h3>
+                    <h3 class="ad-or-dir-tit col-xs-12" id="shipping">配送ステータス</h3>
                     <div class="ad-or-tb-sta">
                         <table class="table ad-or-sh-tb">
                             <tbody>

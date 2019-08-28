@@ -9,18 +9,17 @@
             <thead>
                 <tr>
                     <th class="col col-xs-1"></th>
-                    <th class="col col-xs-1 text-center">ID</th>
-                    <th class="col col-xs-2 text-center">購入年月日</th>
-                    <th class="col col-xs-2 text-center">注文者名</th>
-                    <th class="col col-xs-2 text-center">受注金額</th>
-                    <th class="col col-xs-2 text-center">入金ステータス</th>
-                    <th class="col col-xs-2 text-center">発送ステータス</th>
+                    <th class="col col-xs-1 text-center"><%= sort_link(@q, :id, "ID") %></th>
+                    <th class="col col-xs-2 text-center"><%= sort_link(@q, :created_at, "購入年月日") %></th>
+                    <th class="col col-xs-2 text-center">購入者名</th>
+                    <th class="col col-xs-2 text-center"><%= sort_link(@q, :total_price, "受注金額") %></th>
+                    <th class="col col-xs-2 text-center"><%= sort_link(@q, :receipt_status, "入金ステータス") %></th>
+                    <th class="col col-xs-2 text-center"><%= sort_link(@q, :shipping_status, "発送ステータス") %></th>
                 </tr>
             </thead>
             <tbody>
                 <% @orders.each do |order| %>
                     <tr>
-
                         <td class="ad-od-t text-center"><%= link_to "詳細", admin_order_path(order.id), class:"btn btn-success" %></td>
                         <td class="ad-od-t text-center"><%= order.id %></td>
                         <td class="ad-od-t text-center"><%= simple_date(order.created_at) %></td>

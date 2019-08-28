@@ -21,44 +21,64 @@
           <!-- 検索窓をつける -->
           <div class="kensaku">
             <%= search_form_for @search, url: search_records_path do |f| %>
-            <%= f.search_field :name_cont, placeholder: '商品レコード名' %>
-            <%= f.search_field :artist_name_cont, placeholder: 'アーティスト名' %>
-            <%= f.submit %>
+            <div class="head-form">
+              <%= f.search_field :name_cont, placeholder: '商品レコード名', class:"form-control" %>
+            </div>
+            <div class="head-form">
+              <%= f.search_field :artist_name_cont, placeholder: 'アーティスト名', class:"form-control" %>
+            </div>
+            <div class="head-form">
+              <%= f.submit "検索", class:"btn btn-default" %>
+            </div>
             <% end %>
           </div>
 
-          <ol class="breadcrumb breadcrumb-nav">
-                  <% if admin_signed_in? %>
-                    <!-- アドミンがログインの場合 -->
-                    <li class="header-text"><%= link_to "受注一覧", admin_orders_path %></li>
-                    <li class="header-text"><%= link_to "商品登録", new_admin_record_path %></li>
-                    <li class="header-text"><%= link_to "商品一覧", admin_records_path %></li>
-                    <li class="header-text"><%= link_to "アーティスト一覧", artists_path %></li>
-                    <li class="header-text"><%= link_to "ユーザ一覧", admin_users_path %></li>
-                    <li class="header-text"><%= link_to "各種設定", setting_path(1) %></li>
-                    <!-- いつか消します -->
-                    <li class="header-text"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
-
-                  <% else %>
-                      <% if user_signed_in? %>
-                      <!--ユーザがログインしてる -->
-                          <li class="user-icon">
-                          <%= link_to user_path(current_user.id) do %>
-                          <%= attachment_image_tag current_user,:image, fallback: "no_image.jpg",  size:"30x30" ,:class => "logo-img"%>
-                          <% end %>
-                          </li>
-                          <li  class="header-text"><%= link_to "商品一覧", records_path %></li>
-                          <li  class="header-text"><%= link_to "カート", cart_items_path %></li>
-                          <li  class="header-text"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-                      <% else %>
-                      <!--  ユーザがログインしてない -->
-                          <li  class="header-text"><%= link_to "商品一覧", records_path  %></li>
-                          <li  class="header-text"><%= link_to "ログイン", new_user_session_path %></li>
-                          <li  class="header-text"><%= link_to "会員登録", new_user_registration_path %></li>
-                      <% end %>
-                  <% end %>
-          </ol>
+          <div class="head-user-icon-div">
+            <% if user_signed_in? %>
+              <%= link_to user_path(current_user.id) do %>
+                <%= attachment_image_tag current_user,:image, fallback: "no_image.jpg",  size:"45x45" ,:class => "head-user-icon"%>
+              <% end %>
+            <% end %>
+          </div>
     </header>
+
+    <div id="sp-menu">
+      <h3 class="text-center">MENUS</h3>
+      <ol>
+        <% if admin_signed_in? %>
+          <!-- アドミンがログインの場合 -->
+          <li><%=link_to_unless_current  "受注一覧", admin_orders_path, class:"hm-link text-center h4" %></li>
+          <li><%= link_to_unless_current "商品登録", new_admin_record_path, class:"hm-link text-center h4" %></li>
+          <li><%= link_to_unless_current "商品一覧", admin_records_path, class:"hm-link text-center h4" %></li>
+          <li><%= link_to_unless_current "ユーザ一覧", admin_users_path, class:"hm-link text-center h4" %></li>
+          <li><%= link_to_unless_current "アーティスト一覧", artists_path, class:"hm-link text-center h4" %></li>
+          <!-- いつか消します -->
+          <li class="header-text"><%= link_to "ログアウト", destroy_admin_session_path, class:"hm-link text-center h4", method: :delete %></li>
+
+        <% else %>
+            <% if user_signed_in? %>
+            <!--ユーザがログインしてる -->
+                <li><%= link_to_unless_current "MY PAGE", user_path(current_user.id), class:"hm-link text-center h4" %></li>
+                <li><%= link_to_unless_current "SHOPPING", records_path, class:"hm-link text-center h4" %></li>
+                <li><%= link_to_unless_current "CART", cart_items_path, class:"hm-link text-center h4" %></li>
+                <li><%= link_to "LOGOUT", destroy_user_session_path, class:"hm-link text-center h4", method: :delete %></li>
+            <% else %>
+            <!--  ユーザがログインしてない -->
+                <li><%= link_to_unless_current "SHOPPING", records_path, class:"hm-link text-center h4"  %></li>
+                <li><%= link_to_unless_current "LOGIN", new_user_session_path, class:"hm-link text-center h4" %></li>
+                <li><%= link_to_unless_current "SIGN UP", new_user_registration_path, class:"hm-link text-center h4" %></li>
+            <% end %>
+        <% end %>
+      </ol>
+    </div>
+
+    <div id="hm-icon">
+      <%= link_to "#", class:"menu-trigger link" do %>
+        <span></span>
+        <span></span>
+        <span></span>
+      <% end %>
+    </div>
 
                 <%= yield %>
 
@@ -84,9 +104,151 @@
 
     <div id="js-loader" class="loader">
       <div class="loader-animation"></div>
-  </div>
+    </div>
+    <div class="under-foot">
+      <%= image_tag "bbb.png",size: "cover",:class => "drawing-image"%>
+    </div>
 
     <script>
+      // hm-menu
+      $(function() {
+        $('.menu-trigger').on('click', function() {
+          $(this).toggleClass('active');
+          $('#sp-menu').fadeToggle();
+          return false;
+        });
+      });
+
+      // hm-menuのdraw
+      var image = document.querySelector('.drawing-image');
+      var imageCanvas = document.createElement('canvas');
+      var imageCanvasContext = imageCanvas.getContext('2d');
+      var lineCanvas = document.createElement('canvas');
+      var lineCanvasContext = lineCanvas.getContext('2d');
+      var pointLifetime = 1000;
+      var points = [];
+
+      if (image.complete) {
+        start();
+      } else {
+        image.onload = start;
+      }
+
+      /**
+       * Attaches event listeners and starts the effect.
+       */
+      function start() {
+        document.addEventListener('mousemove', onMouseMove);
+        window.addEventListener('resize', resizeCanvases);
+        document.body.appendChild(imageCanvas);
+        resizeCanvases();
+        tick();
+      }
+
+      /**
+       * Records the user's cursor position.
+       *
+       * @param {!MouseEvent} event
+       */
+      function onMouseMove(event) {
+        points.push({
+          time: Date.now(),
+          x: event.clientX,
+          y: event.clientY
+        });
+      }
+
+      /**
+       * Resizes both canvases to fill the window.
+       */
+      function resizeCanvases() {
+        imageCanvas.width = lineCanvas.width = window.innerWidth;
+        imageCanvas.height = lineCanvas.height = window.innerHeight;
+      }
+
+      /**
+       * The main loop, called at ~60hz.
+       */
+      function tick() {
+        // Remove old points
+        points = points.filter(function(point) {
+          var age = Date.now() - point.time;
+          return age < pointLifetime;
+        });
+
+        drawLineCanvas();
+        drawImageCanvas();
+        requestAnimationFrame(tick);
+      }
+
+      /**
+       * Draws a line using the recorded cursor positions.
+       *
+       * This line is used to mask the original image.
+       */
+      function drawLineCanvas() {
+        var minimumLineWidth = 25;
+        var maximumLineWidth = 100;
+        var lineWidthRange = maximumLineWidth - minimumLineWidth;
+        var maximumSpeed = 50;
+
+        lineCanvasContext.clearRect(0, 0, lineCanvas.width, lineCanvas.height);
+        lineCanvasContext.lineCap = 'round';
+        lineCanvasContext.shadowBlur = 30;
+        lineCanvasContext.shadowColor = '#000';
+        
+        for (var i = 1; i < points.length; i++) {
+          var point = points[i];
+          var previousPoint = points[i - 1];
+
+          // Change line width based on speed
+          var distance = getDistanceBetween(point, previousPoint);
+          var speed = Math.max(0, Math.min(maximumSpeed, distance));
+          var percentageLineWidth = (maximumSpeed - speed) / maximumSpeed;
+          lineCanvasContext.lineWidth = minimumLineWidth + percentageLineWidth * lineWidthRange;
+
+          // Fade points as they age
+          var age = Date.now() - point.time;
+          var opacity = (pointLifetime - age) / pointLifetime;
+          lineCanvasContext.strokeStyle = 'rgba(0, 0, 0, ' + opacity + ')';
+          
+          lineCanvasContext.beginPath();
+          lineCanvasContext.moveTo(previousPoint.x, previousPoint.y);
+          lineCanvasContext.lineTo(point.x, point.y);
+          lineCanvasContext.stroke();
+        }
+      }
+
+      /**
+       * @param {{x: number, y: number}} a
+       * @param {{x: number, y: number}} b
+       * @return {number} The distance between points a and b
+       */
+      function getDistanceBetween(a, b) {
+        return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
+      }
+
+      /**
+       * Draws the original image, masked by the line drawn in drawLineToCanvas.
+       */
+      function drawImageCanvas() {
+        // Emulate background-size: cover
+        var width = imageCanvas.width;
+        var height = imageCanvas.width / image.naturalWidth * image.naturalHeight;
+        
+        if (height < imageCanvas.height) {
+          width = imageCanvas.height / image.naturalHeight * image.naturalWidth;
+          height = imageCanvas.height;
+        }
+
+        imageCanvasContext.clearRect(0, 0, imageCanvas.width, imageCanvas.height);
+        imageCanvasContext.globalCompositeOperation = 'source-over';
+        imageCanvasContext.drawImage(image, 0, 0, width, height);
+        imageCanvasContext.globalCompositeOperation = 'destination-in';
+        imageCanvasContext.drawImage(lineCanvas, 0, 0);
+      }
+
+      // TOPに戻るボタン
       $(function() {
         $('#swipeTop').on('click',function(){
           $('body, html').animate({
@@ -99,8 +261,10 @@
 
       // ローディング画面をフェードインさせてページ遷移
       $(function(){
+                console.log('ahaha');
           // リンクをクリックしたときの処理。外部リンクやページ内移動のスクロールリンクなどではフェードアウトさせたくないので少し条件を加えてる。
-          $('link_to[href ^= "http://localhost:3000"]' + 'link_to[target != "_blank"]').click(function(){
+          $('a[href ^= "http://localhost:3000"]' + 'a[target != "_blank"]').click(function(){
+            console.log("a")
               var url = $(this).attr('href'); // クリックされたリンクのURLを取得
               $('#js-loader').fadeIn(600);    // ローディング画面をフェードイン
               setTimeout(function(){ location.href = url; }, 800); // URLにリンクする
@@ -110,13 +274,15 @@
       
       // ページのロードが終わった後の処理
       $(window).load(function(){
-        $('#js-loader').delay(300).fadeOut(400); //ローディング画面をフェードアウトさせることでメインコンテンツを表示
+        console.log('load');
+         $('#js-loader').delay(300).fadeOut(400); //ローディング画面をフェードアウトさせることでメインコンテンツを表示
       });
       
       // ページのロードが終わらなくても10秒たったら強制的に処理を実行
       $(function(){ setTimeout('stopload()', 10000); });
       function stopload(){
-        $('#js-loader').delay(300).fadeOut(400); //ローディング画面をフェードアウトさせることでメインコンテンツを表示
+        console.log('stopload');
+         $('#js-loader').delay(300).fadeOut(400); //ローディング画面をフェードアウトさせることでメインコンテンツを表示        
       }
     </script>
   </body>
