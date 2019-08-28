@@ -431,8 +431,10 @@ h1 {
 }
 
 .disc-space {
+    width: 25%;
+    float: left;
     padding: 10px;
-    margin: 15px auto 0;
+    margin: 15px auto 30px;
 }
 
 .stock-f {
@@ -479,6 +481,11 @@ h1 {
 
 .records-genre:last-child {
     border-bottom: none;
+}
+
+.rec-name {
+    display: inline-block;
+    height: 41px;
 }
 
 .search-form-genre {
@@ -570,6 +577,19 @@ h1 {
 
 /* admin/orders */
 
+.s-form {
+    padding: 0 5px !important;
+    margin: 5px 0 !important;
+    text-align: center;
+    line-height: 34px;
+}
+
+
+
+.admin-orders-table {
+    margin-top: 30px;
+}
+
 .ad-od-t {
     line-height: 34px !important;
 }
@@ -616,11 +636,20 @@ h1 {
 
 .fa-calendar {
     color: tomato !important;
-    font-size: 34px !important;
+    font-size: 25px !important;
+    line-height: 34px !important;
 }
 
 .delete {
     margin-top: 30px !important;
+}
+
+.chuuibun{
+    margin: 15px auto;
+}
+
+.chuuibun b {
+    color: red;
 }
 
 
