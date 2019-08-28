@@ -4,9 +4,8 @@ class Admin::OrdersController < ApplicationController
     
     def index
         @orders = Order.all
-        @ordera = Order.page(params[:page]).per(50)
         @q = Order.ransack(params[:q])
-        @orders = @q.result(distinct: true).order(:shipping_status, :receipt_status, :created_at)
+        @orders = @q.result(distinct: true).order(:shipping_status, :receipt_status, :created_at).page(params[:page]).per(50)
 
     end
 
