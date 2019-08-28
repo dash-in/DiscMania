@@ -21,6 +21,6 @@
         <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
       </div>
     <% end %>
-    <%= paginate @recorda, class: "paginate" %>
   </section>
+  <%= paginate @records, class: "paginate" %>
 </div>

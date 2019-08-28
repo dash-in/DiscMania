@@ -6,10 +6,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @shippings = @user.shipping_infos
-    @shippinga = ShippingInfo.page(params[:page]).per(5)
-    @order_details = Order.where(user_id: current_user.id).includes(:order_details).map(&:order_details).flatten
-    @orderdetail = OrderDetail.page(params[:page]).per(5)
+    @shippings = @user.shipping_infos.page(params[:shipping_page]).per(5)
+    order_details = Order.where(user_id: current_user.id).includes(:order_details).map(&:order_details).flatten
+    @order_details = Kaminari.paginate_array(order_details).page(params[:order_detail_page]).per(5)
     @setting = Setting.find(1)
   if @user.id != current_user.id
      redirect_to user_path(current_user)

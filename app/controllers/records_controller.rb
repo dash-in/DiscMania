@@ -36,9 +36,8 @@ class RecordsController < ApplicationController
 
   def search
     @q = Form::Record.search(params[:q])
-    @records = @q.result(distinct: true).joins(:artist).includes(:artist).order("artists.name", created_at: "DESC")
+    @records = @q.result(distinct: true).joins(:artist).includes(:artist).order("artists.name", created_at: "DESC").page(params[:page]).per(30)
     @setting = Setting.find(1)
-    @recorda = Record.page(params[:page]).per(30)
   end
 
   def show
