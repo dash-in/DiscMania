@@ -431,8 +431,10 @@ h1 {
 }
 
 .disc-space {
+    width: 25%;
+    float: left;
     padding: 10px;
-    margin: 15px auto 0;
+    margin: 15px auto 30px;
 }
 
 .stock-f {
@@ -479,6 +481,11 @@ h1 {
 
 .records-genre:last-child {
     border-bottom: none;
+}
+
+.rec-name {
+    display: inline-block;
+    height: 41px;
 }
 
 .search-form-genre {
@@ -569,6 +576,10 @@ h1 {
 
 
 /* admin/orders */
+
+.admin-orders-table {
+    margin-top: 30px;
+}
 
 .ad-od-t {
     line-height: 34px !important;
