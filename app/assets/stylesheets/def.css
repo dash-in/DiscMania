@@ -143,6 +143,7 @@ h1 {
 
   .drawing-image {
     display: none;
+    position: center;
  }
 
 /* ローディング画面 */
