@@ -1,33 +1,16 @@
 // Place all the styles related to the Records controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-*{
+* {
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
   font-family: verdana, arial, helvetica, sans-serif;
+  color: #333;
 }
-.space--1 {
- padding-top: 20px;
+.record_name {
+  margein: 20px 0 20px 0;
 }
-
-.title {
-  font-size:40px;
-}
-
-.id {
-font-size:20px;
-}
-
-.maker {
-  font-size:20px;
-}
-
-.price {
-  font-size:30px;
-}
-
-.bottun--1 {
-  margin: 0 23px 0 0 !important;
-}
-
 .text {
 font-size: 17px;
 }
@@ -43,12 +26,7 @@ font-size: 17px;
 .user_review {
 	width: 100%;
 }
-.review {
-  margin: auto;
-  width: 80%;
-  height: 80%;
-  text-align : left;
-}
+
 .botan {
   padding: 30px;
 }
@@ -58,10 +36,15 @@ font-size: 17px;
 .user_image{
   border-radius: 10px;
 }
+h3 {
+  text-align: center;
+}
 .user_info {
   position: relative;
   padding: 0.6em;
   background: #ECF5F9;
+  width:70%;
+  margin:0 auto;
 }
 
 .user_info:after {
@@ -70,18 +53,31 @@ font-size: 17px;
   top: 100%;
   left: 30px;
   border: 15px solid transparent;
-  border-top: 15px solid #e0edff;
+  border-top: 15px solid #ECF5F9;
   width: 0;
   height: 0;
   }
 
 .review_post{
     padding: 0.5em 1em;
-    margin: 2em 0;
-    padding: 18px;
+    margin-top: 1px;
+    margin-bottom: 35px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
     color: #444444;
     background: #EEEEEE;
-    border-bottom: solid 6px #BBBBBB;
+    border-bottom: solid 6px #EEEEEE;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
     border-radius: 9px;
+    width:70%;
+}
+.new_review{
+  width: 100%;
+  text-align: center;
+}
+textarea {
+    width: 70%;
+    height: 130px;
+    margin: 0 auto;
 }
