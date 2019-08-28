@@ -3,6 +3,7 @@ class Record < ApplicationRecord
 
 	validates :name, presence: true, uniqueness: true
 	validates :image, presence: true
+	validates :label, presence: true
 	validates :price, presence: true
 	validates :genre, presence: true
 	validates :stock, presence: true
