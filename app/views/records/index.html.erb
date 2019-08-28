@@ -19,8 +19,9 @@
 
             <%= link_to record_path(record.id) do %>
               <%= attachment_image_tag record, :image, size: "200x200", fallback: "no_image.jpg", class:'text-center record-image' %></br></br>
+              <h4><b><%= record.name %></b></h4>
             <% end %>
-            <h4><b><%= record.name %></b></h4>
+            
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
             <!-- ここを追加　カートボタン -->
@@ -82,7 +83,7 @@
         <% end %>
       </div>
       <div class="row">
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
       </div>
     </section>
 
@@ -98,8 +99,8 @@
             <% end %>
             <%= link_to record_path(record.id) do %>
               <%= attachment_image_tag record, :image, size: "200x200", fallback: "no_image.jpg", class:'text-center record-image' %></br></br>
+              <h4><b><%= record.name %></b></h4>
             <% end %>
-            <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
             <!-- ここを追加　カートボタン -->
@@ -161,7 +162,7 @@
         <% end %>
       </div>
       <div class="row">
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
       </div>
     </section>
 
@@ -177,8 +178,8 @@
             <% end %>
             <%= link_to record_path(record.id) do %>
               <%= attachment_image_tag record, :image, size: "200x200", fallback: "no_image.jpg", class:'text-center record-image' %></br></br>
+              <h4><b><%= record.name %></b></h4>
             <% end %>
-            <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
            <!-- ここを追加　カートボタン -->
@@ -242,7 +243,7 @@
 
       <div class="row">
         
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
 
       </div>
     </section>
@@ -259,8 +260,8 @@
             <% end %>
             <%= link_to record_path(record.id) do %>
               <%= attachment_image_tag record, :image, size: "200x200", fallback: "no_image.jpg", class:'text-center record-image' %></br></br>
+              <h4><b><%= record.name %></b></h4>
             <% end %>
-            <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
             <!-- ここを追加　カートボタン -->
@@ -322,7 +323,7 @@
         <% end %>
       </div>
       <div class="row">
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
       </div>
     </section>
 
@@ -338,8 +339,8 @@
             <% end %>
             <%= link_to record_path(record.id) do %>
               <%= attachment_image_tag record, :image, size: "200x200", fallback: "no_image.jpg", class:'text-center record-image' %></br></br>
+              <h4><b><%= record.name %></b></h4>
             <% end %>
-            <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
             <!-- ここを追加　カートボタン -->
@@ -401,7 +402,7 @@
         <% end %>
       </div>
       <div class="row">
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
       </div>
     </section>
 
@@ -417,8 +418,8 @@
             <% end %>
             <%= link_to record_path(record.id) do %>
               <%= attachment_image_tag record, :image, size: "200x200", fallback: "no_image.jpg", class:'text-center record-image' %></br></br>
+              <h4><b><%= record.name %></b></h4>
             <% end %>
-            <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
             <!-- ここを追加　カートボタン -->
@@ -480,7 +481,7 @@
         <% end %>
       </div>
       <div class="row">
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
       </div>
     </section>
 
@@ -496,8 +497,8 @@
             <% end %>
             <%= link_to record_path(record.id) do %>
               <%= attachment_image_tag record, :image, size: "200x200", fallback: "no_image.jpg", class:'text-center record-image' %></br></br>
+              <h4><b><%= record.name %></b></h4>
             <% end %>
-            <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
             <!-- ここを追加　カートボタン -->
@@ -559,7 +560,7 @@
         <% end %>
       </div>
       <div class="row">
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
       </div>
     </section>
 
@@ -575,8 +576,8 @@
             <% end %>
             <%= link_to record_path(record.id) do %>
               <%= attachment_image_tag record, :image, size: "200x200", fallback: "no_image.jpg", class:'text-center record-image' %></br></br>
+              <h4><b><%= record.name %></b></h4>
             <% end %>
-            <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
             <!-- ここを追加　カートボタン -->
@@ -638,7 +639,7 @@
         <% end %>
       </div>
       <div class="row">
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
       </div>
     </section>
 
@@ -654,8 +655,8 @@
             <% end %>
             <%= link_to record_path(record.id) do %>
               <%= attachment_image_tag record, :image, size: "200x200", fallback: "no_image.jpg", class:'text-center record-image' %></br></br>
+              <h4><b><%= record.name %></b></h4>
             <% end %>
-            <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
             <!-- ここを追加　カートボタン -->
@@ -717,7 +718,7 @@
         <% end %>
       </div>
       <div class="row">
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
       </div>
     </section>
 
@@ -733,8 +734,8 @@
             <% end %>
             <%= link_to record_path(record.id) do %>
               <%= attachment_image_tag record, :image, size: "200x200", fallback: "no_image.jpg", class:'text-center record-image' %></br></br>
+              <h4><b><%= record.name %></b></h4>
             <% end %>
-            <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
             <!-- ここを追加　カートボタン -->
@@ -796,7 +797,7 @@
         <% end %>
       </div>
       <div class="row">
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
       </div>
     </section>
 
@@ -811,9 +812,9 @@
               <div class="stock-t"><p>即日発送</p></div>
             <% end %>
             <%= link_to record_path(record.id) do %>
-              <<%= attachment_image_tag record, :image, size: "200x200", fallback: "no_image.jpg", class:'text-center record-image' %></br></br>
+              <%= attachment_image_tag record, :image, size: "200x200", fallback: "no_image.jpg", class:'text-center record-image' %></br></br>
+              <h4><b><%= record.name %></b></h4>
             <% end %>
-            <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
             <!-- ここを追加　カートボタン -->
@@ -875,7 +876,7 @@
         <% end %>
       </div>
       <div class="row">
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
       </div>
     </section>
 
@@ -891,8 +892,8 @@
             <% end %>
             <%= link_to record_path(record.id) do %>
               <%= attachment_image_tag record, :image, size: "200x200", fallback: "no_image.jpg", class:'text-center record-image' %></br></br>
+              <h4><b><%= record.name %></b></h4>
             <% end %>
-            <h4><b><%= record.name %></b></h4>
             <p><%= record.artist.name %></p>
             <p>¥ <%= (record.price * @setting.tax).floor %>（税込）</p>
             <!-- ここを追加　カートボタン -->
@@ -954,7 +955,7 @@
         <% end %>
       </div>
       <div class="row">
-        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4 glyphicon glyphicon-search" %>
+        <%= link_to "もっと見る", search_records_path, class:"col-xs-2 col-xs-offset-10 text-right link h4" %>
       </div>
     </section>
   </section>
