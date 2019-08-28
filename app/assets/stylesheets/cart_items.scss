@@ -2,15 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.main{
+	padding-bottom: 30px;
+	border_bottom: 1px ;
+}
+
 .clearfix::after {
   content: "";
   display: block;
   clear: both;
-}
-
-.top{
-	border: 1px solid;
-	padding: 10px;
 }
 
 .total {
@@ -21,39 +21,34 @@
 }
 
 .caution {
-	border: 2px solid;
-	border-radius: 10px;
+   margin:2em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
 }
 
-.btn btn-info col-xs-6 {
-	margin-left : 10px;
+.hako{
+	padding: 10px;
+}
+.hako1{
+	padding :10px;
+}
+.hakoko {
+	padding: 20px;
+	float: left;
+	width: 50%;
+}
+
+.aa{
+
 }
 
 .a {
-	display: inline-block;
-	float: left;
-	width: 50%;
+	
 }
 
 
 .b {
-	display: inline-block;
-	float: left;
-	width: 50%;
-}
-.c {
-	display: inline-block;
-	float: left;
-	width: 50%;
-}
-
-.d {
-	display: inline-block;
-	float: left;
-	width: 50%;
-}
-
-.postage {
-	border :solid 2px;
-	padding: 20px;
-}
+	
+	}

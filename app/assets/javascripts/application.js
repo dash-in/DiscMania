@@ -22,7 +22,3 @@
 //= require moment/ja.js
 //= require tempusdominus-bootstrap-4.js
 //= require_tree .
-
-
-
-
