@@ -7,26 +7,33 @@
 	border_bottom: 1px ;
 }
 
-.clearfix::after {
-  content: "";
-  display: block;
-  clear: both;
+.sav{
+	padding: 30px;
+	border-bottom: 1px solid;
+    border-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%);
+    border-image-slice: 1;
 }
 
 .total {
 	text-align: right;
 	font-size: 30px;
-	border: 2px solid;
 	padding: 20px;
+	border-bottom: 3px solid;
+    border-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%);
+    border-image-slice: 1;
 }
 
 .caution {
-	margin:2em 0;
+	margin:5em 0;
     position: relative;
     padding: 0.5em 1.5em;
     border-top: solid 2px black;
     border-bottom: solid 2px black;
 }
+
+.kane{
+    margin: 0 auto;
+	}
 
 .hako{
 	padding: 10px;
@@ -39,16 +46,3 @@
 	float: left;
 	width: 50%;
 }
-
-.aa{
-
-}
-
-.a {
-	
-}
-
-
-.b {
-	
-	}
