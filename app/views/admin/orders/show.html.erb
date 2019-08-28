@@ -110,11 +110,12 @@
                             </tbody>
                         </table>
                     </div>
-                </section>
-                <div class="col-xs-1"></div>
                 <div class="col-xs-12 text-center">
                     <%= f.submit "変更を保存", class:"btn btn-success" %>
                 </div>
+                </section>
+                <div class="col-xs-1"></div>
+                
             <% end %>
         </div>
 
@@ -160,16 +161,20 @@
                         
                                         
                     </div>
-                </section>
-                <div class="col-xs-1"></div>
                 <div class="col-xs-12 text-center">
                     <%= f.submit "変更を保存", class:"btn btn-success" %>
                 </div>
+                </section>
+                <div class="col-xs-1"></div>
+                
             <% end %>
         </div>
 
         <div class="col-xs-12 text-center delete">
-            <%= link_to "削除", admin_order_path(@order.id), class:"btn btn-info", method: :delete %>
+            <%= link_to "この受注データを削除する", admin_order_path(@order.id), class:"btn btn-info btn-lg", method: :delete %>
+            <div class="chuuibun">
+                <b>このボタンを押すと削除が実行されてしまいます！お気をつけください。</b>
+            </div>
         </div>
 
     </div>

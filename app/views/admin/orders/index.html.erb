@@ -4,7 +4,7 @@
     <%= search_form_for(@q, url: admin_orders_path, html: { method: :get, class: 'form-horizontal', role: 'form' }) do |f| %>
         <%= render 'search_form', f: f %>
     <% end %>
-    <div class="col-xs-12">
+    <div class="col-xs-12 admin-orders-table">
         <table class="table">
             <thead>
                 <tr>
@@ -31,7 +31,7 @@
                 <% end %>
             </tbody>
         </table>
-        <%= paginate @ordera, class: "paginate" %>
+        <%= paginate @orders, class: "paginate" %>
     </div>
     </section>
 </div>

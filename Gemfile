@@ -6,7 +6,11 @@ ruby '2.5.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3', group: :development
+# 本番環境(heroku)ではPostgreSQLを使用
+group :production do
+  
+end
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -69,6 +73,7 @@ gem 'devise', '~> 4.4.3'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem "bootstrap-sass", ">= 3.4.1"
+gem 'bootstrap', '~> 4.3.1'
 
 gem 'jquery-ui-rails'
 gem 'jquery-rails'
@@ -95,3 +100,5 @@ gem 'bootstrap4-datetime-picker-rails'
 gem "font-awesome-rails"
 
 gem "animate-rails"
+
+gem 'pg', group: :production

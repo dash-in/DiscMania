@@ -6,8 +6,8 @@ class ShippingInfosController < ApplicationController
     end
 
     def update
-        @shipping = ShippingInfo.find(shipping_params)
-        if @shipping.update
+        @shipping = ShippingInfo.find(params[:id])
+        if @shipping.update(shipping_params)
             redirect_to user_path(@shipping.user_id)
         else
             render :edit
