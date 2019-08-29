@@ -1,6 +1,16 @@
 <div class="container">
     <section class="row">
         <h2 class="text-center"><b>レコード情報編集フォーム</b></h2>
+
+        <div class="rec-edit-imgs">
+            <% record_imgs = RecordImg.where(record_id: @record.id).order(:order) %>
+            <% record_imgs.each do |record_img| %>
+                <div class="text-center rec-edit-img">
+                    <%= attachment_image_tag record_img, :image, size: "150x150", fallback: "no-image-icon-0.jpg", size:'150x150' %><br>
+                    <h4><b><%= record_img.order %></b></h4>
+                </div>
+            <% end %>
+        </div>
           
         <%= render 'form', path: admin_record_path(@record), method: :patch %>
     </section>

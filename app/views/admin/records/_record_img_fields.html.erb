@@ -1,0 +1,12 @@
+<tr class="nested-fields">
+    <%= f.hidden_field :id %>
+    <td>
+        <%= f.number_field :order, class: 'form-control' %>
+    </td>
+    <td>
+        <%= f.attachment_field :image, class:"col-xs-10 col-xs-offset-1 h4" %>
+    </td>
+    <td>
+        <%= link_to_remove_association '削除', f, class: 'btn btn-info text-center' %>
+    </td>
+</tr>

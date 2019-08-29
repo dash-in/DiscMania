@@ -6,7 +6,8 @@
       <p>ジャンル：<br>
         <%= @record.genre %>
       </p>
-      <%= attachment_image_tag @record, :image, format: 'jpeg', size: "200x200", fallback: "no_image.jpg", size:'200x200' %>
+      <% record_img = RecordImg.find_by(record_id: @record.id, order: 1) %>
+      <%= attachment_image_tag record_img, :image, size: "200x200", fallback: "no-image-icon-0.jpg", size:'200x200' %></br>
     </div>
     <div class="col-xs-8 space--1">
       <% if @record.stock > 0 %>
