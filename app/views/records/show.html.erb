@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-6">
       <%= flash[:success] %>
-      <%= attachment_image_tag @record, :image, format: 'jpeg', size: "400x400", fallback: "no_image.jpg", size:'400x400' %>
+      <%= attachment_image_tag @record, :image, format: 'jpeg', size: "400x400", fallback: "no_image.jpg", size:'350x350' %>
     </div>
     <div class="col-xs-4 space--2">
       <% if @record.stock > 0 %>
@@ -13,17 +13,17 @@
         <h2 class="record_name">
           <b><%= @record.name %></b>
         </h2>
-        <h2 class="artist_name">
+        <h3 class="artist_name">
           <%= @record.artist.name %>
-        </h2>
-        <p class="label">
+        </h3>
+        <h2 class="label">
           <%= @record.label %>
-        </p>
+        </h2>
         <h4 class="genre">
-        ジャンル：<%= @record.genre %>
+        <%= @record.genre %>
         </h4>
-        <h4 class="price">￥
-         <%= number_with_delimiter (@record.price.to_i * @setting.tax).floor %>
+        <h4 class="align-left">
+         ￥<%= number_with_delimiter (@record.price.to_i * @setting.tax).floor %>
         </h4>
 
         <!-- ここから新しいカート追加 -->
@@ -89,11 +89,11 @@
   </div>
 
   <div class="row">
-    <div class="col-xs-12">
       <h3>レコード詳細</h3>
-      <p class="text">
+      <div class="text">
+      <div class="text1">
         <%= simple_format(@record.body) %>
-      </p>
+      </div>
     </div>
   </div>
   <div class="row">

@@ -9,7 +9,19 @@
   color: #333;
 }
 .record_name {
-  margein: 20px 0 20px 0;
+  margin: 40px 0;
+}
+.artist_name {
+  margin: 40px 0 0 0;
+}
+.label {
+  margin: 20px 0;
+}
+.genre {
+  margin: 20px 0;
+}
+.record_price {
+  text-algin: left;
 }
 .text {
 font-size: 17px;
@@ -57,10 +69,9 @@ h3 {
   width: 0;
   height: 0;
   }
-
 .review_post{
     padding: 0.5em 1em;
-    margin-top: 1px;
+    margin-top: 10px;
     margin-bottom: 35px;
     margin-left: auto;
     margin-right: auto;
@@ -81,3 +92,9 @@ textarea {
     height: 130px;
     margin: 0 auto;
 }
+.text1 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    border: double 5px #808080;
+}
+
