@@ -106,22 +106,19 @@
     </div>
   </div>
   <div class="row">
-    <h3>ソングリスト</h3>
+    <h3 class="text-center"><b>ソングリスト</b></h3>
       <% previous_disc_no = nil %>
       <% @record.tunes.each_with_index do |tune, i| %>
         <% if previous_disc_no != tune.disc_no %>
-          <div class="col-xs-4">
-            <h4 class="list-head">Disc<%= tune.disc_no %></h4>
+          <div class="tunes-list">
+            <h5 class="list-head text-center">Disc No.<%= tune.disc_no %></h5>
         <% end %>
             <% previous_disc_no = tune.disc_no %>
-            <p class="list">
-              <%= tune.tune_order %>
+            <p class="text-center list">
+              <%= tune.tune_order %>. 
               <%= tune.tune_name %>
             </p>
-            <!-- もし、recordの曲が最後、または、曲のディスクナンバーと次の曲のディスクナンバーが一致しなかったとき -->
-        <% if (i == @record.tunes.size - 1) || (tune.disc_no != @record.tunes[i+1].disc_no) %>
           </div>
-        <% end %>
       <% end %>
     </div>
   </div>
@@ -134,11 +131,13 @@
         <style type="text/css">
           .user_review {
           padding:20px;
+          width: 70%;
+          margin: 0 auto;
           }
         </style>
 
 <div class="user_review">
-  <h3 class="review_titile text-center">ユーザーレビュー</h3>
+  <h3 class="review_titile text-center"><b>ユーザーレビュー</b></h3>
   <br>
   <div class="review">
     <% @record.reviews.each do |review| %>
@@ -157,12 +156,10 @@
    <br>
     <% if user_signed_in? %>
       <div class="new_review">
-        <h3>レビューの投稿</h3>
-        <br>
-         <div class="class="form-group"">
+         <div class="class="form-group review-forms"">
            <%= form_for [@record, @review] do |f| %>
-            <%= f.text_area :review, placeholder: "コメントをここに" %><br>
-            <%= f.submit "送信する",class:"btn-lg btn-danger" %>
+            <%= f.text_area :review, class:"form-control", placeholder: "コメントをここに" %><br>
+            <%= f.submit "送信する",class:"btn btn-danger" %>
      <% end %>
    </div>
   <% end %>

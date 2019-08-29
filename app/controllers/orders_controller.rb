@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    if order_params.blank?
+    if shipping_info_params.blank?
       redirect_to new_order_path
     else
       @order = Order.new(order_params)
@@ -103,7 +103,7 @@ class OrdersController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def order_param
+    def order_params
         params.fetch(:order,{}).permit(:payment_method, :shipping_info_id, :actual_shipping, :actual_tax, :total_price)
     end
 
