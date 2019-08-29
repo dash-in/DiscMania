@@ -7,7 +7,7 @@
         <div id="theTarget">
           <% record_imgs = RecordImg.where(record_id: @record.id).order(:order) %>
           <% record_imgs.each do |record_img| %>
-            <div><%= attachment_image_tag record_img, :image, size: "350x350", fallback: "no-image-icon-0.jpg", size:'350x350' %></div>
+            <div><%= attachment_image_tag record_img, :image, size: "350x350", fallback: "/images/no-image-icon-0.jpg", size:'350x350' %></div>
           <% end %>
         </div>
       </div>
@@ -143,7 +143,7 @@
   <div class="review">
     <% @record.reviews.each do |review| %>
         <div olspan="3" class="user_info">
-          <%= attachment_image_tag @user, :image, format: 'jpeg', size: "80×80", fallback: "no_image.jpg", size:'50x50', class:"user_image" %>&emsp;&emsp;<%= review.user.handlename %>&emsp;&emsp;<%= review.created_at.strftime('%Y/%m/%d') %>
+          <%= attachment_image_tag @user, :image, format: 'jpeg', size: "80×80", fallback: "/images/no_image.jpg", size:'50x50', class:"user_image" %>&emsp;&emsp;<%= review.user.handlename %>&emsp;&emsp;<%= review.created_at.strftime('%Y/%m/%d') %>
           <% if user_signed_in? && current_user.id == review.user_id %>&emsp;&emsp;
             <%= link_to "編集", edit_record_review_path(@record.id,review.id), class:"botan1" %>&emsp;
             <%= link_to "削除", record_review_path(@record.id, review.id), method: :delete %>
