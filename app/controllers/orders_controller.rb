@@ -32,58 +32,62 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
-    @order.user_id = current_user.id
-    @order.actual_shipping = Setting.find(1).shipping
-    @order.actual_tax = Setting.find(1).tax
-    @incarts = CartItem.where(user_id: current_user)
-    @setting = Setting.find(1)
-
-    prices = 0
-    @incarts.each do |incart|
-      prices = prices + (incart.record.price * incart.quantity)
-    end
-    @order.total_price = (prices * @setting.tax + @setting.shipping).floor
-
-    if address_create[:address_create]=="true"
-      # p true
-      shipping_info = ShippingInfo.new(shipping_info_params)
-      shipping_info.user_id = current_user.id
-      shipping_info.save
-      @order.shipping_name = shipping_info.name
-      @order.shipping_post_num = shipping_info.post_number
-      @order.shipping_address = shipping_info.address
-      @order.shipping_info_id = shipping_info.id
+    if order_params.blank?
+      redirect_to new_order_path
     else
-      # p false
-      @order.shipping_name = ShippingInfo.find(@order.shipping_info_id).name
-      @order.shipping_post_num = ShippingInfo.find(@order.shipping_info_id).post_number
-      @order.shipping_address = ShippingInfo.find(@order.shipping_info_id).address
-    end
-    # binding.pry
-    if @order.save
-      @incarts.each do |incart|
-        @order_detail = OrderDetail.new
-        @order_detail.record_id = incart.record_id
-        @order_detail.quantity = incart.quantity
-        @order_detail.unit_price = incart.record.price
-        @order_detail.order_id = @order.id
-        @order_detail.price = @order_detail.unit_price * @order_detail.quantity
-        @order_detail.save
-        record = Record.find(@order_detail.record_id)
-        record.stock = record.stock - @order_detail.quantity
-        record.save
-      end
-      @incarts.destroy_all
-      redirect_to orders_completed_path
-    else
-      @shippings = ShippingInfo.where(user_id: current_user)
+      @order = Order.new(order_params)
+      @order.user_id = current_user.id
+      @order.actual_shipping = Setting.find(1).shipping
+      @order.actual_tax = Setting.find(1).tax
+      @incarts = CartItem.where(user_id: current_user)
+      @setting = Setting.find(1)
+
       prices = 0
       @incarts.each do |incart|
-      prices = prices + (incart.record.price * incart.quantity)
+        prices = prices + (incart.record.price * incart.quantity)
       end
-      @total = prices
-      redirect_to new_order_path
+      @order.total_price = (prices * @setting.tax + @setting.shipping).floor
+
+      if address_create[:address_create]=="true"
+        # p true
+        shipping_info = ShippingInfo.new(shipping_info_params)
+        shipping_info.user_id = current_user.id
+        shipping_info.save
+        @order.shipping_name = shipping_info.name
+        @order.shipping_post_num = shipping_info.post_number
+        @order.shipping_address = shipping_info.address
+        @order.shipping_info_id = shipping_info.id
+      else
+        # p false
+        @order.shipping_name = ShippingInfo.find(@order.shipping_info_id).name
+        @order.shipping_post_num = ShippingInfo.find(@order.shipping_info_id).post_number
+        @order.shipping_address = ShippingInfo.find(@order.shipping_info_id).address
+      end
+      # binding.pry
+      if @order.save
+        @incarts.each do |incart|
+          @order_detail = OrderDetail.new
+          @order_detail.record_id = incart.record_id
+          @order_detail.quantity = incart.quantity
+          @order_detail.unit_price = incart.record.price
+          @order_detail.order_id = @order.id
+          @order_detail.price = @order_detail.unit_price * @order_detail.quantity
+          @order_detail.save
+          record = Record.find(@order_detail.record_id)
+          record.stock = record.stock - @order_detail.quantity
+          record.save
+        end
+        @incarts.destroy_all
+        redirect_to orders_completed_path
+      else
+        @shippings = ShippingInfo.where(user_id: current_user)
+        prices = 0
+        @incarts.each do |incart|
+        prices = prices + (incart.record.price * incart.quantity)
+        end
+        @total = prices
+        redirect_to new_order_path
+      end
     end
   end
 
@@ -99,10 +103,8 @@ class OrdersController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def order_params
-        params
-        .require(:order)
-        .permit(:payment_method, :shipping_info_id, :actual_shipping, :actual_tax, :total_price)
+    def order_param
+        params.fetch(:order,{}).permit(:payment_method, :shipping_info_id, :actual_shipping, :actual_tax, :total_price)
     end
 
     def order_detail_params
