@@ -5,24 +5,23 @@
   margin: 0px;
   padding: 0;
   box-sizing: border-box;
-  font-family: verdana, arial, helvetica, sans-serif;
-  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif !important;
 }
 .record_name {
   margin: 40px 0;
 }
-.artist_name {
-  margin: 40px 0 0 0;
-}
 .label {
   margin: 20px 0;
+  color: #000 !important;
 }
 .genre {
-  margin: 20px 0;
+  margin: 15px 0;
 }
-.record_price {
-  text-algin: left;
+.cart {
+  display: inline-block;
+  float: left;
 }
+
 .text {
 font-size: 17px;
 }
@@ -48,8 +47,9 @@ font-size: 17px;
 .user_image{
   border-radius: 10px;
 }
-h3 {
-  text-align: center;
+.record_text {
+  text-align: left;
+  margin-bottom: 5px;
 }
 .user_info {
   position: relative;
@@ -93,8 +93,9 @@ textarea {
     margin: 0 auto;
 }
 .text1 {
-    padding: 0.5em 1em;
-    margin: 2em 0;
+    padding: 20px 1em;
+    margin: 10px 0;
     border: double 5px #808080;
+    fomt-size: 30px;
 }
 
