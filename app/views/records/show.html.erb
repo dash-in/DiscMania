@@ -25,15 +25,15 @@
         <h3 class="artist_name">
           <%= @record.artist.name %>
         </h3>
-        <h2 class="label">
-          <%= @record.label %>
-        </h2>
+        <h3 class="label2">
+          <p><%= @record.label %></p>
+        </h3>
         <h4 class="genre">
         <%= @record.genre %>
         </h4>
-        <h4 class="align-left">
+        <h3 class="align-left">
          ￥<%= number_with_delimiter (@record.price.to_i * @setting.tax).floor %>
-        </h4>
+        </h3>
 
         <!-- ここから新しいカート追加 -->
         <% stock_array= []
