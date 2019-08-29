@@ -8,14 +8,15 @@
   font-family: verdana, arial, helvetica, sans-serif;
   color: #333;
 }
+.label2 {
+  color: #000 !important;
+  font-size: 18px !important;
+}
 .record_name {
   margin: 40px 0;
 }
 .artist_name {
   margin: 40px 0 0 0;
-}
-.label {
-  margin: 20px 0;
 }
 .genre {
   margin: 20px 0;
@@ -26,7 +27,6 @@
 .text {
 font-size: 17px;
 }
-
 .list-head {
   font-size:25px;
 }
@@ -48,7 +48,6 @@ font-size: 17px;
 .user_image{
   border-radius: 10px;
 }
-
 .user_info {
   position: relative;
   padding: 0.6em;
