@@ -26,9 +26,9 @@
         <tbody>
           <% @records.each do |record| %>
             <tr class="table-pad">
-
               <td class="text-center"><%= link_to record.id, admin_record_path(record.id) %></td>
               <td class="rec-table-pad"><%= link_to record.name, admin_record_path(record.id) %></td>
+
               <td class="rec-table-pad"><%= record.artist.name %></td>
               <td class="rec-table-pad text-center"><%= record.price %></td>
               <td>

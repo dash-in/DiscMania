@@ -1,16 +1,12 @@
 <div class="container">
   <div class="row">
-  	<div class="edit">
-  		<h3>レビュー編集画面</h3>
-  		<br>
-		<%= form_for [@record,@review] do |f| %>
-		<%= f.text_area :review %>
-	<br>
-	<br>
-	<div class="edit-btn">
-		<%= f.submit "レビューを変更する" %>
-	</div>
-	<% end %>
-</div>
+  	  <div class="new_review">
+        <h3>レビューの投稿</h3>
+        <br>
+         <div class="form-group"">
+           <%= form_for [@record, @review] do |f| %>
+            <%= f.text_area :review, placeholder: "コメントをここに" %><br>
+            <%= f.submit "送信する",class:"btn-lg btn-danger" %>
+     <% end %>
   </div>
 </div>

@@ -1,31 +1,38 @@
   <div class="container">
   <div class="row">
-    <div class="col-xs-4">
+    <div class="col-xs-6">
       <%= flash[:success] %>
-      <h3>商品詳細</h3>
-      <p>ジャンル：<br>
-        <%= @record.genre %>
-      </p>
-      <% record_img = RecordImg.find_by(record_id: @record.id, order: 1) %>
-      <%= attachment_image_tag record_img, :image, size: "200x200", fallback: "no-image-icon-0.jpg", size:'200x200' %></br>
+
+      <div id="container">
+        <div id="theTarget">
+          <% record_imgs = RecordImg.where(record_id: @record.id).order(:order) %>
+          <% record_imgs.each do |record_img| %>
+            <div><%= attachment_image_tag record_img, :image, size: "350x350", fallback: "no-image-icon-0.jpg", size:'350x350' %></div>
+          <% end %>
+        </div>
+      </div>
+      
     </div>
-    <div class="col-xs-8 space--1">
+    <div class="col-xs-4 space--2">
       <% if @record.stock > 0 %>
         <span class="label label-info">在庫あり</span>
       <% else %>
         <span class="label label-default">在庫なし</span>
       <% end %>
-        <h2 class="title">
-          <%= @record.name %>
+        <h2 class="record_name">
+          <b><%= @record.name %></b>
         </h2>
-        <p class="id">
+        <h3 class="artist_name">
           <%= @record.artist.name %>
-        </p>
-        <p class="maker">
+        </h3>
+        <h2 class="label">
           <%= @record.label %>
-        </p>
-        <h4 class="price">￥
-         <%= number_with_delimiter (@record.price.to_i * @setting.tax).floor %>
+        </h2>
+        <h4 class="genre">
+        <%= @record.genre %>
+        </h4>
+        <h4 class="align-left">
+         ￥<%= number_with_delimiter (@record.price.to_i * @setting.tax).floor %>
         </h4>
 
         <!-- ここから新しいカート追加 -->
@@ -44,6 +51,7 @@
           <% if cart_item %>
             <%= form_for(cart_item, url: cart_item_path(cart_item),html:{method: "put"}) do |f| %>
               <% if @record.stock == 0 %>
+              <!-- login update -->
                 <%= f.select :quantity, stock_array %>
                 <%= f.label :quantity, "個" %>
                 <%= f.hidden_field :record_id, :value => @record.id %>
@@ -56,6 +64,7 @@
               <% end %>
             <% end %>
           <% else %>
+          <!-- create login -->
             <%= form_for @cart_item do |f| %>
               <% if @record.stock == 0 %>
                 <%= f.select :quantity, stock_array %>
@@ -89,11 +98,11 @@
   </div>
 
   <div class="row">
-    <div class="col-xs-12">
       <h3>レコード詳細</h3>
-      <p class="text">
+      <div class="text">
+      <div class="text1">
         <%= simple_format(@record.body) %>
-      </p>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -128,35 +137,35 @@
           }
         </style>
 
-        <div class="user_review">
-          <div class="review">
-          <h3>ユーザーレビュー</h3>
-              <% @record.reviews.each do |review| %>
-
-                <div olspan="3" class="user_info">
-                  <div class="#">
-                  <%= attachment_image_tag @user, :image, format: 'jpeg', size: "80×80", fallback: "no_image.jpg", size:'50x50', class:"user_image" %>&emsp;&emsp;<%= review.user.handlename %>&emsp;&emsp;<%= review.created_at.strftime('%Y/%m/%d') %>
-                  <% if user_signed_in? && current_user.id == review.user_id %>&emsp;&emsp;
-                    <%= link_to "編集", edit_record_review_path(@record.id,review.id), class:"botan1" %> <%= link_to "削除", record_review_path(@record.id, review.id), method: :delete, class:"btn-sm btn-primar botan2" %>
-                    </div>
-                  </div>
-
-                  <div class="review_post" >
-                    <%= review.review %>
-                  </div>
-              <% end %>
-              <% end %>
-
-      <% if user_signed_in? %>
-        <div class="new_review">
-          <h3>レビューの投稿</h3>
-           <div class="class="form-group"">
-             <%= form_for [@record, @review] do |f| %>
-              <%= f.text_area :review, placeholder: "コメントをここに", class: "form-control " %><br>
-              <%= f.submit "送信する",class:"btn btn-danger left" %>
-             <% end %>
-            </div>
-      <% end %>
-           </div>
-         </div>
+<div class="user_review">
+  <h3 class="review_titile">ユーザーレビュー</h3>
+  <br>
+  <div class="review">
+    <% @record.reviews.each do |review| %>
+        <div olspan="3" class="user_info">
+          <%= attachment_image_tag @user, :image, format: 'jpeg', size: "80×80", fallback: "no_image.jpg", size:'50x50', class:"user_image" %>&emsp;&emsp;<%= review.user.handlename %>&emsp;&emsp;<%= review.created_at.strftime('%Y/%m/%d') %>
+          <% if user_signed_in? && current_user.id == review.user_id %>&emsp;&emsp;
+            <%= link_to "編集", edit_record_review_path(@record.id,review.id), class:"botan1" %>&emsp;
+            <%= link_to "削除", record_review_path(@record.id, review.id), method: :delete %>
+            <% end %>
         </div>
+        <div class="review_post" >
+          <%= review.review %>
+        </div>
+    <% end %>
+  </div>
+   <br>
+    <% if user_signed_in? %>
+      <div class="new_review">
+        <h3>レビューの投稿</h3>
+        <br>
+         <div class="class="form-group"">
+           <%= form_for [@record, @review] do |f| %>
+            <%= f.text_area :review, placeholder: "コメントをここに" %><br>
+            <%= f.submit "送信する",class:"btn-lg btn-danger" %>
+     <% end %>
+   </div>
+  <% end %>
+ </div>
+</div>
+</div>
