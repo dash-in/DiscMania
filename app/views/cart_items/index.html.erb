@@ -13,7 +13,7 @@
      <h3>以下の商品がカートに入っています</h3>
     </div>
 
-      <table class="table table-striped">
+    <table class="table table-striped ">
       <tr>
         <td></td>
       	<td>商品</td>
@@ -29,12 +29,13 @@
         <%= attachment_image_tag cart.record, :image, format: 'jpeg', size: "80×80", fallback: "no_image.jpg", size:'80x80' %>
       </td>
   	  <td>
-        <p class=""><%= cart.record.name %></p>
-        <p class=""><%= cart.record.artist.name %></p>
-        <p class=""><%= cart.record.label %></p>
+        <div class="matome">
+        <p class="a"><%= cart.record.name %></p>
+        <p class="a"><%= cart.record.artist.name %></p>
+        <p class="a"><%= cart.record.label %></p></div>
       </td>
       <td>
-        <p class="kane">￥<%= number_with_delimiter cart.record.price %></p>
+        <div class="kane">￥<%= number_with_delimiter cart.record.price %></div>
       </td>
       <td>
         <% stock_array = []
@@ -45,21 +46,25 @@
                  end %>
             <% end %>
         <%= form_for cart, url: cart_item_path(cart), method: :patch do  |f| %>
+          <div class="kane">
           <%= f.select :quantity, stock_array.push(stock_array.last.to_i + 1 ) %>
           <%= f.label :quantity, "個" %>
           <%= f.submit "変更", class: "btn btn-default btn-xs" %>
-
+        </div>
         <% end %>
       </td>
       <td>
-          <p><%  @sub_total  = (cart.record.price * cart.record.cart_item.quantity * @setting.tax).floor%>
+          <div class="kane"><%  @sub_total  = (cart.record.price * cart.record.cart_item.quantity * @setting.tax).floor%>
           <% @sum += @sub_total %>
-        ￥<%= number_with_delimiter @sub_total %>（税込）</p>
+        ￥<%= number_with_delimiter @sub_total %>（税込）</div>
       </td>
-      <td><%= link_to "カートから消す", cart,url: cart_item_path(@cart_item), method: :delete, class: "btn btn-danger btn-sm" %></td>
+      <td>
+        <div class="kane">
+        <%= link_to "カートから消す", cart,url: cart_item_path(@cart_item), method: :delete, class: "btn btn-danger btn-sm" %></div>
+      </td>
       </tr>
       <% end %>
-      </table>
+    </table>
       <div class="total">
         税込合計金額(※送料含む)￥<%= number_with_delimiter @sum + @setting.shipping.floor %>円
       </div>
@@ -69,7 +74,7 @@
   </div>
  </div>
      <div class="row">
-      <div class="caution clearfix"> 
+      <div class="caution"> 
         <h3 class="text-center"><b>ご注意ください</b></h3>
           <div class="hako1  text-center">
             <h4 class="aa"><b>一回のご注文で複数の商品をご注文いただいた場合は、原則として全ての商品が揃ってから一括発送いたします。</b></h4></div>

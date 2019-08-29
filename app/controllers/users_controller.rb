@@ -19,8 +19,6 @@ class UsersController < ApplicationController
   def withdraw
   end
 
-  def unsubscribe
-  end
 
     def edit
     @user = User.find(params[:id])
@@ -41,7 +39,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to users_unsubscribe_path
+    redirect_to homes_unsubscribe_path
   end
 
 private
