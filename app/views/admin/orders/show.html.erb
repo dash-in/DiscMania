@@ -93,7 +93,7 @@
                                     <tr>
                                         <td class="ad-od-t"><h4>入金ステータス：</h4></td>
                                         <td class="ad-od-t">
-                                            <%= f.select :receipt_status, [["入金未確認", 'undeposit'],["入金済",'deposit']], class:"form-control" %>
+                                            <%= f.select :receipt_status, [["入金未確認", 'undeposit'],["入金確認済み",'deposit']], class:"form-control" %>
                                         </td>
                                     </tr>
                                     <tr>
@@ -142,7 +142,7 @@
                                     <tr>
                                         <td class="ad-od-t"><h4>配送ステータス：</h4></td>
                                         <td class="ad-od-t">
-                                            <%= f.select :shipping_status, [["未配送", 'undelivery'],["配送中", 'delivery'],["配送済", 'delivered']], class:"form-control" %>
+                                            <%= f.select :shipping_status, [["配送準備中", 'undelivery'],["配送中", 'delivery'],["配送済み", 'delivered']], class:"form-control" %>
                                         </td>
                                     </tr>
                                     <tr>

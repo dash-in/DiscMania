@@ -46,7 +46,10 @@
               <% order.order_details.each do |order_detail| %>
           <tr>
                 <td><%= order_detail.record_id %></td>
-                <td><%= attachment_image_tag order_detail.record, :image, format: 'jpeg', size: "60×60", fallback: "no_image.jpg", size:'60x60'%></td>
+                <td>
+                  <% record_img = RecordImg.find_by(record_id: order_detail.record.id, order: 1) %>
+                  <%= attachment_image_tag record_img, :image, size: "60x60", fallback: "no-image-icon-0.jpg", size:'60x60' %>
+                </td>
                 <td><%= order_detail.record.name %></td>
                 <td><%= order_detail.quantity %></td>
                 <td>￥<%= number_with_delimiter(order_detail.unit_price) %>

@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-xs-6">
       <%= flash[:success] %>
+
       <%= attachment_image_tag @record, :image, format: 'jpeg', size: "400x400", fallback: "no_image.jpg", size:'350x350' %>
     </div>
     <div class="col-xs-4 space--2">

@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   resources :settings, only: [:show, :edit, :update]
 
   get '/users/withdraw' => 'users#withdraw'
-  get '/users/unsubscribe' => 'users#unsubscribe'
+  get '/homes/unsubscribe'=> 'homes#unsubscribe'
   resources :users, only: [:show, :edit, :update, :destroy]
 
   resources :shipping_infos, only: [:edit, :update, :destroy]
