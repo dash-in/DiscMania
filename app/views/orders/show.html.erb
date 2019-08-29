@@ -48,7 +48,7 @@
                 <td><%= order_detail.record_id %></td>
                 <td>
                   <% record_img = RecordImg.find_by(record_id: order_detail.record.id, order: 1) %>
-                  <%= attachment_image_tag record_img, :image, size: "60x60", fallback: "no-image-icon-0.jpg", size:'60x60' %>
+                  <%= attachment_image_tag record_img, :image, size: "60x60", fallback: "/images/no-image-icon-0.jpg", size:'60x60' %>
                 </td>
                 <td><%= order_detail.record.name %></td>
                 <td><%= order_detail.quantity %></td>

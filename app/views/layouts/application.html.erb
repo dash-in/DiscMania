@@ -4,7 +4,7 @@
     <title>DiscMania</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= favicon_link_tag('favicon.png') %>
+    <%= favicon_link_tag('/images/favicon.png') %>
 
     <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
@@ -18,7 +18,7 @@
   <body>
     <header class="header">
             <div class="mainimg">
-              <%= image_tag "DISC_MANIA.png",size: "160x70" ,:class => "logo-img"%>
+              <%= image_tag "/images/DISC_MANIA.png",size: "160x70" ,:class => "logo-img"%>
             </div>
 
 
@@ -40,7 +40,7 @@
           <div class="head-user-icon-div">
             <% if user_signed_in? %>
               <%= link_to user_path(current_user.id) do %>
-                <%= attachment_image_tag current_user,:image, fallback: "no_image.jpg",  size:"45x45" ,:class => "head-user-icon"%>
+                <%= attachment_image_tag current_user,:image, fallback: "/images/no_image.jpg",  size:"45x45" ,:class => "head-user-icon"%>
               <% end %>
             <% end %>
           </div>
@@ -87,7 +87,7 @@
                 <%= yield %>
 
                 <span id="back">
-                  <%= image_tag "arrow.png",size: "50x50", id:"swipeTop" %>
+                  <%= image_tag "/images/arrow.png",size: "50x50", id:"swipeTop" %>
                 </span>
 
 
@@ -104,7 +104,7 @@
       <div class="loader-animation"></div>
     </div>
     <div class="under-foot">
-      <%= image_tag "bbb.png",size: "cover",:class => "drawing-image"%>
+      <%= image_tag "/images/bbb.png",size: "cover",:class => "drawing-image"%>
     </div>
 
     <script>
