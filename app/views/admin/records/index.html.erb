@@ -130,7 +130,7 @@
           <% record_img = RecordImg.find_by(record_id: record.id, order: 1) %>
           <div class="col-xs-3 disc-space">
             <%= link_to admin_record_path(record.id) do %>
-              <%= attachment_image_tag record_img, :image, size: "200x200", fallback: "/iamges/no-image-icon-0.jpg", size:'200x200', class:'text-center record-image' %></br>
+              <%= attachment_image_tag record_img, :image, size: "200x200", fallback: "/images/no-image-icon-0.jpg", size:'200x200', class:'text-center record-image' %></br>
             <% end %>
             <%= link_to admin_record_path(record.id) do %>
               <h4><b><%= record.name %></b></h4>
