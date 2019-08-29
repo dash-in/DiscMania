@@ -4,7 +4,7 @@ class RecordsController < ApplicationController
 
   def index
     @q = Form::Record.includes(:tune).search
-    from = Time.now.at_beginning_of_day
+    from = Time.now
     to = (from - 1.month)
     # binding.pry
     jpops_count_id = Record.select('created_at AS registered').joins(:order_details).where(genre: "Japanese Rock / Pops / Indies").where(created_at: to..from).group(:record_id).limit(4).order('count_record_id DESC').count(:record_id).keys
