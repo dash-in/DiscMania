@@ -408,6 +408,15 @@ h1 {
 
 /* レコード */
 
+.rec-edit-imgs {
+    margin: 50px auto 30px;
+}
+
+.rec-edit-img {
+    float: left;
+    margin-right: 10px;
+}
+
 .record-index-title {
     color: gray;
 }
