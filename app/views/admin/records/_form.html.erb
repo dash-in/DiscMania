@@ -24,7 +24,7 @@
                             </tr>
                         </thead>
                     
-                        <tbody id='detail-association-insertion-point'>
+                        <tbody id='detail-association-insertion-point1'>
                             <div class="form-group">
                                 <%= f.fields_for :record_imgs do |img| %>
                                     <%= render 'record_img_fields', f: img %>
@@ -40,7 +40,7 @@
                 <%= link_to_add_association '画像を追加', f, :record_imgs,
                     class: 'btn btn-success mt-3',
                     data: {
-                        association_insertion_node: '#detail-association-insertion-point',
+                        association_insertion_node: '#detail-association-insertion-point1',
                         association_insertion_method: 'append' 
                     }
                 %>
@@ -143,7 +143,7 @@
                     </tr>
                 </thead>
             
-                <tbody id='detail-association-insertion-point'>
+                <tbody id='detail-association-insertion-point2'>
                     <div class="form-group">
                         <%= f.fields_for :tunes do |tune| %>
                             <%= render 'tune_fields', f: tune %>
@@ -158,7 +158,7 @@
             <%= link_to_add_association '曲を追加', f, :tunes,
                 class: 'btn btn-success mt-3',
                 data: {
-                    association_insertion_node: '#detail-association-insertion-point',
+                    association_insertion_node: '#detail-association-insertion-point2',
                     association_insertion_method: 'append' 
                 }
             %>
