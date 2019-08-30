@@ -42,6 +42,7 @@ class RecordsController < ApplicationController
     @records = @q.result(distinct: true).joins(:artist).includes(:artist).order("artists.name", created_at: "DESC").page(params[:page]).per(30)
     @i = 0
     @setting = Setting.find(1)
+    @cart_item = CartItem.new
   end
 
   def show

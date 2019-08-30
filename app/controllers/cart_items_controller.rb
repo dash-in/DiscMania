@@ -20,7 +20,7 @@ class CartItemsController < ApplicationController
              redirect_to cart_items_path
         else @cart_item.quantity >> 0
              @cart_item.save
-             redirect_to cart_items_path
+             redirect_to search_record_path
         end
       end
     else

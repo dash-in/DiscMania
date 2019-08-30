@@ -58,6 +58,7 @@ class Admin::RecordsController < ArtistsController
 
     if @record.save
       redirect_to search_admin_records_path, notice: "レコード「#{@record.name}」を登録しました。"
+      # redirect_to new_admin_record_path, notice: "レコード「#{@record.name}」を登録しました。"
     else
       render :new
     end
